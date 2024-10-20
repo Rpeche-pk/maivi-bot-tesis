@@ -6,7 +6,7 @@ import chalk from 'chalk';
  * @param {string} message - El mensaje principal.
  * @param {Object} [details] - Detalles adicionales opcionales.
  */
-export function success(message, details = {}) {
+export function log_success(message, details = {}) {
     console.log(chalk.green('✔ ÉXITO:'), chalk.green.bold(message));
     if (Object.keys(details).length > 0) {
         console.log(chalk.green('  Detalles:'));
@@ -21,7 +21,7 @@ export function success(message, details = {}) {
  * @param {string} message - El mensaje principal de error.
  * @param {Error|Object} [error] - El objeto de error o detalles adicionales.
  */
-export function error(message, error = {}) {
+export function log_error(message, error = {}) {
     console.log(chalk.red('✖ ERROR:'), chalk.red.bold(message));
     if (error instanceof Error) {
         console.log(chalk.red('  Detalles del error:'));
@@ -44,7 +44,7 @@ export function error(message, error = {}) {
  * @param {string} message - El mensaje principal de advertencia.
  * @param {Object} [details] - Detalles adicionales opcionales.
  */
-export function warning(message, details = {}) {
+export function log_warning(message, details = {}) {
     console.log(chalk.yellow('⚠ ADVERTENCIA:'), chalk.yellow.bold(message));
     if (Object.keys(details).length > 0) {
         console.log(chalk.yellow('  Detalles:'));

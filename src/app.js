@@ -2,6 +2,7 @@ import { join } from 'path'
 import { createBot, createProvider, createFlow, addKeyword, utils } from '@builderbot/bot'
 import { JsonFileDB as Database } from '@builderbot/database-json'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
+import {helpersInstance as Instance} from './helpers/helpers.class.js'
 
 const PORT = process.env.PORT ?? 3008
 
@@ -67,10 +68,34 @@ const main = async () => {
     
     const adapterDB = new Database({ filename: 'db.json' })
 
+    const settings = {
+        queue: {
+            timeout: 16000,
+            concurrencyLimit: 15,
+        },
+        extensions: {
+            utils: Instance,          
+        },
+
+        globalState: {
+            timer: 300000, //300000 -> 5 minutos
+        }
+
+    }
+
     const { handleCtx, httpServer } = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
+    },settings)
+
+    /**
+     * @event message - Event to listen for messages
+     * @param {Object} ctx - Context object
+     * read the message and send it to the bot
+     */
+    adapterProvider.on('message', async (ctx) => {
+        adapterProvider.vendor.readMessages([ctx.key]);
     })
 
     adapterProvider.server.post(

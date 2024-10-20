@@ -12,7 +12,7 @@ const sendEmail = async (code) => {
     });
 
     if (error) {
-        return console.error({ error });
+        return console.error(chalk.red({ error }));
     }
 
     console.log(chalk.green(`Email enviado correctamente`,{ data }));
