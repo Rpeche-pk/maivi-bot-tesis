@@ -1,0 +1,5 @@
+1- EL ARCHIVO index.cjs debe ir la ruta
+node_modules> @builderbot > provider-baileys > dist
+
+2- Pegar dentro de la carpeta dist
+3- por que lo pego, ya que al instalar una nueva lib se revierte los cambios en index.cjs
