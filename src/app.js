@@ -1,66 +1,38 @@
-import { join } from 'path'
-import { createBot, createProvider, createFlow, addKeyword, utils } from '@builderbot/bot'
+import { createBot, createProvider, createFlow } from '@builderbot/bot'
 import { JsonFileDB as Database } from '@builderbot/database-json'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import {helpersInstance as Instance} from './helpers/helpers.class.js'
+import Queue from 'queue-promise';
+import {ServerHttp} from './http/chatwoot.http.js';
+import {ChatwootClass} from './integrations/chatwoot/chatwoot.class.js';
+import { HandlerMessage } from './integrations/chatwoot/handler.chatwoot.js';
+import { handlerMessage } from './integrations/chatwoot/index.js'
+import {black} from './utils/blacklist.class';
+import mimeType from 'mime-types';
+import * as fs from 'node:fs/promises';
+import { convertOggMp3 } from './utils/oggToMp3.util.js';
+import { downloadMediaMessage } from '@builderbot/provider-baileys/dist/baileyWrapper.js';
+import chalk from 'chalk';
+
 
 const PORT = process.env.PORT ?? 3008
+const PORT_CHATWOOT = process.env.CHATWOOT_PORT ?? 3005
+const serverHttp = new ServerHttp(PORT)
 
-const discordFlow = addKeyword('doc').addAnswer(
-    ['You can see the documentation here', '📄 https://builderbot.app/docs \n', 'Do you want to continue? *yes*'].join(
-        '\n'
-    ),
-    { capture: true },
-    async (ctx, { gotoFlow, flowDynamic }) => {
-        if (ctx.body.toLocaleLowerCase().includes('yes')) {
-            return gotoFlow(registerFlow)
-        }
-        await flowDynamic('Thanks!')
-        return
-    }
-)
 
-const welcomeFlow = addKeyword(['hi', 'hello', 'hola'])
-    .addAnswer(`🙌 Hello welcome to this *Chatbot*`)
-    .addAnswer(
-        [
-            'I share with you the following links of interest about the project',
-            '👉 *doc* to view the documentation',
-        ].join('\n'),
-        { delay: 800, capture: true },
-        async (ctx, { fallBack }) => {
-            if (!ctx.body.toLocaleLowerCase().includes('doc')) {
-                return fallBack('You should type *doc*')
-            }
-            return
-        },
-        [discordFlow]
-    )
+const chatwoot = new ChatwootClass({
+    account: process.env.CHATWOOT_ACCOUNT_ID,
+    token: process.env.CHATWOOT_TOKEN,
+    endpoint: process.env.CHATWOOT_ENDPOINT
+})
 
-const registerFlow = addKeyword(utils.setEvent('REGISTER_FLOW'))
-    .addAnswer(`What is your name?`, { capture: true }, async (ctx, { state }) => {
-        await state.update({ name: ctx.body })
-    })
-    .addAnswer('What is your age?', { capture: true }, async (ctx, { state }) => {
-        await state.update({ age: ctx.body })
-    })
-    .addAction(async (_, { flowDynamic, state }) => {
-        await flowDynamic(`${state.get('name')}, thanks for your information!: Your age: ${state.get('age')}`)
-    })
-
-const fullSamplesFlow = addKeyword(['samples', utils.setEvent('SAMPLES')])
-    .addAnswer(`💪 I'll send you a lot files...`)
-    .addAnswer(`Send image from Local`, { media: join(process.cwd(), 'assets', 'sample.png') })
-    .addAnswer(`Send video from URL`, {
-        media: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTJ0ZGdjd2syeXAwMjQ4aWdkcW04OWlqcXI3Ynh1ODkwZ25zZWZ1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LCohAb657pSdHv0Q5h/giphy.mp4',
-    })
-    .addAnswer(`Send audio from URL`, { media: 'https://cdn.freesound.org/previews/728/728142_11861866-lq.mp3' })
-    .addAnswer(`Send file from URL`, {
-        media: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    })
+const queue = new Queue({
+    concurrent: 1,
+    interval: 500
+})
 
 const main = async () => {
-    const adapterFlow = createFlow([welcomeFlow, registerFlow, fullSamplesFlow])
+    const adapterFlow = createFlow([])
     
     const adapterProvider = createProvider(Provider,{
         groupsIgnore: true
@@ -74,7 +46,10 @@ const main = async () => {
             concurrencyLimit: 15,
         },
         extensions: {
-            utils: Instance,          
+            utils: Instance,
+            handler : new HandlerMessage(PORT,PORT_CHATWOOT),
+            blacklist: black,
+            chatwoot: chatwoot        
         },
 
         globalState: {
@@ -83,11 +58,13 @@ const main = async () => {
 
     }
 
-    const { handleCtx, httpServer } = await createBot({
+    const { handleCtx, httpServer,provider } = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     },settings)
+
+    serverHttp.initialization(provider)
 
     /**
      * @event message - Event to listen for messages
@@ -96,6 +73,62 @@ const main = async () => {
      */
     adapterProvider.on('message', async (ctx) => {
         adapterProvider.vendor.readMessages([ctx.key]);
+    })
+
+
+     // 2° opcion !payload?.message.extendedTextMessage.text
+     // ESTO ESCUCHA LOS EVENTOS DE MENSAJES ENTRANTES (CUANDO EL CLIENTE ENVIA UN MENSAJE ---> )
+    adapterProvider.on('message', (payload) => {
+        queue.enqueue(async () => {
+            try {
+                const captionFile = payload?.message?.imageMessage?.caption ?? payload?.message?.videoMessage?.caption ?? payload?.message?.documentMessage?.caption ?? payload?.message?.audioMessage?.caption ?? '';
+                const attachment = []
+                if (payload?.body.includes('_event_')) {
+                    const mime = payload?.message?.imageMessage?.mimetype ?? payload?.message?.videoMessage?.mimetype ?? payload?.message?.documentMessage?.mimetype ?? payload?.message?.audioMessage?.mimetype;
+                    const extension = mimeType.extension(mime);
+            
+                    const buffer = await downloadMediaMessage(payload, "buffer");
+                    const fileName = `file-${Date.now()}.${extension}`;
+                    const pathFile = `${process.cwd()}/public/${fileName}`;
+                    await fs.writeFile(pathFile, buffer);
+                    if(extension === 'oga'){
+                        // todo convirtiendo audio oga en mp3 y guardandolo
+                        await convertOggMp3(pathFile,pathFile.replace('.oga','.mp3'));
+                        //todo eliminando el archivo oga
+                        await fs.unlink(pathFile);
+                    }
+                    console.log(chalk.green.bold(`[FICHERO ENVIADO CLIENTE WA CREADO]`),chalk.cyan(`📋 http://localhost:${PORT}/${fileName.replace('.oga','.mp3')}`));
+                    attachment.push(pathFile.replace('.oga','.mp3'))
+                }
+
+                console.log(chalk.green.bold(`>>>>[MENSAJE ENVIADO DESDE WA]`),chalk.cyan(`📋 ${payload.body}`));
+                await handlerMessage({
+                    phone: payload.from,
+                    name: payload.pushName,
+                    message: captionFile ? captionFile : payload.body,
+                    attachment,
+                    mode: 'incoming'
+                }, chatwoot)
+            } catch (err) {
+                console.log('ERROR', err)
+            }
+        });
+    });
+
+    /**
+     * Los mensajes salientes (cuando usas el bot (andAnswer) le envia un mensaje al cliente ---> )
+     * ESTE EMITE EL EVENTO SEND_MESSAGE Y LO CAPTURAMOS AQUI , QUE SERA EMITIDO POR DEBAJO .emit
+     */
+    provider.on('send_message', (payload) => {
+        queue.enqueue(async () => {
+            console.log(chalk.green.bold(`<<<<[MENSAJE ENVIADO DESDE EL BOT CODIGO EN CASA]`),chalk.cyan(`📋 ${payload.answer}`));
+            await handlerMessage({
+                phone: payload.numberOrId,
+                name: payload.pushName,
+                message: payload.answer,
+                mode: 'outgoing'
+            }, chatwoot)
+        })
     })
 
     adapterProvider.server.post(

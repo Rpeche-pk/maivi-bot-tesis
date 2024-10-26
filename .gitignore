@@ -1,10 +1,13 @@
 dist/*
 node_modules
 .env
-
+.vscode/*
+.idea/*
+.vscode
+.assets/*
 *_sessions
 *tokens
 .wwebjs*
-
+docker
 *.log
 *qr.png

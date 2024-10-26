@@ -1,4 +1,4 @@
-import {downloadMediaMessage} from "@whiskeysockets/baileys";
+import { downloadMediaMessage } from '@builderbot/provider-baileys/dist/baileyWrapper.js';
 import mimetype from "mime-types";
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
