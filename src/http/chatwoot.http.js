@@ -4,9 +4,9 @@ config()
 import cors from 'cors';
 import {join} from 'path';
 import {createReadStream} from 'fs';
-import {wait, setRandomDelay,typingTime} from '../utils/delay.util';
+import {wait, setRandomDelay,typingTime} from '../utils/delay.util.js';
 import chalk from 'chalk';
-import { black } from '../utils/blacklist.class';
+import { BlackList } from '../utils/blacklist.class.js';
 
 
 /**
@@ -17,6 +17,8 @@ import { black } from '../utils/blacklist.class';
 class ServerHttp {
     app;
     port;
+
+    black = new BlackList();
 
     constructor(_port = 4000){
         this.port = _port
@@ -47,12 +49,12 @@ class ServerHttp {
     }
 
     removeBlackList = async (req,res) => {
-        black.removeBlackList(req.body.phone);
+        this.black.removeBlackList(req.body.phone);
         res.send('Usuario removida de la blacklist: ok')
     }
 
     addBlackList = async (req,res) => {
-        black.addBlackList(req.body.phone);
+        this.black.addBlackList(req.body.phone);
         res.send('Usuario agregado a la blacklist: ok')
     }
     /**
@@ -82,10 +84,10 @@ class ServerHttp {
                 console.log(chalk.bgCyan(`[BLACKLIST]`), chalk.green.bold(`${phone} - asesor ${idAssigned ?? 'sin asignar'}`));
                 if(idAssigned){
                     console.log(chalk.bgCyan(`[BLACKLIST] ADD`), chalk.green.bold(`${phone}`));
-                    bot.dynamicBlacklist.add(phone)
+                    bot.DynamicBlacklist.add(phone)
                 }else{
                     console.log(chalk.bgCyan(`[BLACKLIST] REMOVE`), chalk.green.bold(`${phone}`));
-                    bot.dynamicBlacklist.remove(phone)
+                    bot.DynamicBlacklist.remove(phone)
                 }
                 res.send('ok')
                 return
@@ -98,12 +100,12 @@ class ServerHttp {
             if(body?.event === 'message_created'){
                 if (body?.content === '#off') {
                     console.log(chalk.bgCyan(`[BLACKLIST] ADD PHONE`) , chalk.green.bold(`numero ${body?.conversation?.meta?.sender?.phone_number.replace('+', '')} removido de la blacklist`));
-                    bot.dynamicBlacklist.remove(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
+                    bot.DynamicBlacklist.remove(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
                     return
                 }
                 if (body?.content === '#on') {
                     console.log(chalk.bgCyan(`[BLACKLIST] REMOVE PHONE`), chalk.green.bold(`numero ${body?.conversation?.meta?.sender?.phone_number.replace('+', '')} agregado a la blacklist`));
-                    bot.dynamicBlacklist.add(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
+                    bot.DynamicBlacklist.add(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
                     return
                 }
             }
@@ -119,13 +121,13 @@ class ServerHttp {
 
                 const file = attachments?.length ? attachments[0] : null;
                 if (file) {
-                    await bot.providerClass.vendor.presenceSubscribe(jid);
+                    await bot.vendor.presenceSubscribe(jid);
                     await wait(setRandomDelay(700,500));
-                    await bot.providerClass.vendor.sendPresenceUpdate("composing", jid);
+                    await bot.vendor.sendPresenceUpdate("composing", jid);
                     await wait(setRandomDelay(980,800));
-                    await bot.providerClass.vendor.sendPresenceUpdate("paused", jid);
+                    await bot.vendor.sendPresenceUpdate("paused", jid);
 
-                    await bot.providerClass.sendMedia(
+                    await bot.sendMedia(
                         `${phone}@s.whatsapp.net`,
                         file.data_url,
                         content,
@@ -140,13 +142,13 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-                await bot.providerClass.vendor.presenceSubscribe(jid);
+                await bot.vendor.presenceSubscribe(jid);
                 await wait(setRandomDelay(750,500));
-                await bot.providerClass.vendor.sendPresenceUpdate("composing", jid);
+                await bot.vendor.sendPresenceUpdate("composing", jid);
                 console.log(chalk.cyan.bold(">>>>Tiempo de escritura"), typingTime(content));
                 await wait(typingTime(content));
-                await bot.providerClass.vendor.sendPresenceUpdate("paused", jid);
-                await bot.providerClass.sendMessage(
+                await bot.vendor.sendPresenceUpdate("paused", jid);
+                await bot.sendMessage(
                     `${phone}`,
                     content,
                     {}

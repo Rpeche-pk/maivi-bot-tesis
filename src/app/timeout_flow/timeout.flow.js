@@ -1,6 +1,6 @@
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import chalk from "chalk";
-import {handleErrorAndNotifySlack} from "../../http/slack.http";
+import {handleErrorAndNotifySlack} from "../../http/slack.http.js";
 
 
 

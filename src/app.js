@@ -1,4 +1,4 @@
-import { createBot, createProvider, createFlow } from '@builderbot/bot'
+import { createBot, createProvider, createFlow,addKeyword } from '@builderbot/bot'
 import { JsonFileDB as Database } from '@builderbot/database-json'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import {helpersInstance as Instance} from './helpers/helpers.class.js'
@@ -7,17 +7,34 @@ import {ServerHttp} from './http/chatwoot.http.js';
 import {ChatwootClass} from './integrations/chatwoot/chatwoot.class.js';
 import { HandlerMessage } from './integrations/chatwoot/handler.chatwoot.js';
 import { handlerMessage } from './integrations/chatwoot/index.js'
-import {black} from './utils/blacklist.class';
+import {BlackList} from './utils/blacklist.class.js';
 import mimeType from 'mime-types';
 import * as fs from 'node:fs/promises';
 import { convertOggMp3 } from './utils/oggToMp3.util.js';
-import { downloadMediaMessage } from '@builderbot/provider-baileys/dist/baileyWrapper.js';
+import { downloadMediaMessage } from '@whiskeysockets/baileys';
 import chalk from 'chalk';
 
 
 const PORT = process.env.PORT ?? 3008
 const PORT_CHATWOOT = process.env.CHATWOOT_PORT ?? 3005
-const serverHttp = new ServerHttp(PORT)
+const serverHttp = new ServerHttp(PORT_CHATWOOT)
+
+
+
+const flowPrincipal = addKeyword('#asesor')
+    .addAnswer('Buenas bienvenido a mi ecommerce',{delay:550})
+    .addAnswer('¿Como puedo ayudarte el dia de hoy?')
+    .addAction({capture:true},async (ctx, {extensions, provider}) => {
+        const jid= ctx?.key?.remoteJid;
+        await provider.vendor.presenceSubscribe(jid);
+                
+        await provider.vendor.sendPresenceUpdate("composing", jid);
+        const from= ctx?.from;
+        const pushName = ctx?.pushName;
+        const response=await provider.sendMedia(jid,`https://ik.imagekit.io/ljpa/Profiles/51966524537_30-12-2023_02-41-23.jpg`,`Hola ${pushName}!, un asesor se comunicara contigo`);
+        await extensions.handler.sendMessageWoot(response, from, pushName); 
+
+    });
 
 
 const chatwoot = new ChatwootClass({
@@ -32,10 +49,12 @@ const queue = new Queue({
 })
 
 const main = async () => {
-    const adapterFlow = createFlow([])
+    const adapterFlow = createFlow([flowPrincipal])
     
     const adapterProvider = createProvider(Provider,{
-        groupsIgnore: true
+        groupsIgnore: true,
+        usePairingCode: true, 
+        phoneNumber: process.env.PHONE_NUMBER
     })
     
     const adapterDB = new Database({ filename: 'db.json' })
@@ -47,8 +66,8 @@ const main = async () => {
         },
         extensions: {
             utils: Instance,
-            handler : new HandlerMessage(PORT,PORT_CHATWOOT),
-            blacklist: black,
+            handler : new HandlerMessage(PORT_CHATWOOT,chatwoot),
+            blacklist: new BlackList(),
             chatwoot: chatwoot        
         },
 
@@ -58,7 +77,7 @@ const main = async () => {
 
     }
 
-    const { handleCtx, httpServer,provider } = await createBot({
+    const { handleCtx, httpServer ,provider} = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,

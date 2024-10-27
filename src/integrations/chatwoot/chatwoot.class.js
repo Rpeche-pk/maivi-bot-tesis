@@ -1,5 +1,7 @@
 import chalk from "chalk";
-import readFile from "fs/promises";
+import {readFile} from "fs/promises";
+import mime from 'mime-types';
+
 
 class ChatwootClass {
 
@@ -268,8 +270,11 @@ class ChatwootClass {
       form.set("Content-Disposition", "inline");
 
       if (dataIn.attachment?.length) {
+        const mimeType= mime.lookup(dataIn.attachment[0]);
         const fileName = `${dataIn.attachment[0]}`.split("/").pop();
-        const blob = new Blob([await readFile(dataIn.attachment[0])]);
+        const blob = new Blob([await readFile(dataIn.attachment[0])],
+          {type: mimeType}
+        );
         form.set("attachments[]", blob, { filename: fileName });
       }
       const dataFetch = await fetch(url, {

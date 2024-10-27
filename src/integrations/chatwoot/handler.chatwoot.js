@@ -1,9 +1,9 @@
 import Queue from "queue-promise";
 import mimeType from "mime-types";
 import * as fs from "node:fs/promises";
-import { convertOggMp3 } from "../../utils/oggToMp3.util";
+import { convertOggMp3 } from "../../utils/oggToMp3.util.js";
 import chalk from "chalk";
-import { downloadMediaMessage } from '@builderbot/provider-baileys/dist/baileyWrapper.js';
+import { downloadMediaMessage } from '@whiskeysockets/baileys';
 /**
  * ESTA CLASE PERMITE ENCOLAR LOS MENSAJES PARA QUE NO SE PIERDAN
  * ASIMISMO MANDA LOS MENSAJES GENERADOS POR EL PROVIDER DE BAILEYS provider.vendor.sendMessage()
@@ -46,7 +46,7 @@ class HandlerMessage {
         
           const buffer = await downloadMediaMessage(payload, "buffer");
           const fileName = `file-${Date.now()}.${extension}`;
-          pathFile = `${process.cwd()}/public/${fileName}`;
+          pathFile = `${process.cwd()}\\public\\${fileName}`;
           await fs.writeFile(pathFile, buffer);
           if (extension === "oga") {
             // todo convirtiendo audio oga en mp3 y guardandolo
@@ -78,7 +78,7 @@ class HandlerMessage {
           this.chatwoot
         );
       } catch (err) {
-        console.log(chalk.bold.red("ERROR"), err);
+        console.log(chalk.bold.red("ERROR [sendMessageWoot]"), err);
       }
     });
   };

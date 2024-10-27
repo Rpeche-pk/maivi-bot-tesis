@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 
-class BlackList {
+export class BlackList {
 
 
     constructor() {
@@ -67,6 +67,3 @@ class BlackList {
         return content;
     }
 }
-
-const black = new BlackList();
-export {black};
