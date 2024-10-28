@@ -30619,7 +30619,7 @@ class BaileysProvider extends bot.ProviderClass {
                     },
                     browser: this.globalVendorArgs.browser,
                     syncFullHistory: false,
-                    markOnlineOnConnect: false,
+                    markOnlineOnConnect: true,
                     generateHighQualityLinkPreview: true,
                     getMessage: async (key) => (await this.getMessage(key)),
                     retryRequestDelayMs: 350,
@@ -30949,13 +30949,13 @@ class BaileysProvider extends bot.ProviderClass {
          * @param {string} message
          * @example await sendMessage('+XXXXXXXXXXX', 'https://dominio.com/imagen.jpg' | 'img/imagen.jpg')
          */
-        this.sendMedia = async (number, imageUrl, text) => {
+        this.sendMedia = async (number, imageUrl, text, viewOnce= false) => {
             const fileDownloaded = await bot.utils.generalDownload(imageUrl);
             const mimeType = mime.lookup(fileDownloaded);
             if (`${mimeType}`.includes('image'))
-                return this.sendImage(number, fileDownloaded, text);
+                return this.sendImage(number, fileDownloaded, text,viewOnce);
             if (`${mimeType}`.includes('video'))
-                return this.sendVideo(number, fileDownloaded, text);
+                return this.sendVideo(number, fileDownloaded, text,viewOnce);
             if (`${mimeType}`.includes('audio')) {
                 const fileOpus = await bot.utils.convertAudio(fileDownloaded);
                 return this.sendAudio(number, fileOpus);
@@ -30969,10 +30969,11 @@ class BaileysProvider extends bot.ProviderClass {
          * @param {*} text
          * @returns
          */
-        this.sendImage = async (number, filePath, text) => {
+        this.sendImage = async (number, filePath, text, viewOnce = false) => {
             const payload = {
                 image: { url: filePath },
                 caption: text,
+				viewOnce
             };
             return this.vendor.sendMessage(number, payload);
         };
@@ -30983,11 +30984,12 @@ class BaileysProvider extends bot.ProviderClass {
          * @param {*} text
          * @returns
          */
-        this.sendVideo = async (number, filePath, text) => {
+        this.sendVideo = async (number, filePath, text,viewOnce = false) => {
             const payload = {
                 video: require$$0$5.readFileSync(filePath),
                 caption: text,
                 gifPlayback: this.globalVendorArgs.gifPlayback,
+				viewOnce
             };
             return this.vendor.sendMessage(number, payload);
         };

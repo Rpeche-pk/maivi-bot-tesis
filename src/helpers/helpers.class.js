@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { wait } from "../utils/delay.util.js";
 
 class HelpersClass {
     constructor() {
@@ -79,17 +78,25 @@ class HelpersClass {
             let msgIntents = flag === 1 ? "Tienes 1 intento." : `Tienes ${flag} intentos.\n${message}`;
             flag--;
             await state.update({...myState, [phone]: {...myState[phone], intents: flag}});
-            await wait(850, 550);
+            await this.wait(850, 550);
             await flowDynamic(msgIntents);
             return fallBack();
         } else {
             myState[phone] = {...myState[phone], on: false};
-            await wait(850, 550);
+            await this.wait(850, 550);
             await provider.vendor.sendMessage(jid, {text: "❌ Sus oportunidades se han terminado. Intente nuevamente ❌"});
             await state.update({...myState, [phone]: {...myState[phone], intents: 2}});
             return endFlow();
         }
     }
+
+    wait = (max, min) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, Math.floor(Math.random() * (max - min + 1)) + min);
+        });
+    };
 
     randomMs = (max, min) => {
         return Math.floor(Math.random() * (max - min + 1)) + min

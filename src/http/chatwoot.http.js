@@ -84,10 +84,10 @@ class ServerHttp {
                 console.log(chalk.bgCyan(`[BLACKLIST]`), chalk.green.bold(`${phone} - asesor ${idAssigned ?? 'sin asignar'}`));
                 if(idAssigned){
                     console.log(chalk.bgCyan(`[BLACKLIST] ADD`), chalk.green.bold(`${phone}`));
-                    bot.DynamicBlacklist.add(phone)
+                    bot.dynamicBlacklist.add(phone)
                 }else{
                     console.log(chalk.bgCyan(`[BLACKLIST] REMOVE`), chalk.green.bold(`${phone}`));
-                    bot.DynamicBlacklist.remove(phone)
+                    bot.dynamicBlacklist.remove(phone)
                 }
                 res.send('ok')
                 return
@@ -100,12 +100,12 @@ class ServerHttp {
             if(body?.event === 'message_created'){
                 if (body?.content === '#off') {
                     console.log(chalk.bgCyan(`[BLACKLIST] ADD PHONE`) , chalk.green.bold(`numero ${body?.conversation?.meta?.sender?.phone_number.replace('+', '')} removido de la blacklist`));
-                    bot.DynamicBlacklist.remove(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
+                    bot.dynamicBlacklist.remove(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
                     return
                 }
                 if (body?.content === '#on') {
                     console.log(chalk.bgCyan(`[BLACKLIST] REMOVE PHONE`), chalk.green.bold(`numero ${body?.conversation?.meta?.sender?.phone_number.replace('+', '')} agregado a la blacklist`));
-                    bot.DynamicBlacklist.add(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
+                    bot.dynamicBlacklist.add(body?.conversation?.meta?.sender?.phone_number.replace('+', ''));
                     return
                 }
             }
@@ -121,17 +121,16 @@ class ServerHttp {
 
                 const file = attachments?.length ? attachments[0] : null;
                 if (file) {
-                    await bot.vendor.presenceSubscribe(jid);
+                    await bot.provider.vendor.presenceSubscribe(jid);
                     await wait(setRandomDelay(700,500));
-                    await bot.vendor.sendPresenceUpdate("composing", jid);
+                    await bot.provider.vendor.sendPresenceUpdate("composing", jid);
                     await wait(setRandomDelay(980,800));
-                    await bot.vendor.sendPresenceUpdate("paused", jid);
-
-                    await bot.sendMedia(
+                    await bot.provider.sendMedia(
                         `${phone}@s.whatsapp.net`,
                         file.data_url,
                         content,
                     );
+                    await bot.provider.vendor.sendPresenceUpdate("paused", jid);
                     console.log(chalk.green.bold(`<<<<[MENSAJE MULTIMEDIA ENVIADO DESDE CHAT WOOT]`),chalk.cyan(`📋 ${file.data_url}`));
                     res.send('ok')
                     return
@@ -142,17 +141,17 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-                await bot.vendor.presenceSubscribe(jid);
+                await bot.provider.vendor.presenceSubscribe(jid);
+                await bot.provider.vendor.sendPresenceUpdate("composing", jid);
                 await wait(setRandomDelay(750,500));
-                await bot.vendor.sendPresenceUpdate("composing", jid);
                 console.log(chalk.cyan.bold(">>>>Tiempo de escritura"), typingTime(content));
                 await wait(typingTime(content));
-                await bot.vendor.sendPresenceUpdate("paused", jid);
-                await bot.sendMessage(
+                await bot.provider.sendMessage(
                     `${phone}`,
                     content,
                     {}
                 );
+                await bot.provider.vendor.sendPresenceUpdate("paused", jid);
                 console.log(chalk.green.bold(`<<<<[MENSAJE ENVIADO DESDE CHAT WOOT]`),chalk.cyan(`📋 ${content}`));
                 //console.log(JSON.stringify(body));
                 res.send('ok');

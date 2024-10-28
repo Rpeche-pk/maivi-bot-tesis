@@ -1,45 +1,15 @@
 [
   {
-    "ref": "b48551a7-85f4-4a56-82ee-3a751ebba89a",
-    "keyword": "6d406b4e49838279084b94e8ddb4f003",
-    "answer": "#asesor",
+    "ref": "3fe5b262-3144-4424-8f40-f54195b2300c",
+    "keyword": "97db384ad98df0dbe0b0f5d14571a704",
+    "answer": "R",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "4f0e4ea4808a3ae64710412f30681e4b"
+    "refSerialize": "50ebf553c754bd040f1b467571d7a3fc"
   },
   {
-    "ref": "ans_bf44fb06-673a-4981-897c-60503e319db2",
-    "keyword": "key_14f9a9f3-26d4-48f4-b033-43c6eff32a9a",
-    "answer": "Buenas bienvenido a mi ecommerce",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 550,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "1c641b723762a1504c1aaaa689a1399e",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_2f0ae113-3721-4877-866b-fb2692aa3c47",
-    "keyword": "ans_bf44fb06-673a-4981-897c-60503e319db2",
-    "answer": "¿Como puedo ayudarte el dia de hoy?",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "0cfa7df05ca180c3f097bc1b3c451a3a",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_401e26b9-263e-4e23-9481-72e7c0385eaf",
-    "keyword": "ans_2f0ae113-3721-4877-866b-fb2692aa3c47",
+    "ref": "ans_5db9a441-25ae-4eac-8d98-6c6e3d4d5f5d",
+    "keyword": "key_4dcead92-e146-4a6b-9214-a69905a0561b",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -49,30 +19,7 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "3f46c0c75394d29eb5a5e214c72a7871",
+    "refSerialize": "9870370d586366a9df437a2affa55380",
     "from": "51966524537"
-  },
-  {
-    "ref": "ans_b1dddfe6-5e7f-4523-946e-dcbbd57d667d",
-    "keyword": "ans_401e26b9-263e-4e23-9481-72e7c0385eaf",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [],
-      "capture": true,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "1fe326b1710024e6b94ec806879cc44d",
-    "from": "51966524537"
-  },
-  {
-    "ref": "4f0ed3b2-6be7-4ccf-acc3-75a9da8ba084",
-    "keyword": "1fe326b1710024e6b94ec806879cc44d",
-    "answer": "Hola",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "c22e4066d61d81721def9b25d8a397e8"
   }
 ]

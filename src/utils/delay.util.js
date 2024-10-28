@@ -25,12 +25,16 @@ const setRandomDelay = (max, min) => {
 };
 
 
-const wait = (max, min) => {
-
+/**
+ * funcion para generar un pequeño delay dado el tiempo en ms
+ * @param ms {number}
+ * @returns {Promise<unknown>}
+ */
+const wait = (ms) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve();
-        }, Math.floor(Math.random() * (max - min + 1)) + min)
-    })
+        }, ms);
+    });
 };
 export { typingTime, setRandomDelay,wait}
