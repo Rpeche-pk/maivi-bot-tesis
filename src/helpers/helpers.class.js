@@ -67,7 +67,7 @@ class HelpersClass {
      * @returns {Promise<*>}
      */
     tryAgain = async (options,message="") => {
-        const {ctx, state,flowDynamic,provider, fallBack,endFlow} = options;
+        const {ctx, state,provider, fallBack,endFlow} = options;
         const myState = state.getMyState() ?? {};
         let flag = myState[ctx.from]?.intents
         const phone = ctx?.from;
@@ -79,8 +79,8 @@ class HelpersClass {
             flag--;
             await state.update({...myState, [phone]: {...myState[phone], intents: flag}});
             await this.wait(850, 550);
-            await flowDynamic(msgIntents);
-            return fallBack();
+            //await flowDynamic(msgIntents);
+            return fallBack(msgIntents);
         } else {
             myState[phone] = {...myState[phone], on: false};
             await this.wait(850, 550);

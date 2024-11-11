@@ -1,15 +1,45 @@
 [
   {
-    "ref": "3fe5b262-3144-4424-8f40-f54195b2300c",
-    "keyword": "97db384ad98df0dbe0b0f5d14571a704",
-    "answer": "R",
+    "ref": "a38ed2ed-1245-4aad-8220-ac88582a95d7",
+    "keyword": "9870370d586366a9df437a2affa55380",
+    "answer": "#asesor",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "50ebf553c754bd040f1b467571d7a3fc"
+    "refSerialize": "4f0e4ea4808a3ae64710412f30681e4b"
   },
   {
-    "ref": "ans_5db9a441-25ae-4eac-8d98-6c6e3d4d5f5d",
-    "keyword": "key_4dcead92-e146-4a6b-9214-a69905a0561b",
+    "ref": "ans_9277667a-ab2c-459c-8f3c-9db495e33282",
+    "keyword": "key_f69c2b0f-d845-467b-ac46-24abdda3ec0e",
+    "answer": "Buenas bienvenido, soy maivi bot, encantada de atender tus solicitudes",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 550,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "1dc3ab2f3858893a9d11dada5eb013ea",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_79c2c402-ad64-41ce-8a42-3b815288d0f4",
+    "keyword": "ans_9277667a-ab2c-459c-8f3c-9db495e33282",
+    "answer": "¿Como puedo ayudarte el dia de hoy?",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "2c77dc916cb901b0114ded937c6bb21b",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_ab4f37b7-c7b1-4e29-b969-d4c5cb5511b0",
+    "keyword": "ans_79c2c402-ad64-41ce-8a42-3b815288d0f4",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,7 +49,22 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "9870370d586366a9df437a2affa55380",
+    "refSerialize": "9e746f2dd4b31a743445430518921797",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_8a2228dd-47e4-40bc-a260-936c8f47b360",
+    "keyword": "ans_ab4f37b7-c7b1-4e29-b969-d4c5cb5511b0",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "buttons": [],
+      "capture": true,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e44a650f75dff5cb301327cc250d2efe",
     "from": "51966524537"
   }
 ]

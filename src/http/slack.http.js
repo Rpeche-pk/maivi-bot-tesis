@@ -27,9 +27,9 @@ const postSlack = async (data) => {
  * @param {Error} error - Error a formatear
  * @returns {Object} - Objeto formateado para Slack
  */
-const formatErrorForSlack = (error={}) => {
+const formatErrorForSlack = (message, error={}) => {
     return {
-        text: "Se ha producido un error en la aplicación",
+        text: `*Error Notification*\n${message}`,
         blocks: [
             {
                 type: "section",
@@ -66,8 +66,8 @@ const formatErrorForSlack = (error={}) => {
  * Maneja un error y lo envía a Slack
  * @param {Error} error - Error a manejar
  */
-const handleErrorAndNotifySlack = async (error) => {
-    const formattedError = formatErrorForSlack(error);
+const handleErrorAndNotifySlack = async (message,error) => {
+    const formattedError = formatErrorForSlack(message,error);
 
     try {
         await postSlack(formattedError);
@@ -78,5 +78,6 @@ const handleErrorAndNotifySlack = async (error) => {
 };
 
 export {
-    handleErrorAndNotifySlack
+    handleErrorAndNotifySlack,
+    postSlack
 };

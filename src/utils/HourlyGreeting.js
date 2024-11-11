@@ -1,13 +1,14 @@
-const dayjs = require('dayjs')
-const utc = require('dayjs/plugin/utc');
-const timezone = require('dayjs/plugin/timezone');
-const isBetween = require('dayjs/plugin/isBetween');
-let customParseFormat = require('dayjs/plugin/customParseFormat');
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc.js';
+import timezone from 'dayjs/plugin/timezone.js';
+import isBetween from 'dayjs/plugin/isBetween.js';
+import customParseFormat from 'dayjs/plugin/customParseFormat.js';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(isBetween);
 dayjs.extend(customParseFormat);
-const randomGreeting = () => {
+
+export const randomGreeting = () => {
     // Crea un objeto con las variantes de hora y saludos
     const saludos = {
         "06:00-12:00": ["*Buenos Días*", "*Buenos Días* 🌤","*¡Hola, buen día!* 🌞","*Saludos matutinos* ☀️"],
@@ -41,4 +42,3 @@ const randomGreeting = () => {
     console.log(saludo);
     return saludo;
 };
-module.exports = randomGreeting;

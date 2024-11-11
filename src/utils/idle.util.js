@@ -1,4 +1,4 @@
-import {timeoutFlow} from "../app/exit_flow/exit.flow";
+import {timeoutFlow} from "../app/exit_flow/exit.flow.js";
 import chalk from "chalk";
 let timers = {};
 

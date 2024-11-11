@@ -2,7 +2,6 @@ import chalk from "chalk";
 import {readFile} from "fs/promises";
 import mime from 'mime-types';
 
-
 class ChatwootClass {
 
   config = {
@@ -64,6 +63,24 @@ class ChatwootClass {
   buildBaseUrl = (path) => {
     return `${this.config.endpoint}/api/v1/accounts/${this.config.account}${path}`;
   };
+
+
+  getReportsMetrics = async () => {
+    const url = 'http://127.0.0.1:3000/api/v1/accounts/1/reports';
+
+
+    const params = new URLSearchParams({
+      metric : 'avg_first_response_time',
+      type: 'account',
+    });
+
+    const dataFetch = await fetch(`${url}?${params.toString()}`, {
+      method: "GET",
+      headers: this.buildHeader(),
+    });
+    const data = await dataFetch.json();
+    return data;
+  }
 
   /**
    * [CONTACT]
@@ -457,5 +474,4 @@ class ChatwootClass {
     return data.payload;
   };
 }
-
 export {ChatwootClass}
