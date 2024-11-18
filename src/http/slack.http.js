@@ -1,5 +1,9 @@
-import { SlackNotificationException } from "../exceptions/handler.class.js";
-import { log_error, log_success } from "../utils/logger.util.js";
+import {SlackNotificationException} from "../exceptions/handler.class.js";
+import {log_error, log_success} from "../utils/logger.util.js";
+import dotenv from "dotenv";
+import chalk from "chalk";
+
+dotenv.config()
 /**
  * Envía una notificación a Slack
  * @param {Object} data - Datos a enviar a Slack
@@ -14,8 +18,8 @@ const postSlack = async (data) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        });
-        return response.json();
+        })
+        console.log(chalk.italic.green('Slack response:'), chalk.green(JSON.stringify(response)));
     } catch (error) {
         log_error('Error al enviar notificación a Slack:', error);
         throw new SlackNotificationException('No se pudo enviar la notificación a Slack');
@@ -24,7 +28,8 @@ const postSlack = async (data) => {
 
 /**
  * Formatea un error para ser enviado a Slack
- * @param {Error} error - Error a formatear
+ * @param message
+ * @param {{}} error - Error a formatear
  * @returns {Object} - Objeto formateado para Slack
  */
 const formatErrorForSlack = (message, error={}) => {
@@ -64,11 +69,11 @@ const formatErrorForSlack = (message, error={}) => {
 
 /**
  * Maneja un error y lo envía a Slack
+ * @param message
  * @param {Error} error - Error a manejar
  */
 const handleErrorAndNotifySlack = async (message,error) => {
     const formattedError = formatErrorForSlack(message,error);
-
     try {
         await postSlack(formattedError);
         log_success('Notificación de error enviada a Slack');

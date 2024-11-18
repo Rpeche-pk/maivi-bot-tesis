@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/whatsapp-bot';
 
 const CONSTANTS = {
@@ -13,6 +15,16 @@ const CONSTANTS = {
         , "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko5.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko13.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg"],
+    MESSAGE_PRINCIPAL: [
+        "📌 *¿Cómo funciona?* Solo dime el nombre del producto que buscas",
+        "🥫 Sección de abarrotes: Desde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
+        "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea. " +
+        "📝 *¿Qué puedes hacer conmigo?*\n" +
+        `╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño” o “aceite primor”).\n ╠ 👉🏽 Yo buscaré en tiempo real en Metro, Tottus y Plaza Vea.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.`,
+        "📊 ¿Qué te muestro?\n" +
+        "Cuando buscas algo, te doy:\n" +
+        `╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.`
+    ]
 };
 
 export { CONSTANTS, MONGO_URI };

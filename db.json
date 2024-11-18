@@ -1,45 +1,15 @@
 [
   {
-    "ref": "a38ed2ed-1245-4aad-8220-ac88582a95d7",
-    "keyword": "9870370d586366a9df437a2affa55380",
-    "answer": "#asesor",
+    "ref": "1da1a10f-2c13-4e3e-9691-8409e8242fec",
+    "keyword": "e4db12095987afa0febff6321245a1b2",
+    "answer": "#empezar",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "4f0e4ea4808a3ae64710412f30681e4b"
+    "refSerialize": "3808fdd92072b9dfa6c75b861a7f2200"
   },
   {
-    "ref": "ans_9277667a-ab2c-459c-8f3c-9db495e33282",
-    "keyword": "key_f69c2b0f-d845-467b-ac46-24abdda3ec0e",
-    "answer": "Buenas bienvenido, soy maivi bot, encantada de atender tus solicitudes",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 550,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "1dc3ab2f3858893a9d11dada5eb013ea",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_79c2c402-ad64-41ce-8a42-3b815288d0f4",
-    "keyword": "ans_9277667a-ab2c-459c-8f3c-9db495e33282",
-    "answer": "¿Como puedo ayudarte el dia de hoy?",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "2c77dc916cb901b0114ded937c6bb21b",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_ab4f37b7-c7b1-4e29-b969-d4c5cb5511b0",
-    "keyword": "ans_79c2c402-ad64-41ce-8a42-3b815288d0f4",
+    "ref": "ans_5e87045c-b015-4087-90bf-41ab73cfd2c0",
+    "keyword": "key_68084df2-5057-447c-939d-4b8d63f55207",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -49,22 +19,188 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "9e746f2dd4b31a743445430518921797",
+    "refSerialize": "439c9ae148856c64f450aa31eee2422f",
     "from": "51966524537"
   },
   {
-    "ref": "ans_8a2228dd-47e4-40bc-a260-936c8f47b360",
-    "keyword": "ans_ab4f37b7-c7b1-4e29-b969-d4c5cb5511b0",
-    "answer": "__capture_only_intended__",
+    "ref": "ans_3da4b1fc-0064-4c74-903b-a44c7433d2a3",
+    "keyword": "ans_5e87045c-b015-4087-90bf-41ab73cfd2c0",
+    "answer": "__call_action__",
     "options": {
       "buttons": [],
-      "capture": true,
+      "capture": false,
       "delay": 0,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "e44a650f75dff5cb301327cc250d2efe",
+    "refSerialize": "c11d02d9cadf0a65340f6f307d0d63d6",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_653387ff-320c-4570-82f7-7ee491f13bc9",
+    "keyword": "ans_3da4b1fc-0064-4c74-903b-a44c7433d2a3",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "a1afc933034d3182008bc2d4e53d1c46",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_13587060-60c6-4d5b-b377-39851f4401bd",
+    "keyword": "ans_653387ff-320c-4570-82f7-7ee491f13bc9",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "db3a09927e2e3da4bcce4da5ef552910",
+    "from": "51966524537"
+  },
+  {
+    "ref": "3e7a95c0-f637-4c2e-b825-f8b4843950d7",
+    "keyword": null,
+    "answer": "*Buenas Noches* 🌚 , bienvenido(a) nuevamente 💁🏻‍♀️",
+    "options": {
+      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/PAPIKO.jpg",
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "2355c6d9c223679ce4ce40ada6c8382c"
+  },
+  {
+    "ref": "1b22ce8d-d219-4530-acdf-6180927d1722",
+    "keyword": null,
+    "answer": "📌 *¿Cómo funciona?* Solo dime el nombre del producto que buscas",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "29a944564a136878dca93429a9e78992"
+  },
+  {
+    "ref": "0fa8f783-6ed4-4a07-a0cf-7b827a9141ac",
+    "keyword": null,
+    "answer": "🥫 Sección de abarrotes: Desde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "fdff7f40d792c5053ac1cd45c8a68078"
+  },
+  {
+    "ref": "a792d816-0c65-410e-85ce-27fb68b4f476",
+    "keyword": null,
+    "answer": "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea. 📝 *¿Qué puedes hacer conmigo?*\n╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño” o “aceite primor”).\n ╠ 👉🏽 Yo buscaré en tiempo real en Metro, Tottus y Plaza Vea.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "c7575813aa0bcaa289c36c86c7307ca6"
+  },
+  {
+    "ref": "7bcfd74b-555d-4047-b6d3-fdb955fc0152",
+    "keyword": null,
+    "answer": "📊 ¿Qué te muestro?\nCuando buscas algo, te doy:\n╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "8f311e5231c24d96d07eaf65de5521f8"
+  },
+  {
+    "ref": "ans_10029813-8e75-47db-bc4e-cf93115103d4",
+    "keyword": "key_e2540a7b-8c07-42a0-b23e-a5f0e6babff2",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "a2c87c08ae4a60d2ff28c7185ca35732",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_858e6cf4-c0f7-49e7-8d02-d44762bac9ab",
+    "keyword": "ans_10029813-8e75-47db-bc4e-cf93115103d4",
+    "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
+    "options": {
+      "buttons": [
+        {
+          "body": "*Buscar por categoría*"
+        },
+        {
+          "body": "*Buscar por producto más marca*"
+        },
+        {
+          "body": "*Ayuda o asesor*"
+        },
+        {
+          "body": "❌Salir del Sistema"
+        }
+      ],
+      "capture": false,
+      "delay": 861,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "cbda85b3283d44b38ec8e1c58ed4d1b1",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_e8fbd3a4-9f5e-44bf-a0b2-e69913947924",
+    "keyword": "ans_858e6cf4-c0f7-49e7-8d02-d44762bac9ab",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "buttons": [
+        {
+          "body": "*Buscar por categoría*"
+        },
+        {
+          "body": "*Buscar por producto más marca*"
+        },
+        {
+          "body": "*Ayuda o asesor*"
+        },
+        {
+          "body": "❌Salir del Sistema"
+        }
+      ],
+      "capture": true,
+      "delay": 861,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "3ae9793ea05efb44c9a27c0729f23f7b",
     "from": "51966524537"
   }
 ]

@@ -4,10 +4,14 @@ import {randomGreeting} from "../../utils/HourlyGreeting.js";
 import chalk from "chalk";
 import {handleErrorAndNotifySlack} from "../../http/slack.http.js";
 import {log_error} from "../../utils/logger.util.js";
+import {idleStop} from "../../utils/idle.util.js";
 const REGEX_ADVISOR= '/#asesor/g';
 
 
 const advisorFlow = addKeyword(REGEX_ADVISOR,{})
+    .addAction(async (ctx) => {
+      idleStop(ctx);
+    })
     .addAction(async (ctx, {extensions,provider, state}) => {
         try {
             const myState = state.getMyState() ?? {};

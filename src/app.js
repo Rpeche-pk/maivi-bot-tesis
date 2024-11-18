@@ -2,7 +2,7 @@ import { createBot, createProvider} from '@builderbot/bot'
 import { JsonFileDB as Database } from '@builderbot/database-json'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import {helpersInstance as Instance} from './helpers/helpers.class.js'
-import botModels from "./models/bot.model.js";
+import {userSchema} from "./models/index.js";
 // import Queue from 'queue-promise';
 // import {ServerHttp} from './http/chatwoot.http.js';
 // import {ChatwootClass} from './integrations/chatwoot/chatwoot.class.js';
@@ -42,7 +42,8 @@ const main = async () => {
     const adapterProvider = createProvider(Provider,{
         groupsIgnore: true,
         usePairingCode: true, 
-        phoneNumber: process.env.PHONE_NUMBER
+        phoneNumber: process.env.PHONE_NUMBER,
+        enabledCalls: true
     })
     
     const adapterDB = new Database({ filename: 'db.json' })
@@ -56,14 +57,13 @@ const main = async () => {
             utils: Instance,
             //handler : new HandlerMessage(PORT_CHATWOOT,chatwoot),
             blacklist: new BlackList(),
-            //chatwoot: chatwoot,    
+            //chatwoot: chatwoot,
+            db: {
+                botModels: userSchema
+            }
         },
-
         globalState: {
             timer: 300000, //300000 -> 5 minutos
-        },
-        db: {
-            botModels
         }
 
     }

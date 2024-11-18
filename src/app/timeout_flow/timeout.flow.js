@@ -10,13 +10,10 @@ const timeoutFlow= addKeyword(EVENTS.ACTION,{})
             const jid = ctx?.key?.remoteJid;
             await extensions.utils.typing(provider, {delay1: 650, delay2: 1000, ctx})
             await provider.vendor.sendMessage(jid, {text: "❌ Se ha agotado el tiempo de respuesta ❌"});
-            await provider.vendor.sendPresenceUpdate("paused", jid);
+            await extensions.utils.simulatePausedAndAvailable(provider, ctx);
             return endFlow();
         } catch (e) {
-            await handleErrorAndNotifySlack({
-                text: `Error en el FLOW timeoutFlow: ${e.message}`,
-                error: e
-            });
+            await handleErrorAndNotifySlack(`Error en el FLOW timeoutFlow`,e);
             console.error(chalk.red.bold("Error en el flujo timeoutFlow"), e.message)
         }
     });

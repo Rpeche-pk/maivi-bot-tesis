@@ -1,13 +1,11 @@
 import mongoose from 'mongoose';
 
 import chalk from "chalk";
-import dotenv from 'dotenv';
+import {MONGO_URI} from "../../config/index.js";
 
-// Configurar dotenv para cargar las variables de entorno
-dotenv.config();
-const URI= process.env.MONGO_URI;
+
 export const dbConnect = async () => {
-    await mongoose.connect(`${URI}`)
+    await mongoose.connect(`${MONGO_URI}`)
         .then(() => console.log(chalk.green.bold('>>>>> DB is connected !!! <<<<<')))
         .catch(err => console.error(err));
 }

@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import {wait} from "../utils/delay.util.js";
 
 class HelpersClass {
     constructor() {
@@ -19,10 +20,10 @@ class HelpersClass {
         const $id = ctx?.key?.remoteJid;
 
         await provider.vendor.presenceSubscribe($id);
-        await this.wait(delay1);
+        await wait(delay1);
 
         await provider.vendor.sendPresenceUpdate("composing", $id);
-        await this.wait(delay2);
+        await wait(delay2);
     }
 
     typingWithoutDelay= async(provider, options)=>{
@@ -30,7 +31,7 @@ class HelpersClass {
         const $id = ctx?.key?.remoteJid;
 
         await provider.vendor.presenceSubscribe($id);
-        await this.wait(delay1);
+        await wait(delay1);
 
         await provider.vendor.sendPresenceUpdate("composing", $id);
     }
@@ -46,12 +47,11 @@ class HelpersClass {
         const $id = ctx?.key?.remoteJid;
 
         await provider.vendor.presenceSubscribe($id);
-        await this.wait(delay1);
+        await wait(delay1);
         await provider.vendor.sendPresenceUpdate("recording", $id);
     }
 
-    simulatePausedAndAvailable = async (provider, options) => {
-        const {ctx} = options;
+    simulatePausedAndAvailable = async (provider, ctx) => {
         const $id = ctx?.key?.remoteJid;
 
         await provider.vendor.presenceSubscribe($id);
@@ -61,9 +61,8 @@ class HelpersClass {
 
     /**
      *
-     * @param intents
-     * @param ctxFn
      * @param options
+     * @param message
      * @returns {Promise<*>}
      */
     tryAgain = async (options,message="") => {
@@ -105,6 +104,5 @@ class HelpersClass {
 }
 
 const helpersInstance = new HelpersClass();
-Object.freeze(helpersInstance)
 
 export {helpersInstance};

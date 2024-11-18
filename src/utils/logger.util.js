@@ -7,12 +7,10 @@ import chalk from 'chalk';
  * @param {Object} [details] - Detalles adicionales opcionales.
  */
 export function log_success(message, details = {}) {
-    console.log(chalk.green('✔ ÉXITO:'), chalk.green.bold(message));
+    let log_date = new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds() +":"+new Date().getMilliseconds();
+    console.log(`[${log_date}]`,chalk.green('✔ ÉXITO:'), chalk.green.bold(message));
     if (Object.keys(details).length > 0) {
-        console.log(chalk.green('  Detalles:'));
-        Object.entries(details).forEach(([key, value]) => {
-            console.log(chalk.green(`    ${key}:`), chalk.white(value));
-        });
+        console.log(`[${log_date}]`,chalk.green('  Detalles:'), chalk.white(JSON.stringify(details)));
     }
 }
 
@@ -22,20 +20,18 @@ export function log_success(message, details = {}) {
  * @param {Error|Object} [error] - El objeto de error o detalles adicionales.
  */
 export function log_error(message, error = {}) {
-    console.log(chalk.red('✖ ERROR:'), chalk.red.bold(message));
+    const logDate = new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds() +":"+new Date().getMilliseconds();
+    console.log(`[${logDate} ]`,chalk.red('✖ ERROR:'), chalk.red.bold(message));
     if (error instanceof Error) {
-        console.log(chalk.red('  Detalles del error:'));
-        console.log(chalk.red(`    Nombre: ${error.name}`));
-        console.log(chalk.red(`    Mensaje: ${error.message}`));
+        console.log(`[${logDate}]`,chalk.red('  Detalles del error:'));
+        console.log(`[${logDate}]`,chalk.red(`    Nombre: ${error.name}`));
+        console.log(`[${logDate}]`,chalk.red(`    Mensaje: ${error.message}`));
         if (error.stack) {
-            console.log(chalk.red('  Stack:'));
-            console.log(chalk.red(error.stack.split('\n').map(line => `    ${line}`).join('\n')));
+            console.log(`[${logDate}]`,chalk.red('  Stack:'));
+            console.log(`[${logDate}]`,chalk.red(error.stack.split('\n').map(line => `    ${line}`).join('\n')));
         }
     } else if (Object.keys(error).length > 0) {
-        console.log(chalk.red('  Detalles adicionales:'));
-        Object.entries(error).forEach(([key, value]) => {
-            console.log(chalk.red(`    ${key}:`), chalk.white(value));
-        });
+        console.log(`[${logDate}]`,chalk.red('  Detalles adicionales:'), chalk.white(JSON.stringify(error)));
     }
 }
 
@@ -47,9 +43,6 @@ export function log_error(message, error = {}) {
 export function log_warning(message, details = {}) {
     console.log(chalk.yellow('⚠ ADVERTENCIA:'), chalk.yellow.bold(message));
     if (Object.keys(details).length > 0) {
-        console.log(chalk.yellow('  Detalles:'));
-        Object.entries(details).forEach(([key, value]) => {
-            console.log(chalk.yellow(`    ${key}:`), chalk.white(value));
-        });
+        console.log(chalk.yellow('  Detalles:'), chalk.white(JSON.stringify(details)));
     }
 }
