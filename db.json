@@ -1,15 +1,15 @@
 [
   {
-    "ref": "d64fec86-a925-41b6-89f9-4ab95610c14a",
-    "keyword": "a07e48655d1eb1adf63c1b74c6ee668e",
+    "ref": "1243b564-54db-4b95-88c1-947092e2c8b2",
+    "keyword": "c77f60e62c4f7afc2a5ef979288c89fa",
     "answer": "#empezar",
     "options": {},
     "from": "51966524537",
     "refSerialize": "3808fdd92072b9dfa6c75b861a7f2200"
   },
   {
-    "ref": "ans_690813a8-cdb5-4de0-9dcf-602707c193ec",
-    "keyword": "key_1dad1810-90a3-4239-b317-f6a488235913",
+    "ref": "ans_c39ade36-a931-426a-b279-c73ea850a47b",
+    "keyword": "key_588abe9a-f558-4bea-bfa6-b70120da8015",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,12 +19,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "487084f372a185092da466fa47df1df8",
+    "refSerialize": "ebd822905f6f3c70a5726193f4d98f2a",
     "from": "51966524537"
   },
   {
-    "ref": "ans_136b1aee-baa1-4774-be40-d169cfa51c22",
-    "keyword": "ans_690813a8-cdb5-4de0-9dcf-602707c193ec",
+    "ref": "ans_fc3b309c-bb46-480a-9cb0-16ae93d07d70",
+    "keyword": "ans_c39ade36-a931-426a-b279-c73ea850a47b",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -34,12 +34,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "815b47636016749ae29b28ac3239cc54",
+    "refSerialize": "6d168794574deb42effadd4c8dfc4aa0",
     "from": "51966524537"
   },
   {
-    "ref": "ans_401b29da-6b96-4200-9a24-a56be1ba8f72",
-    "keyword": "ans_136b1aee-baa1-4774-be40-d169cfa51c22",
+    "ref": "ans_b180fcb0-31be-4e83-a1c4-343e0bb864e3",
+    "keyword": "ans_fc3b309c-bb46-480a-9cb0-16ae93d07d70",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -49,12 +49,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "fa344601eb66aacec97fbd2381d0388a",
+    "refSerialize": "2f998992eb96ec2c18959b4fea861681",
     "from": "51966524537"
   },
   {
-    "ref": "ans_c4776a12-2944-47df-9d8c-3ec746e88c38",
-    "keyword": "ans_401b29da-6b96-4200-9a24-a56be1ba8f72",
+    "ref": "ans_2aa58ac4-d6ba-424f-bacc-784a1379b3e2",
+    "keyword": "ans_b180fcb0-31be-4e83-a1c4-343e0bb864e3",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -64,26 +64,26 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "6a987f17a490e91ee47a33ea7e73820e",
+    "refSerialize": "ea36e0b322ce9696dd99411672228784",
     "from": "51966524537"
   },
   {
-    "ref": "5075658a-720a-41bc-acd7-4c1b0dfbb3e6",
+    "ref": "25ad9aec-ff37-4647-84d2-de4e6ce58e4a",
     "keyword": null,
-    "answer": "*Hora de relajarse*, *¡Buenas Noches!* 🌌 , bienvenido(a) nuevamente 💁🏻‍♀️",
+    "answer": "*Buenas Tardes* , bienvenido(a) nuevamente 💁🏻‍♀️",
     "options": {
-      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko7.jpg",
+      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/PAPIKO.jpg",
       "buttons": [],
       "capture": false,
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "8f013bbbc8c2fcd4d819be4c38a5ac8f"
+    "refSerialize": "ecad8e8dd5be14b2ab9eaccb9432ea5f"
   },
   {
-    "ref": "46fb2800-55a7-4718-9292-ed682b316013",
+    "ref": "a9e88114-1440-40a8-8ac2-b06ae8a91cd9",
     "keyword": null,
-    "answer": "📌 *¿Cómo funciona?* Solo dime el nombre del producto que buscas",
+    "answer": "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
     "options": {
       "media": null,
       "buttons": [],
@@ -91,12 +91,12 @@
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "29a944564a136878dca93429a9e78992"
+    "refSerialize": "812954d1a8ed4be4d74c84ec3ea925b4"
   },
   {
-    "ref": "5edb453d-35ab-4104-97c9-4d3dcd8af62a",
+    "ref": "673426b6-209d-4175-bc6f-45f1e133579c",
     "keyword": null,
-    "answer": "🥫 Sección de abarrotes: Desde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
+    "answer": "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
     "options": {
       "media": null,
       "buttons": [],
@@ -104,12 +104,12 @@
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "fdff7f40d792c5053ac1cd45c8a68078"
+    "refSerialize": "8676e398795517cdd85b8d91e48a5bde"
   },
   {
-    "ref": "7350fd01-0858-4ab4-8c08-09f54076a1a2",
+    "ref": "6254b793-76b3-4f60-8b13-bda7d740c2d3",
     "keyword": null,
-    "answer": "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea. \n📝 *¿Qué puedes hacer conmigo?*\n╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño” o “aceite primor”).\n ╠ 👉🏽 Yo buscaré en tiempo real en Metro, Tottus y Plaza Vea.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.",
+    "answer": "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea.\n\n📝 *¿Qué puedes hacer conmigo?*\n╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño”).\n ╠ 👉🏽 Yo buscaré el producto por ti.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.",
     "options": {
       "media": null,
       "buttons": [],
@@ -117,12 +117,12 @@
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "9f3d8fad3db7b74843ba1da520b18d55"
+    "refSerialize": "e37393a57ce503d5b0dde2781298d97f"
   },
   {
-    "ref": "5904c2b0-fac2-413f-91c9-14d99132331f",
+    "ref": "280de62b-3477-4e5c-bac8-e84363671d84",
     "keyword": null,
-    "answer": "\n📊 *¿Qué te muestro?*\n\nCuando buscas algo, te doy:\n╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.",
+    "answer": "📊 *¿Qué te muestro?*\n\nCuando buscas algo, te doy:\n╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.",
     "options": {
       "media": null,
       "buttons": [],
@@ -130,11 +130,11 @@
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "6b55a8abecb578d7b562fbf0ab126035"
+    "refSerialize": "6c909b8bc55652e27d12cbde195435b0"
   },
   {
-    "ref": "ans_27dc4c0c-ae46-472a-9520-b2ce3c23b4d5",
-    "keyword": "key_35efa373-2798-4818-800e-5e2999dc869b",
+    "ref": "ans_292bea5b-beaf-48a8-a7ee-f8c3a626cecb",
+    "keyword": "key_f9b457fe-f7c3-45bc-bafb-db5d50731730",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -144,12 +144,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "ca427b3c643cf625d0e6004caf576594",
+    "refSerialize": "7ec699bc4ec9c98448087139b49e5605",
     "from": "51966524537"
   },
   {
-    "ref": "ans_7c711fa3-77e2-443e-aeb9-ba9caf042c9a",
-    "keyword": "ans_27dc4c0c-ae46-472a-9520-b2ce3c23b4d5",
+    "ref": "ans_20d0bba8-6c56-4e14-9164-acb0046b6013",
+    "keyword": "ans_292bea5b-beaf-48a8-a7ee-f8c3a626cecb",
     "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
     "options": {
       "buttons": [
@@ -167,17 +167,17 @@
         }
       ],
       "capture": false,
-      "delay": 886,
+      "delay": 916,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "c3711d57abb54a6fdf7790e199d061da",
+    "refSerialize": "91f69446bee742b23201766bd1bcfa3e",
     "from": "51966524537"
   },
   {
-    "ref": "ans_4e00b868-fe83-4b9c-8f53-03ea3ede657d",
-    "keyword": "ans_7c711fa3-77e2-443e-aeb9-ba9caf042c9a",
+    "ref": "ans_b0590f0c-b1cf-47aa-a704-7ad8b31c344b",
+    "keyword": "ans_20d0bba8-6c56-4e14-9164-acb0046b6013",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -195,50 +195,12 @@
         }
       ],
       "capture": true,
-      "delay": 886,
+      "delay": 916,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "21c469353c53a3291ba71d827a1fb54e",
-    "from": "51966524537"
-  },
-  {
-    "ref": "f4ef71ba-56cc-406b-9dec-590e94d0e8a1",
-    "keyword": "21c469353c53a3291ba71d827a1fb54e",
-    "answer": "*Buscar por producto más marca*",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "6d7afb1932dc9e2cbfa8b93c880296da"
-  },
-  {
-    "ref": "ans_d8726bd5-eaac-4bcd-92ec-785ecca340c1",
-    "keyword": "key_db1f1af6-6109-4ee5-b0d5-4dcb73820b43",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "7518f4e710f77792039c716c8c9085a8",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_4adcc612-ad40-494b-954c-0495c145c2cf",
-    "keyword": "ans_d8726bd5-eaac-4bcd-92ec-785ecca340c1",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "8ac7839eaf309bc8c605265496c94251",
+    "refSerialize": "9046b9028cb0f0f722c10b068009e01b",
     "from": "51966524537"
   }
 ]
