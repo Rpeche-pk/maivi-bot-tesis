@@ -3,6 +3,7 @@ import {idleStart} from "../../utils/idle.util.js";
 import {setRandomDelay} from "../../utils/delay.util.js";
 import {poll_middleware} from "../../middleware/poll.middleware.js";
 
+
 const menu_flow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
         idleStart(ctx, gotoFlow, globalState.get("timer"));

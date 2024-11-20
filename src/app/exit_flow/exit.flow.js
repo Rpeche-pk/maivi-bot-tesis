@@ -3,6 +3,7 @@ import { setRandomDelay } from '../../utils/delay.util.js';
 import { handleErrorAndNotifySlack } from '../../http/slack.http.js';
 import { CONSTANTS } from '../../config/index.js';
 import { log_error, log_warning } from '../../utils/logger.util.js';
+import {idleStop} from "../../utils/idle.util.js";
 
 const REGEX_EXIT = '/❌Salir del Sistema/g';
 
@@ -25,8 +26,12 @@ const logoutFlow = addKeyword(REGEX_EXIT, { regex: true })
             });
             await provider.vendor.sendMessage(jid, { react: { key: baileys?.key, text: "👾" } });
             await provider.vendor.sendPresenceUpdate("paused", jid);
+            idleStop(ctx)
+            state.clear();
             return endFlow();
         } catch (error) {
+            idleStop(ctx)
+            state.clear();
             await handleErrorAndNotifySlack("ERROR FLUJO offFlow", error);
             log_error("ERROR FLUJO offFlow", error);
         }

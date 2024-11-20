@@ -18,12 +18,17 @@ const CONSTANTS = {
     MESSAGE_PRINCIPAL: [
         "📌 *¿Cómo funciona?* Solo dime el nombre del producto que buscas",
         "🥫 Sección de abarrotes: Desde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
-        "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea. " +
-        "📝 *¿Qué puedes hacer conmigo?*\n" +
-        `╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño” o “aceite primor”).\n ╠ 👉🏽 Yo buscaré en tiempo real en Metro, Tottus y Plaza Vea.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.`,
-        "📊 ¿Qué te muestro?\n" +
-        "Cuando buscas algo, te doy:\n" +
+        "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea." +
+        "\n📝 *¿Qué puedes hacer conmigo?*\n" +
+        `╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño”).\n ╠ 👉🏽 Yo buscaré el producto por ti.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.`,
+        "📊 *¿Qué te muestro?*\n" +
+        "\nCuando buscas algo, te doy:\n" +
         `╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.`
+    ],
+    MESSAGE_SEARCH_PRODUCTS: [
+        `🔍 Esta funcionalidad te permite buscar un _producto específico_ en los tres *supermercados* ingresando el *nombre del producto* junto con el *nombre de la marca*.\n\n*Por ejemplo:*\n👉 *Producto:* Leche\n👉 *Marca:* Gloria\n\n*Formato:* producto + marca"\n\n*Ejemplos correctos:*\n * Leche Gloria\n * Aceite Primot\n * Azúcar Bell's\n * Fideo Vittorio`,
+        `📌 *Supermercados incluidos:*\n╠ 🏪 Tottus\n╠ 🏪 Plaza Vea\n╙ 🏪 Metro`,
+        `*Te mostraré:*\n╠ 🏷️ *nombre del producto*\n╠ 🛒 *marca*\n╠ 💰 *precio*\n╠ 🌐 *Link:*\n╙ 🖼️ *Imagen:*`,
     ]
 };
 
