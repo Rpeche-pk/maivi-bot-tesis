@@ -17,7 +17,7 @@ const search_product_flow = addKeyword(EVENTS.ACTION, {})
             const answer = ctx?.body?.trim().toLowerCase();
             const response = handleRiceSearch(answer);
 
-            for (const message of response.split("\n")) {
+            for (const message of response) {
                 await extensions.utils.typing(provider, {
                     delay1: setRandomDelay(750, 550),
                     delay2: typingTime(message),

@@ -164,43 +164,42 @@ class RiceSearchResults {
     }
 
     // Formatear mensaje de resultados
-    formatSearchResult(riceData) {
-        const bestPrice = this.findBestPrice(riceData.prices);
-
-        let message = `*🏪 Precios Comparados - Arroz ${riceData.brand}* ${riceData.emoji}\n\n`;
-
-        // Detalles de cada supermercado
-        Object.entries(riceData.prices).forEach(([store, data]) => {
-            message += `*${store}:*\n`;
-            message += `• Precio: S/ ${data.price.toFixed(2)}\n`;
-            message += `• Presentación: ${data.presentation}\n`;
-            message += `• Disponibilidad: ${data.available ? '✅ En stock' : '❌ Sin stock'}\n`;
-            message += `• Supermercado: ${data.supermarket}\n`;
-            message += `• [Ver producto](${data.link})\n`;
-            message += `• Imagen: ![Imagen del producto](${data.image})\n\n`;
-        });
-
-        // Mejor precio y ahorro
-        message += `*💰 Mejor Precio:* ${bestPrice.store} S/ ${bestPrice.price.toFixed(2)}\n`;
-
-        const maxPrice = Math.max(...Object.values(riceData.prices).map(p => p.price));
-        const savings = maxPrice - bestPrice.price;
-
-        message += `*💵 Ahorro:* Hasta S/ ${savings.toFixed(2)}`;
-
-        return message;
-    }
-
-    // Buscar por marca de arroz
-    searchRiceBrand(brand) {
-        const result = this.results.find(rice =>
-            rice.brand.toLowerCase() === brand.toLowerCase()
+    formatSearchResultsByProductName(productName, riceDataArray) {
+        // Filtrar productos por el nombre proporcionado
+        const filteredProducts = riceDataArray.filter(riceData =>
+            riceData.brand.toLowerCase().includes(productName.toLowerCase())
         );
 
-        return result
-            ? this.formatSearchResult(result)
-            : '❌ Marca de arroz no encontrada';
+        // Mapear los resultados filtrados a mensajes formateados
+        return filteredProducts.map(riceData => {
+            const bestPrice = this.findBestPrice(riceData.prices);
+
+            let message = `*🏪 Precios Comparados - Arroz ${riceData.brand}* ${riceData.emoji}\n\n`;
+
+            // Detalles de cada supermercado
+            Object.entries(riceData.prices).forEach(([store, data]) => {
+                message += `*${store}:*\n`;
+                message += `• Precio: S/ ${data.price.toFixed(2)}\n`;
+                message += `• Presentación: ${data.presentation}\n`;
+                message += `• Disponibilidad: ${data.available ? '✅ En stock' : '❌ Sin stock'}\n`;
+                message += `• Supermercado: ${data.supermarket}\n`;
+                message += `• [Ver producto](${data.link})\n`;
+                message += `• Imagen: ![Imagen del producto](${data.image})\n\n`;
+            });
+
+            // Mejor precio y ahorro
+            message += `*💰 Mejor Precio:* ${bestPrice.store} S/ ${bestPrice.price.toFixed(2)}\n`;
+
+            const maxPrice = Math.max(...Object.values(riceData.prices).map(p => p.price));
+            const savings = maxPrice - bestPrice.price;
+
+            message += `*💵 Ahorro:* Hasta S/ ${savings.toFixed(2)}\n`;
+
+            return message;
+        });
     }
+
+
 
 
 }
@@ -209,5 +208,5 @@ export const handleRiceSearch = (message) => {
     const riceSearch = new RiceSearchResults();
     const brand = message.split(' ')[1]; // Asume "arroz Costeño"
 
-    return riceSearch.searchRiceBrand(brand);
+    return riceSearch.formatSearchResultsByProductName(brand, riceSearch.results);
 };

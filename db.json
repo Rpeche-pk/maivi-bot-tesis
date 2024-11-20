@@ -1,15 +1,15 @@
 [
   {
-    "ref": "1243b564-54db-4b95-88c1-947092e2c8b2",
-    "keyword": "c77f60e62c4f7afc2a5ef979288c89fa",
+    "ref": "01d9934d-e0ea-4f29-a359-5f626f44479c",
+    "keyword": "056036dc818507856fbb1bdbdcb04f9d",
     "answer": "#empezar",
     "options": {},
     "from": "51966524537",
     "refSerialize": "3808fdd92072b9dfa6c75b861a7f2200"
   },
   {
-    "ref": "ans_c39ade36-a931-426a-b279-c73ea850a47b",
-    "keyword": "key_588abe9a-f558-4bea-bfa6-b70120da8015",
+    "ref": "ans_78af42cd-15e8-43ba-8dfa-6d4eb4779a5d",
+    "keyword": "key_52e365e7-055c-4fcd-96d2-566111ca046c",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,12 +19,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "ebd822905f6f3c70a5726193f4d98f2a",
+    "refSerialize": "a7aeb2099c4fda7b2c0e4ea94ee7d50e",
     "from": "51966524537"
   },
   {
-    "ref": "ans_fc3b309c-bb46-480a-9cb0-16ae93d07d70",
-    "keyword": "ans_c39ade36-a931-426a-b279-c73ea850a47b",
+    "ref": "ans_0255bb92-2c4f-480b-b687-4d2e152eb74a",
+    "keyword": "ans_78af42cd-15e8-43ba-8dfa-6d4eb4779a5d",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -34,12 +34,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "6d168794574deb42effadd4c8dfc4aa0",
+    "refSerialize": "5d609e24f291b2e9f8fea18a9b9b10e7",
     "from": "51966524537"
   },
   {
-    "ref": "ans_b180fcb0-31be-4e83-a1c4-343e0bb864e3",
-    "keyword": "ans_fc3b309c-bb46-480a-9cb0-16ae93d07d70",
+    "ref": "ans_ed1f3962-670e-4734-a121-a1472055951a",
+    "keyword": "ans_0255bb92-2c4f-480b-b687-4d2e152eb74a",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -49,12 +49,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "2f998992eb96ec2c18959b4fea861681",
+    "refSerialize": "dad40da17785d0fdd5699307ee7b1293",
     "from": "51966524537"
   },
   {
-    "ref": "ans_2aa58ac4-d6ba-424f-bacc-784a1379b3e2",
-    "keyword": "ans_b180fcb0-31be-4e83-a1c4-343e0bb864e3",
+    "ref": "ans_6204764c-d747-4201-82e4-3a23d9ee62f2",
+    "keyword": "ans_ed1f3962-670e-4734-a121-a1472055951a",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -64,24 +64,24 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "ea36e0b322ce9696dd99411672228784",
+    "refSerialize": "19ddd2bf4fc04e0114bdc2077fda04d6",
     "from": "51966524537"
   },
   {
-    "ref": "25ad9aec-ff37-4647-84d2-de4e6ce58e4a",
+    "ref": "a8e8764a-9220-4981-a325-19eb46a3c108",
     "keyword": null,
-    "answer": "*Buenas Tardes* , bienvenido(a) nuevamente 💁🏻‍♀️",
+    "answer": "*Buenas Tardes* ⛅ , bienvenido(a) nuevamente 💁🏻‍♀️",
     "options": {
-      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/PAPIKO.jpg",
+      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg",
       "buttons": [],
       "capture": false,
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "ecad8e8dd5be14b2ab9eaccb9432ea5f"
+    "refSerialize": "0a3a0b6a4b25a78262374024468a4d96"
   },
   {
-    "ref": "a9e88114-1440-40a8-8ac2-b06ae8a91cd9",
+    "ref": "16e48608-ff49-43f3-9180-46f6d868fd38",
     "keyword": null,
     "answer": "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
     "options": {
@@ -94,7 +94,7 @@
     "refSerialize": "812954d1a8ed4be4d74c84ec3ea925b4"
   },
   {
-    "ref": "673426b6-209d-4175-bc6f-45f1e133579c",
+    "ref": "dcb6e16b-8e7f-49df-bb44-2aea83e99b55",
     "keyword": null,
     "answer": "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
     "options": {
@@ -107,7 +107,7 @@
     "refSerialize": "8676e398795517cdd85b8d91e48a5bde"
   },
   {
-    "ref": "6254b793-76b3-4f60-8b13-bda7d740c2d3",
+    "ref": "39a37596-429c-478f-834a-c2ed9eb008f0",
     "keyword": null,
     "answer": "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea.\n\n📝 *¿Qué puedes hacer conmigo?*\n╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño”).\n ╠ 👉🏽 Yo buscaré el producto por ti.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.",
     "options": {
@@ -120,7 +120,7 @@
     "refSerialize": "e37393a57ce503d5b0dde2781298d97f"
   },
   {
-    "ref": "280de62b-3477-4e5c-bac8-e84363671d84",
+    "ref": "6ef5df63-ad53-445d-a570-7344fcd3a6eb",
     "keyword": null,
     "answer": "📊 *¿Qué te muestro?*\n\nCuando buscas algo, te doy:\n╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.",
     "options": {
@@ -133,8 +133,8 @@
     "refSerialize": "6c909b8bc55652e27d12cbde195435b0"
   },
   {
-    "ref": "ans_292bea5b-beaf-48a8-a7ee-f8c3a626cecb",
-    "keyword": "key_f9b457fe-f7c3-45bc-bafb-db5d50731730",
+    "ref": "ans_1313817d-5619-471b-9152-5374a687988c",
+    "keyword": "key_280c76fb-0e8b-4928-9705-da5f85be5b83",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -144,12 +144,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "7ec699bc4ec9c98448087139b49e5605",
+    "refSerialize": "7c8a5389cffd8d4034b7aec3942c953b",
     "from": "51966524537"
   },
   {
-    "ref": "ans_20d0bba8-6c56-4e14-9164-acb0046b6013",
-    "keyword": "ans_292bea5b-beaf-48a8-a7ee-f8c3a626cecb",
+    "ref": "ans_f653f24f-7a52-4edd-8756-68f565f82191",
+    "keyword": "ans_1313817d-5619-471b-9152-5374a687988c",
     "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
     "options": {
       "buttons": [
@@ -167,17 +167,17 @@
         }
       ],
       "capture": false,
-      "delay": 916,
+      "delay": 887,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "91f69446bee742b23201766bd1bcfa3e",
+    "refSerialize": "93bd4cd68c8245f21ee69589cd77ddd5",
     "from": "51966524537"
   },
   {
-    "ref": "ans_b0590f0c-b1cf-47aa-a704-7ad8b31c344b",
-    "keyword": "ans_20d0bba8-6c56-4e14-9164-acb0046b6013",
+    "ref": "ans_50652f89-25b0-4d59-9bb1-d99ca5806472",
+    "keyword": "ans_f653f24f-7a52-4edd-8756-68f565f82191",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -195,12 +195,103 @@
         }
       ],
       "capture": true,
-      "delay": 916,
+      "delay": 887,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "9046b9028cb0f0f722c10b068009e01b",
+    "refSerialize": "e83b14a9211293ef813ca84c1c62d1e7",
     "from": "51966524537"
+  },
+  {
+    "ref": "ef8bdef1-93e9-4539-a18c-186130ed00b0",
+    "keyword": "e83b14a9211293ef813ca84c1c62d1e7",
+    "answer": "*Buscar por producto más marca*",
+    "options": {},
+    "from": "51966524537",
+    "refSerialize": "6d7afb1932dc9e2cbfa8b93c880296da"
+  },
+  {
+    "ref": "ans_a884478a-baf6-4b75-9be3-504b76502d80",
+    "keyword": "key_5ce63be1-de17-4b04-850f-6e3d614c9c28",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "21125a792586d751941979287bc4267c",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_13ff91a2-1ac9-4b26-a030-a2dcdbc6139d",
+    "keyword": "ans_a884478a-baf6-4b75-9be3-504b76502d80",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "020a8e8359475c1fca83a0c4d61348d2",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_87dea22a-0e0b-4dae-baa5-363b2302707d",
+    "keyword": "key_4b76f84a-9255-4c99-a758-40f90ac02c94",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "84e74dd1cb5c7aa6bf04578354ef826e",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_dd0c8c4a-e415-4198-a312-6289f943693f",
+    "keyword": "ans_87dea22a-0e0b-4dae-baa5-363b2302707d",
+    "answer": "🔍 *Ingrese el producto a buscar:* 📦",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 888,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "458993735629c2f7496c716ce0ee2a93",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_0eef2717-013f-489f-8659-9020dc967325",
+    "keyword": "ans_dd0c8c4a-e415-4198-a312-6289f943693f",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "buttons": [],
+      "capture": true,
+      "delay": 888,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "32c37b06e31be7df2f6a3f0159606ccf",
+    "from": "51966524537"
+  },
+  {
+    "ref": "db2166d1-8378-4d91-9fbe-54e33d00ddb3",
+    "keyword": "32c37b06e31be7df2f6a3f0159606ccf",
+    "answer": "Arroz costeño",
+    "options": {},
+    "from": "51966524537",
+    "refSerialize": "056036dc818507856fbb1bdbdcb04f9d"
   }
 ]
