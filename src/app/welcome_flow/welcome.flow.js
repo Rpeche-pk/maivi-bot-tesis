@@ -4,118 +4,26 @@ import {handleErrorAndNotifySlack} from "../../http/slack.http.js";
 import {config} from 'dotenv';
 import {idleReset, idleStart, idleStop} from "../../utils/idle.util.js";
 import {log_error, log_success, log_warning} from '../../utils/logger.util.js';
-import {advisorFlow} from '../advisor_flow/advisor.flow.js';
 import {setRandomDelay} from '../../utils/delay.util.js';
 import {randomGreeting} from '../../utils/HourlyGreeting.js';
 import {CONSTANTS} from '../../config/index.js';
-import {createOrUpdate, findByPhone} from '../../repository/bot.repository.js';
-import {getDevice} from '../../utils/device.utils.js';
-import {createSimpleToken} from '../../utils/token.util.js';
 import {greetingUtil} from '../../utils/greeting.util.js'
-import {tokenMiddleware} from '../../middleware/token.middleware.js';
+import {token_middleware} from '../../middleware/token_middleware.js';
 import {menu_flow} from "../menu_flow/menu.flow.js";
+import {on_middleware} from "../../middleware/on.middleware.js";
+import {on_flow} from "../on_flow/on.flow.js";
+import {off_flow} from "../off_flow/off.flow.js";
+import {randomElement} from "../../utils/random.util.js";
 
 config()
 
-const REGEX_ADVISOR = "/^#(asesor)$/g";
-const REGEX_KEYWORD = "/^#(empezar)$/g";
 const greetingUtils = greetingUtil();
-
 const greeting = randomGreeting();
 
-const offFlow = addKeyword(REGEX_ADVISOR, {regex: true})
-    .addAction(async (ctx, {
-        extensions,
-        state,
-        provider,
-        gotoFlow
-    }) => {
+const start_chat_flow = addKeyword(EVENTS.ACTION, {})
+    .addAction(async (ctx, {extensions, provider, flowDynamic, gotoFlow}) => {
         try {
-            const jid = ctx?.key?.remoteJid;
-            const myState = state.getMyState() ?? {};
-            myState[ctx.from] = {...myState[ctx.from], on: false};
-            await state.update(myState);
-            console.log(chalk.bgCyan("BOT APAGADO -> "), chalk.cyan(JSON.stringify(myState)));
-            await provider.vendor.sendMessage(jid, {react: {key: ctx?.key, text: "✅"}});
-            await extensions.utils.wait(850, 550);
-            await extensions.utils.typing(provider, {delay1: 850, delay2: 950, ctx});
-            await provider.vendor.sendMessage(jid, {text: "En unos instantes el asesor se comunicará con usted..."}, {quoted: ctx});
-            return gotoFlow(advisorFlow);
-        } catch (error) {
-            idleStop(ctx);
-            await handleErrorAndNotifySlack(`[ERROR FLUJO offFlow:]`, error)
-            log_error("ERROR FLUJO offFlow", error);
-        }
-    });
-
-const onFlow = addKeyword(REGEX_KEYWORD, {regex: true})
-    .addAction(async (ctx, {globalState, gotoFlow}) => {
-        idleReset(ctx, gotoFlow, globalState.get("timer"));
-    })
-    .addAction(async (ctx, {extensions, provider, gotoFlow, state}) => {
-        try {
-            const jid = ctx?.key?.remoteJid;
-            const key = ctx?.key;
-            const phone = ctx?.from;
-            const idCtx = ctx?.key?.id;
-            const myState = state.getMyState() ?? {};
-            myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, timer: 300000};
-            await state.update(myState);
-
-            await provider.vendor.sendMessage(jid, {react: {key, text: "⏳"}});
-
-            log_success("BOT ENCENDIDO-> ", myState);
-            const user = await findByPhone(phone, extensions.db.botModels);
-
-            if (user === null) {
-                await createOrUpdate({
-                    ctx,
-                    device: getDevice(idCtx),
-                    token: createSimpleToken(ctx),
-                    db: extensions.db.botModels
-                });
-                return gotoFlow(startChat);
-            }
-
-        } catch (error) {
-            idleStop(ctx);
-            log_error("ERROR FLUJO onFlow", error);
-            await handleErrorAndNotifySlack("ERROR FLUJO onFlow", error)
-        }
-    }).addAction(tokenMiddleware)
-    .addAction(async (ctx, {flowDynamic, extensions, gotoFlow, provider}) => {
-        await extensions.utils.typing(provider, {
-            delay1: setRandomDelay(800, 550),
-            delay2: setRandomDelay(2500, 1950),
-            ctx
-        });
-        await flowDynamic([
-            {
-                body:
-                    `${greeting[Math.floor(Math.random() * greeting.length)]} , bienvenido(a) nuevamente 💁🏻‍♀️`,
-                media: randomImages(CONSTANTS.URL_IMAGE_BOT)
-            },
-        ]);
-        for (let i = 0; i < CONSTANTS.MESSAGE_PRINCIPAL.length; i++) {
-            await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(2850, 2200),
-                ctx
-            });
-            await flowDynamic([{body: CONSTANTS.MESSAGE_PRINCIPAL[i]}]);
-        }
-
-        await extensions.utils.simulatePausedAndAvailable(provider, ctx);
-        console.log(chalk.bgCyan("ESTOY A PUNTO DE ENTRAR AL FLUJO PRINCIPAL BUSQUEDA"));
-        idleStop(ctx);
-        return gotoFlow(menu_flow);
-    });
-
-
-const startChat = addKeyword(EVENTS.ACTION, {})
-    .addAction(async (ctx, {extensions, provider, flowDynamic,gotoFlow}) => {
-        try {
-            const randomImage = randomImages(CONSTANTS.URL_IMAGE_BOT);
+            const randomImage = randomElement(CONSTANTS.URL_IMAGE_BOT);
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(800, 550),
                 delay2: setRandomDelay(1500, 1200),
@@ -152,21 +60,21 @@ const startChat = addKeyword(EVENTS.ACTION, {})
 
 const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
     .addAnswer(
-        `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} _para_ _iniciar_ _la_ _conversación_ _dentro_ _del_ _sistema_ _*MAIVI BOT*_ \n📲 *Digíte una opción que inicie* *#*\n╠ 👉🏽 *#empezar* 👈🏽 _para iniciar_\n╙ 👉🏽 *#asesor* 👈🏽 _para consultas puntuales_`,
-        {capture: true, ref: "welcomeFlow ejecutado"}
+        `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} _para_ _iniciar_ _la_ _conversación_ _dentro_ _del_ _sistema_ _*MAIVI BOT*_ \n📲 *Digíte una opción, que sea un número*\n╠ *[1]* 👉🏽_para empezar_\n╙ *[2]* 👉🏽_para consultas puntuales_`,
+        {capture: true, ref: "welcome_greeting_flow_executed"}
     ).addAction(async (ctx, {state, extensions, globalState, provider, fallBack, flowDynamic, endFlow, gotoFlow}) => {
         idleReset(ctx, gotoFlow, globalState.get("timer"));
         const answer = ctx?.body.trim().toLowerCase();
-
+        const numberOptions = new RegExp(/^[12]$/);
         try {
-            if (["#empezar", "#asesor"].includes(answer)) {
+            if (numberOptions.test(answer)) {
                 switch (answer) {
-                    case "#asesor":
+                    case "2":
                         idleStop(ctx);
-                        return gotoFlow(offFlow);
-                    case "#empezar":
+                        return gotoFlow(off_flow);
+                    case "1":
                         idleStop(ctx);
-                        return gotoFlow(onFlow);
+                        return gotoFlow(on_flow);
                     default:
                         break;
                 }
@@ -189,6 +97,30 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
 
 
 const welcomeFlow = addKeyword(EVENTS.WELCOME, {})
+    .addAction(on_middleware)
+    .addAction(token_middleware)
+    .addAction(async (ctx, {provider,state, gotoFlow, flowDynamic, extensions}) => {
+        const myState = state.getMyState() ?? {};
+        const numberPhone = ctx?.from;
+        if (myState[numberPhone]?.new === false) {
+            log_success("Usuario recurrente, desde welcomeFlow -> ", myState);
+
+            await extensions.utils.typing(provider, {
+                delay1: setRandomDelay(800, 550),
+                delay2: setRandomDelay(2850, 1980),
+                ctx
+            });
+
+            await flowDynamic([{
+                body: `${greeting[Math.floor(Math.random() * greeting.length)]}, ${randomElement(CONSTANTS.MESSAGE_WELCOME_BACK)}`,
+                media: randomElement(CONSTANTS.URL_IMAGE_BOT)
+            }])
+
+            await extensions.utils.simulatePausedAndAvailable(provider, ctx);
+            await extensions.utils.wait(650, 550);
+            return gotoFlow(menu_flow);
+        }
+    })
     .addAction(async (ctx, ctxFn) => {
         try {
             const myState = ctxFn.state.getMyState() ?? {};
@@ -198,7 +130,7 @@ const welcomeFlow = addKeyword(EVENTS.WELCOME, {})
             log_success("1° Estado del telefono", myState[phoneNumber]);
 
             if (typeof myState[phoneNumber] === "undefined") {
-                myState[phoneNumber] = {...myState[phoneNumber], on: true, intents: 2, timer: 300000};
+                myState[phoneNumber] = {...myState[phoneNumber], on: true, intents: CONSTANTS.INTENTS, new: true};
                 await ctxFn.state.update(myState);
                 log_success("Estado del telefono", myState);
             }
@@ -209,7 +141,7 @@ const welcomeFlow = addKeyword(EVENTS.WELCOME, {})
             }
             await ctxFn.extensions.utils.typing(ctxFn.provider, {
                 delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(2850, 2050),
+                delay2: setRandomDelay(2850, 1980),
                 ctx
             });
 
@@ -224,8 +156,4 @@ const welcomeFlow = addKeyword(EVENTS.WELCOME, {})
     });
 
 
-function randomImages(URL_IMAGE) {
-    return URL_IMAGE[Math.floor(Math.random() * URL_IMAGE.length)];
-}
-
-export {offFlow, welcomeFlow, onFlow, startChat,welcome_greeting_flow};
+export {welcomeFlow, start_chat_flow, welcome_greeting_flow};

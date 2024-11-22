@@ -26,6 +26,6 @@ const UserSchema = new Schema({
 
 const userSchema = mongoose.model('users', UserSchema);
 userSchema.createCollection().then((collection) => {
-    console.log(chalk.green('<<<<<< Collection created >>>>>>'));
+    console.log(chalk.green('<<<<<< Collection created >>>>>>',collection.collectionName));
 });
 export default userSchema;

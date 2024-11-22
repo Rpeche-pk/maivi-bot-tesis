@@ -32,7 +32,7 @@ const search_explanation_flow = addKeyword(REGEX_SEARCH_PRODUCT, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
-    .addAction(async (ctx, {extensions, provider, gotoFlow, state}) => {
+    .addAction(async (ctx, {extensions, provider, gotoFlow}) => {
         try {
             for (let i = 0; i < CONSTANTS.MESSAGE_SEARCH_PRODUCTS.length; i++) {
                 await extensions.utils.typing(provider, {

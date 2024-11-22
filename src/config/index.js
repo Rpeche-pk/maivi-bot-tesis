@@ -11,7 +11,8 @@ const CONSTANTS = {
         OTP_STRUCTURE:"🔴 El código ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",
         OTP_RESPONSE_ERROR:"🔴 El código ingresado no es correcto, por favor intenta nuevamente.",
     },
-    URL_IMAGE_BOT: ["https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/PAPIKO.jpg"
+    URL_IMAGE_BOT: ["https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/PAPIKO.jpg",
+        "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko17.jpg"
         , "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko7.jpg"
         , "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko5.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko13.jpg",
@@ -19,9 +20,9 @@ const CONSTANTS = {
     MESSAGE_PRINCIPAL: [
         "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
         "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas hasta enlatados, puedo buscar cualquier producto que necesites en esta categoría.",
-        "🔍 *Compara fácilmente*: Mi trabajo es ayudarte a comparar precios de productos de abarrotes entre Metro, Tottus y Plaza Vea." +
+        "🔍 *Compara fácilmente*: Te ayudo a comparar precios" +
         "\n\n📝 *¿Qué puedes hacer conmigo?*\n" +
-        `╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño”).\n ╠ 👉🏽 Yo buscaré el producto por ti.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.`,
+        `╠ 👉🏽 Escribe el producto que necesitas (por ejemplo: “arroz costeño”).\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.`,
         "📊 *¿Qué te muestro?*\n" +
         "\nCuando buscas algo, te doy:\n" +
         `╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.`
@@ -30,7 +31,14 @@ const CONSTANTS = {
         `🔍 Esta funcionalidad te permite buscar un _producto específico_ en los tres *supermercados* ingresando el *nombre del producto* junto con el *nombre de la marca*.\n\n*Por ejemplo:*\n👉 *Producto:* Leche\n👉 *Marca:* Gloria\n\n*Formato:* producto + marca\n\n*Ejemplos correctos:*\n\n * Leche Gloria\n * Aceite Primot\n * Azúcar Bell's\n * Fideo Vittorio`,
         `📌 *Supermercados incluidos:*\n╠ 🏪 Tottus\n╠ 🏪 Plaza Vea\n╙ 🏪 Metro`,
         `📌 *Te mostraré:*\n╠ 🏷️ *nombre del producto*\n╠ 🛒 *marca*\n╠ 💰 *precio*\n╠ 🌐 *Link*\n╙ 🖼️ *Imagen*`,
-    ]
+    ],
+    MESSAGE_WELCOME_BACK: [
+        `¡Hola de nuevo! 👋 Es un gusto tenerte aquí otra vez.`,
+        `¡Bienvenido(a) de vuelta! 💁🏻‍♀ ¿En qué puedo ayudarte hoy?`,
+        `¡Es genial verte otra vez! 😄 ¿Cómo puedo ayudarte?`,
+        `¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?`,
+        `¡Encantado(a) de verte de nuevo! 🥳 ¿Cómo puedo ayudarte?`
+        ]
 };
 
 export { CONSTANTS, MONGO_URI };
