@@ -30,7 +30,7 @@ const search_product_flow = addKeyword(EVENTS.ACTION, {})
 
 const search_explanation_flow = addKeyword(REGEX_SEARCH_PRODUCT, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
-        idleStart(ctx, gotoFlow, globalState.get("timer"));
+        idleReset(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAction(async (ctx, {extensions, provider, gotoFlow}) => {
         try {

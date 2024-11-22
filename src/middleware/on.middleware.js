@@ -31,6 +31,7 @@ const on_middleware = async (ctx, {extensions, provider, gotoFlow, state}) => {
                 token: createSimpleToken(ctx),
                 db: extensions.db.botModels
             });
+            idleStop(ctx);
             return gotoFlow(start_chat_flow);
         }
         myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};

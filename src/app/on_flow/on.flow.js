@@ -1,5 +1,5 @@
 import {addKeyword} from "@builderbot/bot";
-import {idleReset, idleStop} from "../../utils/idle.util.js";
+import {idleStart, idleStop} from "../../utils/idle.util.js";
 import {on_middleware} from "../../middleware/on.middleware.js";
 import {token_middleware} from "../../middleware/token_middleware.js";
 import {setRandomDelay} from "../../utils/delay.util.js";
@@ -14,7 +14,7 @@ const greeting = randomGreeting();
 
 const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
     .addAction(async (ctx, {globalState, gotoFlow}) => {
-        idleReset(ctx, gotoFlow, globalState.get("timer"));
+        idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAction(on_middleware)
     .addAction(token_middleware)
