@@ -4,9 +4,10 @@ import {createOrUpdate, findByPhone} from '../repository/bot.repository.js';
 import { log_error } from '../utils/logger.util.js';
 import {sessionExpiredFlow} from "../app/exit_flow/exit.flow.js";
 import {postSlack} from '../http/slack.http.js';
+import {idleStop} from "../utils/idle.util.js";
 
 
-const tokenMiddleware = async (ctx, {gotoFlow, extensions}) => {
+const token_middleware = async (ctx, {gotoFlow, extensions}) => {
     try {
         const user = await findByPhone(ctx?.from, extensions.db.botModels);
         if (expiredToken(user?.token)) {
@@ -17,9 +18,10 @@ const tokenMiddleware = async (ctx, {gotoFlow, extensions}) => {
             return gotoFlow(sessionExpiredFlow);
         }
     }catch (e) {
+        idleStop(ctx);
         await postSlack({text: `[ERROR FLUJO tokenMiddleware:]` + e.message})
         log_error("ERROR FLUJO tokenMiddleware", e);
     }
 };
 
-export {tokenMiddleware};
+export {token_middleware};

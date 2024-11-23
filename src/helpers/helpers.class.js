@@ -84,7 +84,7 @@ class HelpersClass {
             myState[phone] = {...myState[phone], on: false};
             await this.wait(850, 550);
             await provider.vendor.sendMessage(jid, {text: "❌ Sus oportunidades se han terminado. Intente nuevamente ❌"});
-            await state.update({...myState, [phone]: {...myState[phone], intents: 2}});
+            await state.update({...myState, [phone]: {...myState[phone], intents: 2, new: true}});
             return endFlow();
         }
     }

@@ -7,9 +7,9 @@
 const typingTime=(text) => {
     const typingSpeed = 0.125; // caracteres por segundo
     const textLength = text.length;
-    const typingTime = textLength * typingSpeed*1000;
-    if (textLength >= 30) {
-        return setRandomDelay(4950, 3950);
+    const typingTime = textLength * typingSpeed* 1000;
+    if (textLength >= 50) {
+        return setRandomDelay(3400, 2500);
     }
     return typingTime;
 }

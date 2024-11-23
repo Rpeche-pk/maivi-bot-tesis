@@ -43,6 +43,7 @@ const timeoutFlow = addKeyword(EVENTS.ACTION, {})
             const jid = ctx?.key?.remoteJid;
             await extensions.utils.typing(provider, { delay1: 650, delay2: 1000, ctx })
             await provider.vendor.sendMessage(jid, { text: "❌ Se ha agotado el tiempo de respuesta ❌" });
+            idleStop(ctx);
             return endFlow();
         } catch (e) {
             await handleErrorAndNotifySlack("Error en el flujo timeoutFlow", e);
@@ -51,11 +52,17 @@ const timeoutFlow = addKeyword(EVENTS.ACTION, {})
     });
 
 const sessionExpiredFlow = addKeyword(EVENTS.ACTION, {})
-    .addAction(async (ctx, { extensions, provider, endFlow }) => {
+    .addAction(async (ctx, { extensions, provider, endFlow, state }) => {
         try {
             const jid = ctx?.key?.remoteJid;
-            await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(1750, 1555), ctx })
-            await provider.vendor.sendMessage(jid, { text: "❌ Su sesión dentro del sistema ha expirado ❌ , *vuelva a iniciar el bot escribiendo* 👉🏽 *#empezar*" });
+
+            await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(1850, 1655), ctx })
+            await provider.vendor.sendMessage(jid, { text: "❌ Su sesión dentro del sistema ha expirado ❌ , *vuelva a iniciar el bot escribiendo la palabra* 👉🏽 *empezar*" });
+            state.clear()
+            const myState = state.getMyState() ?? {};
+            myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};
+            await state.update(myState);
+            idleStop(ctx);
             return endFlow();
         } catch (e) {
             await handleErrorAndNotifySlack("Error en el flujo sessionExpiredFlow", e);
