@@ -17,6 +17,11 @@ import {dbConnect} from './models/config/connect.config.js';
 // import chalk from 'chalk';
 
 import flow from './app/index.js';
+import AIClass from "./service/openai.service.js";
+import {CONSTANTS} from "./config/index.js";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const PORT = process.env.PORT ?? 3008
 //const PORT_CHATWOOT = process.env.CHATWOOT_PORT ?? 3005
@@ -60,7 +65,8 @@ const main = async () => {
             //chatwoot: chatwoot,
             db: {
                 botModels: userSchema
-            }
+            },
+            ai : new AIClass(process.env.OPENAI_API_KEY, CONSTANTS.MODEL_AI)
         },
         globalState: {
             timer: 300000, //300000 -> 5 minutos

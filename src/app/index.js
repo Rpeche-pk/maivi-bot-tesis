@@ -9,8 +9,10 @@ import {off_flow} from "./off_flow/off.flow.js";
 import {on_flow} from "./on_flow/on.flow.js";
 import {welcome_greeting_flow} from "./welcome_back_flow/back.flow.js";
 import {audioAIFlow, audioProcessFlow, flowBotAudio} from "./audio_flow/audio.flow.js";
+import {openai_flow} from "./openai_flow/openai.flow.js";
 
 export default createFlow([
+    openai_flow,
     on_flow,
     off_flow,
     welcome_flow,

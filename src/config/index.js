@@ -3,6 +3,7 @@ dotenv.config();
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/whatsapp-bot';
 
 const CONSTANTS = {
+    MODEL_AI: "gpt-4o-mini",
     NAME_COLLECTION: "marketUser",
     INTENTS: 2,
     MESSAGES : {
