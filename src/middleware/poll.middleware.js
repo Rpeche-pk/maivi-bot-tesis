@@ -10,7 +10,7 @@ const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions,
         idleReset(ctx, gotoFlow, globalState.get("timer"));
         const jid = ctx?.key?.remoteJid;
         const myState = state.getMyState();
-        console.log(chalk.italic.blue(`ESTADO DEL FLUJO ${poll_middleware.name}`, myState));
+        console.log(chalk.italic.blue(`ESTADO DEL FLUJO ${poll_middleware.name}`, JSON.stringify(myState)));
         if (ctx?.type !== 'poll') {
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(800, 560),
@@ -18,6 +18,7 @@ const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions,
                 ctx
             });
             idleStop(ctx);
+            await provider.vendor.sendMessage(jid, {delete: ctx?.key})
             return endFlow("💢 Debe elegir una de las opciones válidas, se cierra sesión");
         }
         idleStop(ctx);

@@ -6,10 +6,10 @@ import {setRandomDelay} from "../../utils/delay.util.js";
 import {CONSTANTS} from "../../config/index.js";
 import chalk from "chalk";
 import {menu_flow} from "../menu_flow/menu.flow.js";
-import {randomGreeting} from "../../utils/HourlyGreeting.js";
+import {randomGreeting} from "../../utils/HourlyGreeting.util.js";
 import {randomElement} from "../../utils/random.util.js";
 
-const REGEX_KEYWORD = "/^empezar$/"; //"/^#(empezar)$/g";
+const REGEX_KEYWORD = "/^#(empezar)$/"; //"/^#(empezar)$/g";
 const greeting = randomGreeting();
 
 const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
@@ -42,7 +42,7 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
         }
 
         await extensions.utils.simulatePausedAndAvailable(provider, ctx);
-        console.log(chalk.bgCyan("ESTOY A PUNTO DE ENTRAR AL FLUJO PRINCIPAL BUSQUEDA"));
+        console.log(chalk.blue("ESTOY A PUNTO DE ENTRAR AL FLUJO PRINCIPAL BUSQUEDA"));
         idleStop(ctx);
         return gotoFlow(menu_flow);
     });

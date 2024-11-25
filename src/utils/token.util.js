@@ -10,15 +10,16 @@ dayjs.extend(timezone);
 
 export function expiredToken(token) {
     const decoded = jwtDecode(token);
-    const now = new Date();
+    const now = dayjs();
+    const expirationDate = dayjs.unix(decoded.exp);
     console.log(chalk.italic.bold("Fecha actual: ", dayjs(now).format('YYYY-MM-DD HH:mm:ss')));
-    console.log(chalk.italic.bold("Fecha expiración: ", dayjs.unix(decoded.exp).format('YYYY-MM-DD HH:mm:ss')));
-    return decoded.exp < now.getTime() / 1000;
+    console.log(chalk.italic.bold("Fecha expiración: ", expirationDate.format('YYYY-MM-DD HH:mm:ss')));
+    return now.isAfter(expirationDate);
 }
 
 export const createSimpleToken = (data) => {
     const iat = dayjs().tz('America/Lima');
-    const exp = iat.add(1, 'hours');
+    const exp = iat.add(5, 'minute');
     const payload = {
         sub: data?.from,
         pushName: data?.pushName ?? data?.key?.remoteJid,

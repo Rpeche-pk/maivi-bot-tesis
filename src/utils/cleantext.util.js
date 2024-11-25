@@ -23,3 +23,7 @@ export const extractLinks = (text) => {
         }) || []
     )
 }
+
+export const filterText = (text) => {
+    return text.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ¿?¡!. ]/g, '');
+}

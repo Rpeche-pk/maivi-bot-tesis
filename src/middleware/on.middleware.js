@@ -5,7 +5,7 @@ import {getDevice} from "../utils/device.utils.js";
 import {createSimpleToken} from "../utils/token.util.js";
 import {idleStop} from "../utils/idle.util.js";
 import {handleErrorAndNotifySlack} from "../http/slack.http.js";
-import {start_chat_flow} from "../app/welcome_flow/welcome.flow.js";
+import {start_chat_flow} from "../app/welcome_flow/welcome_flow.js";
 
 
 const on_middleware = async (ctx, {extensions, provider, gotoFlow, state}) => {

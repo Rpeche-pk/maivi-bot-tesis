@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import {htmlTemplateEmail} from '../service/email.template.js';
+import {htmlTemplateEmail} from './email.template.js';
 import chalk from 'chalk';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
