@@ -1,6 +1,6 @@
 import { addKeyword} from '@builderbot/bot'
 import {setRandomDelay} from "../../utils/delay.util.js";
-import {randomGreeting} from "../../utils/HourlyGreeting.js";
+import {randomGreeting} from "../../utils/HourlyGreeting.util.js";
 import chalk from "chalk";
 import {handleErrorAndNotifySlack} from "../../http/slack.http.js";
 import {log_error} from "../../utils/logger.util.js";

@@ -94,8 +94,7 @@ const processAudio = async (audioBuffer, name) => {
 const processAudioToText = async (audioBuffer) => {
     const sessionHash = Math.random().toString(36).substring(2);
     await joinQueue(audioBuffer, sessionHash);
-    const response = await getQueueStatus(sessionHash);
-    return response;
+    return await getQueueStatus(sessionHash);
 }
 
 const uploadAudio = async (fileBuffer, sessionHash) => {
@@ -256,9 +255,7 @@ const getQueueStatus = async (sessionHash) => {
         }
     }).filter(data => data);
 
-    const processCompletedData = processData.find(data => data.msg === 'process_completed') ?? {};
-
-    return processCompletedData;
+    return processData.find(data => data.msg === 'process_completed') ?? {};
 }
 
 
@@ -286,8 +283,7 @@ const textToAudio = async (text, language = 'en') => {
         throw new Error('Error to get audio');
     }
 
-    const audioBuffer = Buffer.from(audioResponse.audio_base64, 'base64');
-    return audioBuffer;
+    return Buffer.from(audioResponse.audio_base64, 'base64');
 
 
 }

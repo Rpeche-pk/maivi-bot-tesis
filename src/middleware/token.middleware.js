@@ -7,7 +7,7 @@ import {postSlack} from '../http/slack.http.js';
 import {idleStop} from "../utils/idle.util.js";
 
 
-const token_middleware = async (ctx, {gotoFlow, extensions}) => {
+const tokenMiddleware = async (ctx, {gotoFlow, extensions}) => {
     try {
         const user = await findByPhone(ctx?.from, extensions.db.botModels);
         if (expiredToken(user?.token)) {
@@ -24,4 +24,4 @@ const token_middleware = async (ctx, {gotoFlow, extensions}) => {
     }
 };
 
-export {token_middleware};
+export {tokenMiddleware};

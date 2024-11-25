@@ -38,7 +38,11 @@ const CONSTANTS = {
         `¡Es genial verte otra vez! 😄 ¿Cómo puedo ayudarte?`,
         `¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?`,
         `¡Encantado(a) de verte de nuevo! 🥳 ¿Cómo puedo ayudarte?`
-        ]
+        ],
+    MESSAGE_BACK_USER :[
+        "¡RECUERDA! 🛒\n" +
+        "*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. ¡Ahorra en cada compra! 💰 "
+    ]
 };
 
 export { CONSTANTS, MONGO_URI };

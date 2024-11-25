@@ -9,8 +9,8 @@ dayjs.extend(isBetween);
 dayjs.extend(customParseFormat);
 
 export const randomGreeting = () => {
-    // Crea un objeto con las variantes de hora y saludos
-    const saludos = {
+    // Crea un objeto con las variantes de hora y greetings
+    const greetings = {
         "06:00-12:00": ["*Buenos Días*", "*Buenos Días* 🌤","*¡Hola, buen día!* 🌞","*Saludos matutinos* ☀️"],
         "12:00-18:00": ["*Saludos vespertinos* 🌅","*Buenas Tardes*", "*Buenas Tardes* ⛅"],
         "18:00-23:59": ["*Hora de relajarse*, *¡Buenas Noches!* 🌌","*Buenas Noches*", "*Buenas Noches* 🌚","*¡Buenas noches!* 🌙"],
@@ -27,18 +27,18 @@ export const randomGreeting = () => {
         }
     };
 
-    const horaActual = getLocalTime();
-    let saludo;
+    const currentTime = getLocalTime();
+    let greeting;
 
-    for (let clave in saludos) {
-        let rangoHorario = clave.split("-");
-        let horaInicio = dayjs(rangoHorario[0], 'HH:mm');
-        let horaFin = dayjs(rangoHorario[1], 'HH:mm');
-        if (horaActual.isBetween(horaInicio, horaFin)) {
-            saludo = saludos[clave];
+    for (let key in greetings) {
+        let timeRange = key.split("-");
+        let startTime = dayjs(timeRange[0], 'HH:mm');
+        let endTime = dayjs(timeRange[1], 'HH:mm');
+        if (currentTime.isBetween(startTime, endTime)) {
+            greeting = greetings[key];
             break;
         }
     }
-    console.log(saludo);
-    return saludo;
+
+    return greeting;
 };

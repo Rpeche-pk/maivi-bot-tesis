@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 function createInitialState(){
     return {
         queues: new Map()
@@ -25,11 +27,11 @@ function createMessageQueue(config) {
         const messageBody = ctx.body;
 
         if (!from || !messageBody) {
-            console.error('Invalid message context:', ctx);
+            console.error(chalk.red('Invalid message context:', ctx));
             return;
         }
 
-        console.log('Enqueueing:', messageBody, 'from:', from);
+        console.log(chalk.blue('Enqueueing:', messageBody, 'from:', from));
 
         let userQueue = state.queues.get(from);
         if (!userQueue) {
@@ -41,7 +43,7 @@ function createMessageQueue(config) {
         userQueue.messages.push({ text: messageBody, timestamp: Date.now() });
         userQueue.callback = callback;
 
-        console.log('Messages for', from, ':', userQueue.messages);
+        console.log(chalk.green('Messages for', from, ':', userQueue.messages));
 
         if (!userQueue.timer) {
             userQueue.timer = setTimeout(() => {
