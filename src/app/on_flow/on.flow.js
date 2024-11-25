@@ -1,7 +1,7 @@
 import {addKeyword} from "@builderbot/bot";
 import {idleStart, idleStop} from "../../utils/idle.util.js";
 import {on_middleware} from "../../middleware/on.middleware.js";
-import {token_middleware} from "../../middleware/token_middleware.js";
+import {tokenMiddleware} from "../../middleware/token.middleware.js";
 import {setRandomDelay} from "../../utils/delay.util.js";
 import {CONSTANTS} from "../../config/index.js";
 import chalk from "chalk";
@@ -17,7 +17,7 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAction(on_middleware)
-    .addAction(token_middleware)
+    .addAction(tokenMiddleware)
     .addAction(async (ctx, {flowDynamic, extensions, gotoFlow, provider}) => {
         await extensions.utils.typing(provider, {
             delay1: setRandomDelay(800, 550),

@@ -8,7 +8,7 @@ import {setRandomDelay} from '../../utils/delay.util.js';
 import {randomGreeting} from '../../utils/HourlyGreeting.js';
 import {CONSTANTS} from '../../config/index.js';
 import {greetingUtil} from '../../utils/greeting.util.js'
-import {token_middleware} from '../../middleware/token_middleware.js';
+import {tokenMiddleware} from '../../middleware/token.middleware.js';
 import {menu_flow} from "../menu_flow/menu.flow.js";
 import {on_middleware} from "../../middleware/on.middleware.js";
 import {on_flow} from "../on_flow/on.flow.js";
@@ -137,7 +137,7 @@ const welcomeFlow = addKeyword(EVENTS.WELCOME, {})
         }
     })
     .addAction(on_middleware)
-    .addAction(token_middleware)
+    .addAction(tokenMiddleware)
     .addAction(async (ctx, {provider, state, gotoFlow, flowDynamic, extensions}) => {
         const myState = state.getMyState() ?? {};
         const numberPhone = ctx?.from;

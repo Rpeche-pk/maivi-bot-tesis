@@ -83,7 +83,7 @@ const main = async () => {
      * read the message and send it to the bot
      */
     adapterProvider.on('message', async (ctx) => {
-        adapterProvider.vendor.readMessages([ctx.key]);
+        await adapterProvider.vendor.readMessages([ctx?.key]);
     })
 
 
@@ -186,4 +186,4 @@ const main = async () => {
     await dbConnect()
 }
 
-main()
+await main()
