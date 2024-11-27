@@ -31,7 +31,7 @@ const getHistoryParse = (_state, k = 15) => {
     const history = _state.get("history") || [];
     const limitHistory = history.slice(-k);
     return limitHistory.reduce((prev, current) => {
-        const msg = current.role === "user" ? `Customer: \"${current.content}\"` : `\nSeller: \"${current.content}\"\n`;
+        const msg = current.role === "user" ? `User: ${current.content}` : `Bot: ${current.content}\n`;
         return prev + msg;
     }, "");
 };

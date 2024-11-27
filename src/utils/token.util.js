@@ -19,7 +19,7 @@ export function expiredToken(token) {
 
 export const createSimpleToken = (data) => {
     const iat = dayjs().tz('America/Lima');
-    const exp = iat.add(5, 'minute');
+    const exp = iat.add(10, 'minute');
     const payload = {
         sub: data?.from,
         pushName: data?.pushName ?? data?.key?.remoteJid,

@@ -12,9 +12,6 @@ import {tokenMiddleware} from '../../middleware/token.middleware.js';
 import {menu_flow} from "../menu_flow/menu.flow.js";
 import {on_middleware} from "../../middleware/on.middleware.js";
 import {randomElement} from "../../utils/random.util.js";
-import {textToSpeech} from "../../service/tts.service.js";
-import {filterText} from "../../utils/cleantext.util.js";
-import {EdgeTTS} from "@andresaya/edge-tts";
 
 config()
 
@@ -64,20 +61,14 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
     });
 
 const welcome_flow = addKeyword(EVENTS.WELCOME, {})
-    .addAction(async (ctx, {provider}) => {
+    /*.addAction(async (ctx, {provider}) => {
         const audioBuffer = await textToSpeech(filterText(ctx.body))
-        let tts = new EdgeTTS();
-        const voices = await tts.getVoices();
-        console.log('Lista de voces disponibles:');
-        voices.forEach((voice) => {
-            console.log(` - ${voice.ShortName}`);
-        });
         await provider.vendor.sendMessage(
             ctx?.key?.remoteJid,
             { audio: audioBuffer, ptt: true, mimetype: 'audio/mpeg' },
             { quoted: ctx },
         )
-    })
+    })*/
     .addAction(async (ctx, ctxFn) => {
         try {
             const myState = ctxFn.state.getMyState() ?? {};

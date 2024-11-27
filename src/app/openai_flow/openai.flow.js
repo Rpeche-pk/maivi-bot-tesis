@@ -1,9 +1,10 @@
 import {addKeyword} from "@builderbot/bot";
-import {getHistoryParse, handleHistory} from "../../utils/handleHistory.util.js";
+import {handleHistory} from "../../utils/handleHistory.util.js";
 
 
-const openai_flow = addKeyword("#ai", {regex: true})
-    .addAction(async (ctx, {flowDynamic, extensions,state}) => {
+const openai_flow = addKeyword("#ai", {})
+    .addAnswer("🤖 *Ingrese su pregunta:*", {capture: true}, null)
+    .addAction(async (ctx, { extensions,state}) => {
         const history = state.getMyState()?.history ?? [];
 
         //OPTION 1
@@ -16,7 +17,7 @@ const openai_flow = addKeyword("#ai", {regex: true})
         await handleHistory({role: "user", content: ctx.body}, state);
 
         //RESPONDE EL OPENAI
-        const largeResponse = await extensions.ai.startChatAI(ctx?.body, history);
+        const largeResponse = await extensions.ai.runDetermine(history, ctx?.body.trim());
 
         //GUARDO EL HISTORIAL QUE EL ASISTENTE ES LA RESPUESTA DE OPENAI
         history.push({
@@ -24,6 +25,7 @@ const openai_flow = addKeyword("#ai", {regex: true})
             content: largeResponse
         })
 
+        console.log('history', history)
 
         //actualizo el historial
         await state.update({history})

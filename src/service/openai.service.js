@@ -31,22 +31,23 @@ class AIClass {
                 },
                 ...history
             ],
-            temperature: 1,
+            temperature: 0.5,
             max_tokens: 256,
             top_p: 1,
             frequency_penalty: 0,
             presence_penalty: 0,
         });
-        return response.choices[0].message.content;
+        return response.choices[0].message?.content || 'unknown';
     };
 
     /**
      * Ejecuta una determinación basada en el historial de conversación
      * @param {Array} history - Historial de mensajes previos
+     * @param query
      * @returns {Promise<string>} Resultado de la determinación o 'unknown'
      */
-    runDetermine = async (history) => {
-        const prompt = generatePromptDetermine();
+    runDetermine = async (history, query) => {
+        const prompt = generatePromptDetermine(query);
         const response = await this.openai.chat.completions.create({
             model: CONSTANTS.MODEL_AI,
             messages: [
@@ -56,7 +57,7 @@ class AIClass {
                 },
                 ...history
             ],
-            temperature: 1,
+            temperature: 0.5,
             max_tokens: 256,
             top_p: 1,
             frequency_penalty: 0,

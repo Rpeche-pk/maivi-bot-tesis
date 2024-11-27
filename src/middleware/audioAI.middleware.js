@@ -12,16 +12,18 @@ const gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDynamic,
                 delay1: setRandomDelay(800, 550),
                 ctx
             });
-            const audioBuffer = await downloadMediaMessage(ctx, "buffer");
+            const audioBuffer = await downloadMediaMessage(ctx, "buffer",{});
             const response = await processAudioToText(audioBuffer, ctx?.key?.id + ".ogg");
             if (response.success) {
                 ctx.body = response.output.data[0].trim()
             } else {
-                await flowDynamic('Error al procesar audio intenta de nuevo');
+                await flowDynamic('❌ *Error* al procesar audio intenta de nuevo');
                 return fallBack();
             }
             await extensions.utils.wait(500);
-            await flowDynamic(ctx.body);
+            await flowDynamic("✅ Se procesó, *correctamente* tu audio." + "\n" + "🔍 *Consulta:* " + ctx.body);
+
+
             await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
         } else {
             await flowDynamic("Por favor envíame un audio 🎤");

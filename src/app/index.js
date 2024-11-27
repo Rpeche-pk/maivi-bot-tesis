@@ -4,7 +4,12 @@ import {advisorFlow} from "./advisor_flow/advisor.flow.js";
 import {timeoutFlow,} from "./timeout_flow/timeout.flow.js";
 import {menu_flow} from './menu_flow/menu.flow.js';
 import {logoutFlow, ping_flow, sessionExpiredFlow, timeoutFlow as timeOut} from "./exit_flow/exit.flow.js";
-import {search_explanation_flow, search_product_flow} from "./options_flow/search-product.flow.js";
+import {
+    choose_input_method_flow,
+    search_audio_flow,
+    search_explanation_flow,
+    search_product_flow
+} from "./options_flow/search-product.flow.js";
 import {off_flow} from "./off_flow/off.flow.js";
 import {on_flow} from "./on_flow/on.flow.js";
 import {welcome_greeting_flow} from "./welcome_back_flow/back.flow.js";
@@ -27,5 +32,7 @@ export default createFlow([
     logoutFlow,
     timeOut,
     sessionExpiredFlow,
-    flowBotAudio, audioAIFlow, audioProcessFlow
+    flowBotAudio, audioAIFlow, audioProcessFlow,
+    choose_input_method_flow,
+    search_audio_flow
 ]);
