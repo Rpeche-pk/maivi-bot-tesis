@@ -11,3 +11,4 @@ docker
 *.log
 *qr.png
 .idea
+db.json
