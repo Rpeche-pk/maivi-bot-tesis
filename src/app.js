@@ -20,6 +20,7 @@ import flow from './app/index.js';
 import AIClass from "./service/openai.service.js";
 import {CONSTANTS} from "./config/index.js";
 import dotenv from 'dotenv';
+import {botEmitter, bot} from "./helpers/events.class.js";
 
 dotenv.config();
 
@@ -91,6 +92,22 @@ const main = async () => {
     adapterProvider.on('message', async (ctx) => {
         await adapterProvider.vendor.readMessages([ctx?.key]);
     })
+
+
+    botEmitter.on('completed', ({ phoneNumber, duration }) => {
+        console.log(`✅ [Evento]: usuario ${phoneNumber} finalizó con duración de ${duration} segundos.`);
+    });
+
+    botEmitter.on('timeout', ({ phoneNumber, duration }) => {
+        console.log(`⏰ [Evento]: usuario ${phoneNumber} expiró con duración de ${duration} segundos.`);
+    });
+
+
+    adapterProvider.on('message', async (ctx) => {
+        bot.startInteraction(ctx?.from);
+        bot.userResponse(ctx?.from, ctx?.body);
+    })
+
 
 
      // 2° opcion !payload?.message.extendedTextMessage.text

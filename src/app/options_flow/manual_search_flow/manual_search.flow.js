@@ -1,16 +1,25 @@
 import {addKeyword} from "@builderbot/bot";
 import {idleStart} from "../../../utils/idle.util.js";
-import {gpt_middleware} from "../../../middleware/audioAI.middleware.js";
+import {openai_middleware} from "../../../middleware/openai.middleware.js";
 
-const REGEX_INPUT_AUDIO = '/Decir por audio/g';
+
+const REGEX_INPUT_TEXT = '/Escribir consulta/g';
 
 /*
-* THIS FLOW IS TRIGGERED WHEN YOU WANT TO SEARCH FOR THE PRODUCT USING VOICE AUDIO
+* THIS FLOW LEADS TO SEARCHING FOR THE PRODUCT MANUALLY.
 */
-const search_audio_flow = addKeyword(REGEX_INPUT_AUDIO, {regex: true})
-    .addAction(async (ctx, {gotoFlow, globalState, flowDynamic}) => {
+const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
+    .addAction(async (ctx, {gotoFlow, globalState}) => {
         idleStart(ctx, gotoFlow, globalState.get("timer"));
-        await flowDynamic("🎤 *Te escucho, envíame un audio con tu consulta*");
-    }).addAction({capture: true}, gpt_middleware);
+    })
+    .addAnswer("🔍 *Ingrese el producto a buscar:* 📦", null, null)
+    .addAction({capture: true}, openai_middleware)
+    .addAnswer("🔍 *¿Deseas realizar otra consulta?*",
+        {
+            capture: true,
+            buttons: [{"body": "Sí"}, {"body": "No"}]
+        }, async (ctx, {endFlow}) => {
+            console.log("End flow", ctx.body);
+        });
 
-export {search_audio_flow};
+export {search_product_flow};

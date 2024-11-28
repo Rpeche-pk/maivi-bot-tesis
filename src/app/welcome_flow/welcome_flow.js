@@ -115,15 +115,14 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
                 body: `${greeting[Math.floor(Math.random() * greeting.length)]}, ${randomElement(CONSTANTS.MESSAGE_WELCOME_BACK)}`,
                 media: randomElement(CONSTANTS.URL_IMAGE_BOT)
             }])
-
-            await extensions.utils.simulatePausedAndAvailable(provider, ctx);
+            await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
 
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(650, 500),
                 delay2: setRandomDelay(1750, 1480),
                 ctx
             });
-            await flowDynamic([{body: CONSTANTS.MESSAGE_BACK_USER}]);
+            await flowDynamic(CONSTANTS.MESSAGE_BACK_USER);
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
 
             return gotoFlow(menu_flow);

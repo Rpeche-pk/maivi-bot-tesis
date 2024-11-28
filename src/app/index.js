@@ -9,8 +9,8 @@ import {off_flow} from "./off_flow/off.flow.js";
 import {on_flow} from "./on_flow/on.flow.js";
 import {welcome_greeting_flow} from "./welcome_back_flow/back.flow.js";
 import {audioAIFlow, audioProcessFlow, flowBotAudio} from "./audio_flow/audio.flow.js";
-import {search_product_flow} from "./options_flow/audio_search_flow/audio_search.flow.js";
-import {search_audio_flow} from "./options_flow/manual_search_flow/manual_search.flow.js";
+import {search_audio_flow} from "./options_flow/audio_search_flow/audio_search.flow.js";
+import {search_product_flow} from "./options_flow/manual_search_flow/manual_search.flow.js";
 
 export default createFlow([
     on_flow,
