@@ -7,6 +7,7 @@ const CONSTANTS = {
     NAME_COLLECTION: "marketUser",
     INTENTS: 2,
     MESSAGES : {
+        FAIL_PREDICTION: "🙇🏽‍♀️ Disculpa, pero no entiendo lo que necesitas. ¿Puedes reformular tu consulta?",
         FAIL:"💢 Por favor elige una opción válida.",
         ERROR_DNI:"🔴 El DNI ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",
         OTP_STRUCTURE:"🔴 El código ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",

@@ -9,7 +9,7 @@ const gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDynamic,
     try {
         if (isAudio(ctx)) {
             await extensions.utils.typingWithoutDelay(provider, {
-                delay1: setRandomDelay(800, 550),
+                delay1: setRandomDelay(650, 500),
                 ctx
             });
             const audioBuffer = await downloadMediaMessage(ctx, "buffer",{});

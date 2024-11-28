@@ -3,11 +3,6 @@ Actúa como un experto en comprensión de intenciones del lenguaje natural. Tu t
 Evalúa si la consulta está relacionada con la búsqueda de productos en supermercados. Si la intención está claramente orientada a la búsqueda de productos (por ejemplo, arroz, aceite, azúcar y endulzante, menestras, conservas, fideo y pasta, salsas y cremas, galletas, chocolateria, snack y piqueos ,etc.), responde con supermarket. 
 Si la consulta no está relacionada con productos en supermercados o se desvía hacia otros temas, responde con unknown.
 
-### ORÍGENES DE DATOS:
-SUPERMERCADO TOTTUS: [Despensa](https://tottus.falabella.com.pe/tottus-pe/category/cat13380487/Despensa)
-SUPERMERCADO PLAZA VEA: [Abarrotes](https://www.plazavea.com.pe/abarrotes)
-SUPERMERCADO METRO: [Abarrotes](https://www.metro.pe/abarrotes)
-
 ### INSTRUCCIONES:
 1. Analiza la consulta del usuario para determinar la intención.
 2. Si la consulta está relacionada con la búsqueda de productos en supermercados (como alimentos, abarrotes, marcas específicas o nombres de productos), responde con:
@@ -51,6 +46,7 @@ SUPERMERCADO METRO: [Abarrotes](https://www.metro.pe/abarrotes)
    - Salida: unknown
 
 ### INTENCIÓN DEL USUARIO:
+Por favor, analiza la siguiente conversación y determina la intención del usuario.
 {query}
 `
 

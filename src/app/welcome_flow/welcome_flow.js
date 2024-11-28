@@ -25,9 +25,8 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {extensions, provider, flowDynamic, gotoFlow}) => {
         try {
             const randomImage = randomElement(CONSTANTS.URL_IMAGE_BOT);
-            await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(1500, 1200),
+            await extensions.utils.typingWithoutDelay(provider, {
+                delay1: setRandomDelay(650, 550),
                 ctx
             });
             await flowDynamic([
@@ -42,15 +41,15 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
 
             for (let i = 0; i < explanations.length; i++) {
                 await extensions.utils.typing(provider, {
-                    delay1: setRandomDelay(800, 550),
-                    delay2: setRandomDelay(2850, 2200),
+                    delay1: setRandomDelay(650, 550),
+                    delay2: setRandomDelay(850, 750),
                     ctx
                 });
                 await flowDynamic([{body: explanations[i]}]);
             }
 
             await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
-            await extensions.utils.wait(750, 600);
+            await extensions.utils.wait(600, 500);
             idleStop(ctx);
             return gotoFlow(menu_flow);
         } catch (error) {
@@ -107,8 +106,8 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
             log_success("Usuario recurrente, desde welcomeFlow -> ", myState);
 
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(2850, 1980),
+                delay1: setRandomDelay(750, 500),
+                delay2: setRandomDelay(1500, 1280),
                 ctx
             });
 
@@ -118,7 +117,15 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
             }])
 
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
-            await extensions.utils.wait(650, 550);
+
+            await extensions.utils.typing(provider, {
+                delay1: setRandomDelay(650, 500),
+                delay2: setRandomDelay(1750, 1480),
+                ctx
+            });
+            await flowDynamic([{body: CONSTANTS.MESSAGE_BACK_USER}]);
+            await extensions.utils.simulatePausedAndAvailable(provider, ctx);
+
             return gotoFlow(menu_flow);
         }
     });

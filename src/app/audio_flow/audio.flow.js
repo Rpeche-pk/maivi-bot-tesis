@@ -13,7 +13,7 @@ const audioAIFlow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {extensions, provider, flowDynamic}) => {
         try {
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
+                delay1: setRandomDelay(750, 550),
                 delay2: setRandomDelay(1500, 1250),
                 ctx
             });

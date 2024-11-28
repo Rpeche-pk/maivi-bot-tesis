@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { generatePromptSupermarket, generatePromptDetermine } from "./prompt.js";
+import {generatePromptDetermine, generatePromptSupermarket} from "./prompt.js";
 import {CONSTANTS} from "../config/index.js";
 
 class AIClass {
@@ -66,5 +66,55 @@ class AIClass {
 
         return response.choices.length > 0 && response.choices[0].message.role === 'user' ? response.choices[0].message.content : 'unknown';
     };
+
+    determineChatFn = async (query, history)=> {
+        const prompt = generatePromptDetermine(query);
+        try {
+            const completion = await this.openai.chat.completions.create({
+                model: CONSTANTS.MODEL_AI,
+                temperature: 0,
+                messages: [
+                    {
+                        "role": "system",
+                        "content": prompt
+                    },
+                    ...history
+                ],
+                functions: [
+                    {
+                        name: "fn_get_prediction_intent",
+                        description: "Predict the user intention for a given conversation",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                prediction: {
+                                    type: "string",
+                                    description: "The predicted user intention.",
+                                    items: {
+                                        type: "string",
+                                        enum: [
+                                            "supermarket",
+                                            "unknown",
+                                        ]
+                                    },
+                                },
+
+                            },
+                            required: ["prediction"]
+                        }
+                    }
+                ],
+                function_call: {
+                    name: "fn_get_prediction_intent",
+                }
+            });
+            return JSON.parse(completion.choices[0].message.function_call.arguments);
+        } catch (err) {
+            console.error(err);
+            return {
+                prediction: '',
+            }
+        }
+    }
 }
 export default AIClass;
