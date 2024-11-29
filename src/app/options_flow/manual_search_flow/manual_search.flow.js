@@ -1,6 +1,8 @@
 import {addKeyword} from "@builderbot/bot";
-import {idleStart} from "../../../utils/idle.util.js";
+import {idleReset, idleStart, idleStop} from "../../../utils/idle.util.js";
 import {openai_middleware} from "../../../middleware/openai.middleware.js";
+import {logoutFlow} from "../../exit_flow/exit.flow.js";
+import {CONSTANTS} from "../../../config/index.js";
 
 
 const REGEX_INPUT_TEXT = '/Escribir consulta/g';
@@ -10,6 +12,7 @@ const REGEX_INPUT_TEXT = '/Escribir consulta/g';
 */
 const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
+        idleStop(ctx);
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAnswer("🔍 *Ingrese el producto a buscar:* 📦", null, null)
@@ -17,9 +20,25 @@ const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
     .addAnswer("🔍 *¿Deseas realizar otra consulta?*",
         {
             capture: true,
-            buttons: [{"body": "Sí"}, {"body": "No"}]
-        }, async (ctx, {endFlow}) => {
-            console.log("End flow", ctx.body);
+            buttons: [{"body": "SI"}, {"body": "NO"}]
+        }, async (ctx, {endFlow, gotoFlow, flowDynamic, extensions,state,fallBack,provider, globalState}) => {
+            idleReset(ctx, gotoFlow, globalState.get("timer"));
+            const body = ctx?.body.toLowerCase();
+            const jid = ctx?.key?.remoteJid;
+
+            await provider.vendor.sendMessage(jid, {delete: ctx?.key})
+
+            if (body === 'no') return gotoFlow(logoutFlow);
+            if (body === 'si') return gotoFlow(search_product_flow);
+
+            await extensions.utils.tryAgain({
+                ctx,
+                state,
+                fallBack,
+                provider,
+                flowDynamic,
+                endFlow
+            }, CONSTANTS.MESSAGES.FAIL);
         });
 
 export {search_product_flow};

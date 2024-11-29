@@ -18,7 +18,7 @@ const logoutFlow = addKeyword(REGEX_EXIT, { regex: true })
             myState[from] = { ...myState[from], on: false, intents: CONSTANTS.INTENTS };
             log_warning("BOT APAGADO desde flujo LogoutFlow-> ", myState);
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(1750, 1480), ctx });
-            await flowDynamic([{ body: "Gracias por usar nuestros servicios, hasta pronto 👋🏽\n _Recuerda que puedes volver a iniciar el bot escribiendo_ *#empezar*" }]);
+            await flowDynamic([{ body: "Gracias por usar nuestros servicios, hasta pronto 👋🏽\n _Recuerda que puedes volver a iniciar el bot escribiendo_ *empezar*" }]);
             await extensions.utils.typingWithoutDelay(provider, { delay1: setRandomDelay(700, 500), delay2: setRandomDelay(950, 580), ctx });
             await flowDynamic("https://github.com/Rpeche-pk");
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 600), delay2: setRandomDelay(850, 640), ctx });

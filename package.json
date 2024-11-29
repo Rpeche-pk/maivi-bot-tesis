@@ -31,6 +31,7 @@
     "mime": "^4.0.4",
     "mime-types": "^2.1.35",
     "mongoose": "^8.8.1",
+    "node-cron": "^3.0.3",
     "openai": "^4.73.0",
     "queue-promise": "^2.2.1",
     "resend": "^4.0.0",

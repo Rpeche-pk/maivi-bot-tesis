@@ -21,7 +21,6 @@ const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions,
             await provider.vendor.sendMessage(jid, {delete: ctx?.key})
             return endFlow("💢 Debe elegir una de las opciones válidas, se cierra sesión");
         }
-        idleStop(ctx);
         await extensions.utils.wait(750, 560);
         await provider.vendor.sendMessage(jid, {delete: ctx?.key})
         await extensions.utils.wait(700, 560);

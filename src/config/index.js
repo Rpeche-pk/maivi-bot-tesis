@@ -31,8 +31,7 @@ const CONSTANTS = {
     ],
     MESSAGE_SEARCH_PRODUCTS: [
         `🔍 Esta funcionalidad te permite buscar un _producto específico_ ,ingresando el *nombre del producto* junto con la *marca*.\n\n*Por ejemplo:*\n👉 *Producto:* Leche\n👉 *Marca:* Gloria\n\n*Formato:* producto + marca\n\n*Ejemplos correctos:*\n\n * Leche Gloria\n * Aceite Primor\n * Azúcar Bell's\n * Fideo Vittorio`,
-        `📌 *Supermercados incluidos:*\n╠ 🏪 Tottus\n╠ 🏪 Plaza Vea\n╙ 🏪 Metro`,
-        `📌 *Te mostraré:*\n╠ 🏷️ *nombre del producto*\n╠ 🛒 *marca*\n╠ 💰 *precio*\n╠ 🌐 *Link*\n╙ 🖼️ *Imagen*`,
+        `📌 *Supermercados incluidos:*\n╠ 🏪 Tottus\n╠ 🏪 Plaza Vea\n╙ 🏪 Metro`
     ],
     MESSAGE_WELCOME_BACK: [
         `¡Hola de nuevo! 👋 Es un gusto tenerte aquí otra vez.`,
