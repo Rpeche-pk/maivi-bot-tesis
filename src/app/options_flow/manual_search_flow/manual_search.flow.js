@@ -15,9 +15,9 @@ const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
         idleStop(ctx);
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
-    .addAnswer("🔍 *Ingrese el producto a buscar:* 📦", null, null)
-    .addAction({capture: true}, openai_middleware)
-    .addAnswer("🔍 *¿Deseas realizar otra consulta?*",
+    .addAnswer("🔍 *Ingrese el producto a buscar:* 📦", {capture:true}, null)
+    .addAction(openai_middleware)
+    .addAnswer("🔍 *Usted; ¿Deseas realizar otra consulta?*",
         {
             capture: true,
             buttons: [{"body": "SI"}, {"body": "NO"}]

@@ -17,7 +17,7 @@ const openai_middleware = async (ctx, {
     try {
         idleReset(ctx, gotoFlow, globalState.get("timer"));
         const body = formatText(ctx?.body);
-        const userState = state.getMyState();
+        const userState = state?.getMyState();
         const phone = ctx?.from;
         userState[phone] = {...userState[phone], history: [{role: "user", content: body}]};
 
@@ -39,6 +39,12 @@ const openai_middleware = async (ctx, {
         await flowDynamic("⏱ *Consultando... ⏱*");
         const myState = state?.getMyState();
         const responseAi = await extensions.ai.startChatAI(body, myState[phone]?.history);
+
+        //PROCESAR LA RESPUESTA DE LA AI Y PASARLA COMO CONSULTA ALA BACKEND CON ELASTIC SEARCH
+
+
+        userState[phone] = {...userState[phone], history: [{role: "assistant", content: responseAi}]};
+        await state.update(userState);
 
         return flowDynamic(responseAi);
 

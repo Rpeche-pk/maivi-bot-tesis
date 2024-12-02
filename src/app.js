@@ -21,6 +21,7 @@ import {CONSTANTS} from "./config/index.js";
 import dotenv from 'dotenv';
 import {bot, botEmitter} from "./helpers/events.class.js";
 import {schedule} from "node-cron";
+import {ApiClient} from "./http/client.http.js";
 
 dotenv.config();
 
@@ -67,7 +68,8 @@ const main = async () => {
             db: {
                 botModels: userSchema
             },
-            ai : new AIClass(process.env.OPENAI_API_KEY, CONSTANTS.MODEL_AI)
+            ai : new AIClass(process.env.OPENAI_API_KEY, CONSTANTS.MODEL_AI),
+            http: new ApiClient(CONSTANTS.URL_BACKEND)
         },
         globalState: {
             timer: 300000, //300000 -> 5 minutos
@@ -166,18 +168,6 @@ const main = async () => {
 
     httpServer(+PORT)
     await dbConnect()
-
-    schedule('* * * * *', async () => {
-        await adapterProvider.vendor.sendMessage('status@broadcast', {
-            image: {
-                url: "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko17.jpg"
-            },
-            caption: "Estamos en proceso de mantenimiento, disculpe las molestias."
-        }, {
-            statusJidList: ['51966524537@s.whatsapp.net']
-        })
-        console.log('Successfully uploaded whatsapp status 🎉')
-    });
 }
 
 await main()

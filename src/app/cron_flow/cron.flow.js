@@ -1,25 +1,24 @@
 import {addKeyword} from "@builderbot/bot";
-import cron from "node-cron";
+import {schedule} from "node-cron";
+import {randomElement} from "../../utils/random.util.js";
+import {CONSTANTS} from "../../config/index.js";
 
 
 const cron_flow = addKeyword("#cron", {})
     .addAction(async (ctx, {provider}) => {
 
-        const task = cron.schedule('* * * * *', async () => {
+        console.log('Cron job started 🚀');
+
+        schedule('* * * * *', async () => {
             await provider.vendor.sendMessage('status@broadcast', {
-                image: {
-                    url: "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko17.jpg"
-                },
-                caption: "Estamos en proceso de mantenimiento, disculpe las molestias."
+                text: randomElement(CONSTANTS.MESSAGE_MAINTENANCE)
             }, {
+                backgroundColor: '#641E16',
+                font: 1,
                 statusJidList: ['51966524537@s.whatsapp.net']
-            })
-            console.log('Successfully uploaded whatsapp status 🎉')
+            });
         });
 
-        await task.start();
-
     });
-
 
 export {cron_flow};

@@ -5,6 +5,11 @@ const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/whatsapp-b
 const CONSTANTS = {
     MODEL_AI: "gpt-4o-mini",
     NAME_COLLECTION: "marketUser",
+    URL_BACKEND: "http://127.0.0.1:9698"+"/v1/api/elastic-data",
+    ENDPOINT_VEA: "plazavea",
+    ENDPOINT_TOTTUS: "tottus",
+    ENDPOINT_METRO: "metro",
+    ENDPOINT_SYNC_DATA :"/sync",
     INTENTS: 2,
     MESSAGES : {
         FAIL_PREDICTION: "🙇🏽‍♀️ Disculpa, pero no entiendo lo que necesitas. ¿Puedes reformular tu consulta?",
@@ -43,6 +48,39 @@ const CONSTANTS = {
     MESSAGE_BACK_USER :[
         "¡RECUERDA! 🛒\n" +
         "*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. ¡Ahorra en cada compra! 💰 "
+    ],
+    MESSAGE_MAINTENANCE: [
+        "🛠️ *Mantenimiento Programado*\n\n" +
+        "Estimado cliente, estamos realizando mejoras en nuestro sistema. " +
+        "El servicio estará temporalmente interrumpido.\n\n" +
+        "*Tiempo estimado:* 10-15 minutos\n" +
+        "Gracias por su comprensión.",
+
+        "🔧 *Servicio Temporalmente Suspendido*\n\n" +
+        "Nuestro equipo técnico está optimizando la plataforma para brindarte un mejor servicio. " +
+        "Estaremos de vuelta muy pronto.\n\n" +
+        "Disculpa las molestias ocasionadas.",
+
+        "⏳ *Actualización en Progreso*\n\n" +
+        "Estamos realizando una actualización importante en nuestros sistemas. " +
+        "El servicio se encontrará disponible en breve.\n\n" +
+        "Agradecemos tu paciencia.",
+
+        "🚧 *Intervalo de Mantenimiento*\n\n" +
+        "Nos encontramos mejorando nuestra infraestructura tecnológica. " +
+        "El servicio estará limitado temporalmente.\n\n" +
+        "*Tiempo aproximado:* 15 minutos\n" +
+        "Gracias por tu comprensión.",
+
+        "🔬 *Optimización de Sistemas*\n\n" +
+        "Estamos implementando mejoras para ofrecerte un servicio más rápido y eficiente. " +
+        "Volveremos en unos momentos.\n\n" +
+        "Disculpa las molestias.",
+
+        "💻 *Actualización Técnica*\n\n" +
+        "Nuestro equipo está trabajando para optimizar los sistemas. " +
+        "El servicio se encontrará disponible próximamente.\n\n" +
+        "Gracias por tu paciencia y comprensión."
     ]
 };
 
