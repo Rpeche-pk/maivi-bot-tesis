@@ -42,6 +42,10 @@ const openai_middleware = async (ctx, {
 
         //PROCESAR LA RESPUESTA DE LA AI Y PASARLA COMO CONSULTA ALA BACKEND CON ELASTIC SEARCH
 
+        const arrayParams = String(responseAi).split("+");
+        const nameProduct = arrayParams[0].trim();
+        const brandProduct = arrayParams[1].trim();
+
 
         userState[phone] = {...userState[phone], history: [{role: "assistant", content: responseAi}]};
         await state.update(userState);

@@ -14,11 +14,11 @@ export const formatText = (text) => {
 }
 
 export const extractLinks = (text) => {
-    const links = text.match(/\[([0-9]+)\]:\s+(https?:\/\/[^\s]+)\s+""/gm)
+    const links = text.match(/\[([0-9]+)]:\s+(https?:\/\/[^\s]+)\s+""/gm)
 
     return (
         links?.map((link) => {
-            const [index, url] = link.match(/\[([0-9]+)\]:\s+(https?:\/\/[^\s]+)\s+""/).slice(1)
+            const [index, url] = link.match(/\[([0-9]+)]:\s+(https?:\/\/[^\s]+)\s+""/).slice(1)
             return { index, url }
         }) || []
     )

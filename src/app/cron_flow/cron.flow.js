@@ -9,7 +9,7 @@ const cron_flow = addKeyword("#cron", {})
 
         console.log('Cron job started 🚀');
 
-        schedule('* * * * *', async () => {
+        schedule('0 0 23 */4 * ?', async () => {
             await provider.vendor.sendMessage('status@broadcast', {
                 text: randomElement(CONSTANTS.MESSAGE_MAINTENANCE)
             }, {
