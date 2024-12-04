@@ -3,6 +3,7 @@ import {idleReset, idleStart, idleStop} from "../../../utils/idle.util.js";
 import {openai_middleware} from "../../../middleware/openai.middleware.js";
 import {logoutFlow} from "../../exit_flow/exit.flow.js";
 import {CONSTANTS} from "../../../config/index.js";
+import {setRandomDelay} from "../../../utils/delay.util.js";
 
 
 const REGEX_INPUT_TEXT = '/Escribir consulta/g';
@@ -20,7 +21,8 @@ const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
     .addAnswer("🔍 *Usted; ¿Deseas realizar otra consulta?*",
         {
             capture: true,
-            buttons: [{"body": "SI"}, {"body": "NO"}]
+            buttons: [{"body": "SI"}, {"body": "NO"}],
+            delay: setRandomDelay(750, 550)
         }, async (ctx, {endFlow, gotoFlow, flowDynamic, extensions,state,fallBack,provider, globalState}) => {
             idleReset(ctx, gotoFlow, globalState.get("timer"));
             const body = ctx?.body.toLowerCase();

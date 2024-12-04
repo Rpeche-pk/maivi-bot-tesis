@@ -16,6 +16,7 @@ class ApiClient {
             const errorBody = await response.text();
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorBody}`);
         }
+        console.log(response)
         const text = await response.text();
         try {
             return JSON.parse(text);
@@ -33,7 +34,7 @@ class ApiClient {
     async getProducts(endPoint, filters) {
         try {
             const params = new URLSearchParams(filters);
-            const response = await fetch(`${this.baseUrl}/${endPoint}/${params.toString()}`, {
+            const response = await fetch(`${this.baseUrl}/${endPoint}?${params.toString()}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

@@ -46,6 +46,7 @@ const openai_middleware = async (ctx, {
         const nameProduct = arrayParams[0].trim();
         const brandProduct = arrayParams[1].trim();
 
+        await getProductsApi(nameProduct, brandProduct, extensions);
 
         userState[phone] = {...userState[phone], history: [{role: "assistant", content: responseAi}]};
         await state.update(userState);
@@ -57,5 +58,10 @@ const openai_middleware = async (ctx, {
         log_error("ERROR FLUJO openai_middleware", e);
     }
 };
+
+const getProductsApi = async (nameProduct, brandProduct, adapter)=>{
+    const responses= await adapter.http.getProducts(CONSTANTS.ENDPOINT_VEA, {nameProduct, brand: brandProduct});
+    console.log(responses);
+}
 
 export {openai_middleware};

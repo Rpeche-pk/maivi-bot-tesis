@@ -5,7 +5,7 @@ const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/whatsapp-b
 const CONSTANTS = {
     MODEL_AI: "gpt-4o-mini",
     NAME_COLLECTION: "marketUser",
-    URL_BACKEND: "http://127.0.0.1:9698"+"/v1/api/elastic-data",
+    URL_BACKEND: "http://127.0.0.1:9698/v1/api/elastic-data",
     ENDPOINT_VEA: "plazavea",
     ENDPOINT_TOTTUS: "tottus",
     ENDPOINT_METRO: "metro",
@@ -26,7 +26,7 @@ const CONSTANTS = {
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg"],
     MESSAGE_PRINCIPAL: [
         "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
-        "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas, etc. Puedo buscar cualquier producto que necesites en esta categoría.",
+        "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas, etc.",
         "🔍 *Compara fácilmente*: Te ayudo a comparar precios" +
         "\n\n📝 *¿Qué puedes hacer conmigo?*\n" +
         `╠ 👉🏽 Escribe el producto que necesitas.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.`,
