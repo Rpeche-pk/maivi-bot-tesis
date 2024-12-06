@@ -20,7 +20,6 @@ import AIClass from "./service/openai.service.js";
 import {CONSTANTS} from "./config/index.js";
 import dotenv from 'dotenv';
 import {bot, botEmitter} from "./helpers/events.class.js";
-import {schedule} from "node-cron";
 import {ApiClient} from "./http/client.http.js";
 
 dotenv.config();

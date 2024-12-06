@@ -101,7 +101,7 @@ const getProductsApi = async (nameProduct, brandProduct, adapter) => {
                 `📦 Categoría: ${product.category}\n`+
                 `🏷️ Marca: ${product.brand}\n`+
                 `🔗 Link de compra: ${product.url}`
-            ).join("\n\n") + "\n\n";
+            ).join("\n\n");
     };
 
 
@@ -116,7 +116,7 @@ const getProductsApi = async (nameProduct, brandProduct, adapter) => {
     const cheapestTottus = findCheapestProduct(tottusProducts);
     const cheapestMetro = findCheapestProduct(metroProducts);
 
-    let message = `🔎 *Resultados de la búsqueda: ${nameProduct} ${brandProduct}*\n\n`;
+    messages.push(`🔎 *Resultados de la búsqueda: ${nameProduct} ${brandProduct}*\n`);
 
     // Add products by supermarket
     messages.push(generateProductMessage(tottusProducts, "TOTTUS"));
