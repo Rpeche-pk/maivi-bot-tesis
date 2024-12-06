@@ -72,7 +72,7 @@ const main = async () => {
             http: new ApiClient(CONSTANTS.URL_BACKEND)
         },
         globalState: {
-            timer: 300000, //300000 -> 5 minutos
+            timer: 600000, //300000 -> 5 minutos
         }
 
     }

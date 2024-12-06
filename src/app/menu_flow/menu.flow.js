@@ -11,7 +11,7 @@ const menu_flow = addKeyword(EVENTS.ACTION, {})
     .addAnswer("📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
         {
             capture: true,
-            delay: setRandomDelay(750, 550),
+            delay: setRandomDelay(650, 550),
             buttons: [{"body": "*Buscar por categoría*"}, {"body": "*Buscar por producto más marca*"}, {"body": "*Ayuda o asesor*"},{"body": "❌Salir del Sistema"}]
         },
         poll_middleware)

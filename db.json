@@ -1,23 +1,99 @@
 [
   {
-    "ref": "1d9a9501-52f4-4fbd-aeba-4b4870739994",
-    "keyword": "f335df9ca3797028d28632a86c3c06d8",
+    "ref": "34fd5868-4b25-40d9-9563-713b1cced1f9",
+    "keyword": "a07e48655d1eb1adf63c1b74c6ee668e",
     "answer": "Holaaa",
     "options": {},
     "from": "51966524537",
     "refSerialize": "b2f460b5d12d08ff0cf8788bf6f0d6c4"
   },
   {
-    "ref": "b43aa2ae-98fd-4698-a142-00b59372ee93",
-    "keyword": "b2f460b5d12d08ff0cf8788bf6f0d6c4",
-    "answer": "Hahsa",
+    "ref": "ans_c6fb70d4-6af4-4707-a684-7d80e0cafd90",
+    "keyword": "key_c4380c9a-7ccf-4c94-ae2e-b30f0d4b6dbf",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "4b772c41de7e0eb1c883d9457abcfe6d",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_346c7461-1119-4ddb-805b-3155ffc6146b",
+    "keyword": "ans_c6fb70d4-6af4-4707-a684-7d80e0cafd90",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "7d05a4caec6d8f89d9205e7b1866aecc",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_31f2f96c-b361-4247-81eb-21510dca0e96",
+    "keyword": "ans_346c7461-1119-4ddb-805b-3155ffc6146b",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "f07b02a146100b731de0d29fb0e3457b",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_19d1ee9f-f54d-476e-b1e7-923d0a3e7bff",
+    "keyword": "key_fbe352ea-8253-4f87-8774-600f231fb124",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "dd03846dbaee84f0e4080a5628b11def",
+    "from": "51966524537"
+  },
+  {
+    "ref": "welcome_greeting_flow_executed",
+    "keyword": "key_c16e2fb4-c2b7-4087-bfcc-fc1f9e7124c4",
+    "answer": "💬 *Buenas Tardes* ⛅ _para_ _iniciar_ _la_ _conversación_ _dentro_ _del_ _sistema_ _*MAIVI BOT*_ \n📲 *Digíte una opción, que sea un número*\n╠ *[1]* 👉🏽 _para empezar_\n╙ *[2]* 👉🏽 _para consultas puntuales_",
+    "options": {
+      "buttons": [],
+      "capture": true,
+      "delay": 0,
+      "ref": "welcome_greeting_flow_executed",
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "7edd6a3a2a3d38d1b000860f73e4d0c5",
+    "from": "51966524537"
+  },
+  {
+    "ref": "73ad1724-8df8-45b8-8b68-e259daf67259",
+    "keyword": "7edd6a3a2a3d38d1b000860f73e4d0c5",
+    "answer": "1",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "43a6b69cc83b0c57ea871db5ce90b1d6"
+    "refSerialize": "290236b1d481a790a200ea6e94b2122a"
   },
   {
-    "ref": "ans_6c9b5080-87ab-4969-a657-51fb721e1bd7",
-    "keyword": "key_b415dd85-b0da-45a6-bab3-54ce9eaf2e1b",
+    "ref": "ans_e822c194-4809-4bb8-8a56-5f521db07dfd",
+    "keyword": "welcome_greeting_flow_executed",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -27,12 +103,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "040ed0147c9982a5d7e7abd2091277b7",
+    "refSerialize": "d271d8a8f6a6a8f242df9cd4751b41b8",
     "from": "51966524537"
   },
   {
-    "ref": "ans_0675557e-f266-4e6d-962a-eceb4b707da1",
-    "keyword": "ans_6c9b5080-87ab-4969-a657-51fb721e1bd7",
+    "ref": "ans_48a03dd9-f086-4133-bea2-a6605a6ced04",
+    "keyword": "key_c47f5a2e-8751-4428-90d6-fefdc6c4f645",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -42,12 +118,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "98248ecc10e711b72007bfc3643aedbd",
+    "refSerialize": "b1435a3a4b9c75370e3d8444f49cd23f",
     "from": "51966524537"
   },
   {
-    "ref": "ans_e9c27b92-2e3a-4ea6-8186-154e382983b6",
-    "keyword": "ans_0675557e-f266-4e6d-962a-eceb4b707da1",
+    "ref": "ans_a006a782-98db-4ffe-b219-e1f6472b2edf",
+    "keyword": "ans_48a03dd9-f086-4133-bea2-a6605a6ced04",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -57,12 +133,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "45c3fa5641421a09382624fd94c824b0",
+    "refSerialize": "a9d35ec9bd95f53dafb42698363fa5ba",
     "from": "51966524537"
   },
   {
-    "ref": "ans_bf5f8d33-3544-4b80-b440-8764b28c0267",
-    "keyword": "ans_e9c27b92-2e3a-4ea6-8186-154e382983b6",
+    "ref": "ans_5321cd2d-093e-45e7-ab08-aa039d38ece9",
+    "keyword": "ans_a006a782-98db-4ffe-b219-e1f6472b2edf",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -72,26 +148,41 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "c8e7970ca8c1fee52465f4c7a25f5d35",
+    "refSerialize": "67f35ab9f6468fb6ba6a76981d96240f",
     "from": "51966524537"
   },
   {
-    "ref": "c64f967a-e1d6-4c5d-82a9-ee7ae6d90e0b",
+    "ref": "ans_7b2ceb3f-2ed6-417f-a907-d06bfce4155b",
+    "keyword": "ans_5321cd2d-093e-45e7-ab08-aa039d38ece9",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "c2a6975aaff3b1cca92b368cf78164b2",
+    "from": "51966524537"
+  },
+  {
+    "ref": "f35de559-989a-4465-8109-cd1acc83931c",
     "keyword": null,
-    "answer": "*Buenas Noches*, ¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?",
+    "answer": "*Buenas Tardes*, ¡Bienvenido(a) de vuelta! 💁🏻‍♀ ¿En qué puedo ayudarte hoy?",
     "options": {
-      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko13.jpg",
+      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg",
       "buttons": [],
       "capture": false,
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "1a2e0900a202cf264546ef8f72699648"
+    "refSerialize": "c44eaad98a231996dd83ac1974aa7b3b"
   },
   {
-    "ref": "99f34397-ad75-4f95-ad86-cd52e38fa4ae",
+    "ref": "ab9d479b-30ed-404d-9907-844a7f682493",
     "keyword": null,
-    "answer": "¡RECUERDA! 🛒\n*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. ¡Ahorra en cada compra! 💰 ",
+    "answer": "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
     "options": {
       "media": null,
       "buttons": [],
@@ -99,11 +190,50 @@
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "0bb9d05ea951a75ea6e7d49e7591856b"
+    "refSerialize": "812954d1a8ed4be4d74c84ec3ea925b4"
   },
   {
-    "ref": "ans_8143f81c-d1ba-4d11-b0de-c7f15a0051db",
-    "keyword": "key_ccfefd83-8e9e-47df-99ef-ab1f3de45721",
+    "ref": "306c78be-f189-43a3-8c4e-e8253f661985",
+    "keyword": null,
+    "answer": "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas, etc.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "d1e9c6ebbeb46a600d30f443e5078f57"
+  },
+  {
+    "ref": "aff793c0-6cc5-45b0-849a-a560a9795433",
+    "keyword": null,
+    "answer": "🔍 *Compara fácilmente*: Te ayudo a comparar precios\n\n📝 *¿Qué puedes hacer conmigo?*\n╠ 👉🏽 Escribe el producto que necesitas.\n╙ 👉🏽 Te daré los resultados con precios, marcas y enlaces para que compres fácilmente.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "30758b7b4bca1d5dc5ac158f8d1aa5fc"
+  },
+  {
+    "ref": "c96e6778-28d1-4367-ae96-7db47a0a1c3f",
+    "keyword": null,
+    "answer": "📊 *¿Qué te muestro?*\n\nCuando buscas algo, te doy:\n╠ 👉🏽 Nombre del producto.\n╠ 👉🏽 Marca.\n╠ 👉🏽 Precio en cada supermercado.\n╙ 👉🏽 Enlace para que lo compres directamente.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "6c909b8bc55652e27d12cbde195435b0"
+  },
+  {
+    "ref": "ans_23fc119f-6fa5-4607-9f09-1dbf42e8ef94",
+    "keyword": "key_4d77a006-a24e-477f-9b17-62f2b4a4d6e5",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -113,12 +243,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "38866eac26ccc21e7888acc564706aa7",
+    "refSerialize": "37411a04e49c8d230d56f1853cdf3760",
     "from": "51966524537"
   },
   {
-    "ref": "ans_19e13f5a-a7b8-44d3-8552-185780e1b716",
-    "keyword": "ans_8143f81c-d1ba-4d11-b0de-c7f15a0051db",
+    "ref": "ans_995e5c16-e8cb-48a2-8488-d5d1b6d7cc42",
+    "keyword": "ans_23fc119f-6fa5-4607-9f09-1dbf42e8ef94",
     "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
     "options": {
       "buttons": [
@@ -136,17 +266,17 @@
         }
       ],
       "capture": false,
-      "delay": 609,
+      "delay": 577,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "16736b85c6c0ad3e931da6fee6f291c6",
+    "refSerialize": "5ed1d07fc3968462bff88e98c7c4c5c3",
     "from": "51966524537"
   },
   {
-    "ref": "ans_393e18c7-035f-44a2-86ca-74b2c02a05d6",
-    "keyword": "ans_19e13f5a-a7b8-44d3-8552-185780e1b716",
+    "ref": "ans_0e64dbcc-4586-4ba4-b89e-b5a9cd1ac053",
+    "keyword": "ans_995e5c16-e8cb-48a2-8488-d5d1b6d7cc42",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -164,25 +294,25 @@
         }
       ],
       "capture": true,
-      "delay": 609,
+      "delay": 577,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "d354db7841d4d6d82af4b0f5a80a4890",
+    "refSerialize": "2b88d04fc2f624c584c94457e8c80e71",
     "from": "51966524537"
   },
   {
-    "ref": "5b2dc5fd-f7bd-4080-8257-4e1a278ff59d",
-    "keyword": "d354db7841d4d6d82af4b0f5a80a4890",
+    "ref": "3b6fa0f7-ad43-4fd2-9515-78c43ed98df7",
+    "keyword": "2b88d04fc2f624c584c94457e8c80e71",
     "answer": "*Buscar por producto más marca*",
     "options": {},
     "from": "51966524537",
     "refSerialize": "6d7afb1932dc9e2cbfa8b93c880296da"
   },
   {
-    "ref": "ans_4d330286-6bf0-41d1-a380-996ac62d4e72",
-    "keyword": "key_d56e46f1-8eb9-4efe-8800-480cc90e881d",
+    "ref": "ans_340a5cca-0645-453e-8923-21c42ff6a0b5",
+    "keyword": "key_e2b28de5-dc25-480e-aac5-9f163d86da70",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -192,12 +322,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "12a2e630b2816cb23dd8b11c8013d3f6",
+    "refSerialize": "a430214324005ef2d7cc158378fecb1d",
     "from": "51966524537"
   },
   {
-    "ref": "ans_9aaece88-2c4e-4e5e-8ed1-9c8fc7293dc8",
-    "keyword": "ans_4d330286-6bf0-41d1-a380-996ac62d4e72",
+    "ref": "ans_b3790372-ab6a-4b8c-930e-80fc6e4eb8f0",
+    "keyword": "ans_340a5cca-0645-453e-8923-21c42ff6a0b5",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -207,12 +337,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "938e9032ab1d398958ebebab86393b6f",
+    "refSerialize": "9a558083b112a9fe29677ba56aa23961",
     "from": "51966524537"
   },
   {
-    "ref": "ans_c640b734-0c71-433c-87cf-1efc4cd94f9d",
-    "keyword": "key_93409868-585e-422e-afe4-3c67d5c9c2c8",
+    "ref": "ans_ca294c4f-82ff-4d72-9881-fc9f73d62b20",
+    "keyword": "key_78343dd8-c518-4482-8366-c26c6efafa71",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -222,12 +352,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "974c83d80b960ae368aa15725c83c8c4",
+    "refSerialize": "4c4486c184a21206d69ebd3fd4eed4e8",
     "from": "51966524537"
   },
   {
-    "ref": "ans_95261886-5d25-45c0-bc79-4c68e2ff4a3a",
-    "keyword": "ans_c640b734-0c71-433c-87cf-1efc4cd94f9d",
+    "ref": "ans_d5b3dfb6-bddc-4846-9ea4-cd7a4c5e26f3",
+    "keyword": "ans_ca294c4f-82ff-4d72-9881-fc9f73d62b20",
     "answer": "🔍 *¿Cómo deseas ingresar tu consulta?*",
     "options": {
       "buttons": [
@@ -242,17 +372,17 @@
         }
       ],
       "capture": false,
-      "delay": 678,
+      "delay": 651,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "8a8cf1d3b7becc78e26dd0540457d0c6",
+    "refSerialize": "5c3ec9a61cedd258fc8ba35189cfc0c5",
     "from": "51966524537"
   },
   {
-    "ref": "ans_7901395b-2d4d-4684-b473-eb35c42622cd",
-    "keyword": "ans_95261886-5d25-45c0-bc79-4c68e2ff4a3a",
+    "ref": "ans_a57a12f6-f2b1-49f6-bfaf-b1a64e1764a3",
+    "keyword": "ans_d5b3dfb6-bddc-4846-9ea4-cd7a4c5e26f3",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -267,25 +397,25 @@
         }
       ],
       "capture": true,
-      "delay": 678,
+      "delay": 651,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "54eef7bc9371c09a77eef8a8c8d4f00f",
+    "refSerialize": "2ad4ad7ce8784fb291d6ba16d9a6ecbf",
     "from": "51966524537"
   },
   {
-    "ref": "368c290d-6555-4b9d-81ce-df665c21e968",
-    "keyword": "54eef7bc9371c09a77eef8a8c8d4f00f",
+    "ref": "1cdac83b-c2ab-497d-9671-a86a52cc26cb",
+    "keyword": "2ad4ad7ce8784fb291d6ba16d9a6ecbf",
     "answer": "*Escribir consulta*",
     "options": {},
     "from": "51966524537",
     "refSerialize": "e4ba03b6e8566cf785597ee4abf9e9e4"
   },
   {
-    "ref": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "keyword": "key_0e3eb64c-2fae-486f-b0a1-6e9430ad9255",
+    "ref": "ans_d412fc84-b85a-4a13-9574-2115d90952d8",
+    "keyword": "key_f3dd46db-c28c-4970-b755-c805a656b15a",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -295,12 +425,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "015a3c5a51f2a8a6ef06d58c3c99ff12",
+    "refSerialize": "251199b821e95b82ddcf6c9d47061024",
     "from": "51966524537"
   },
   {
-    "ref": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "keyword": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
+    "ref": "ans_61fe14ef-3985-4d19-96c8-be3d9eb9512c",
+    "keyword": "ans_d412fc84-b85a-4a13-9574-2115d90952d8",
     "answer": "🔍 *Ingrese el producto a buscar:* 📦",
     "options": {
       "buttons": [],
@@ -310,12 +440,12 @@
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "aa6810a8a1f0bca79df9808b389410e3",
+    "refSerialize": "378105c7800f06ebdba0d0ce8c448f3d",
     "from": "51966524537"
   },
   {
-    "ref": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
-    "keyword": "ans_071c686b-377c-49c4-9286-984d74baae33",
+    "ref": "ans_8b01e3a0-6ff6-4e46-88ba-403d07eb178a",
+    "keyword": "ans_61fe14ef-3985-4d19-96c8-be3d9eb9512c",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [],
@@ -325,20 +455,20 @@
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "8227c240cc59bce82425938c2e75eebb",
+    "refSerialize": "00176dbd8aca4c34a1c2d338fa18395d",
     "from": "51966524537"
   },
   {
-    "ref": "3dea236e-490f-474d-8a23-9b327ce21339",
-    "keyword": "8227c240cc59bce82425938c2e75eebb",
-    "answer": "Deseo chocolate winter",
+    "ref": "caec54e9-2ed0-4f3d-8859-8e37492577f3",
+    "keyword": "00176dbd8aca4c34a1c2d338fa18395d",
+    "answer": "Deseo saber el prwcio del aceite primor",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "76a54ba55f2addede643e233d4718ee8"
+    "refSerialize": "8f20d6c34cbbe49b31bec08e66c466ef"
   },
   {
-    "ref": "ans_844b5f95-e991-47ea-84e4-bc07ad8d94d9",
-    "keyword": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
+    "ref": "ans_73095415-8a0b-43d1-a2bf-06c5cf09baec",
+    "keyword": "ans_8b01e3a0-6ff6-4e46-88ba-403d07eb178a",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -348,11 +478,11 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "f5a51d77d0bdabc2fa3ebc81fce34b82",
+    "refSerialize": "782a138cdb56f1eded79231192371378",
     "from": "51966524537"
   },
   {
-    "ref": "b05c7271-1d9d-44fc-b3c0-c4a550bf09a0",
+    "ref": "d07847a8-5385-4fc5-8602-05357d1fc336",
     "keyword": null,
     "answer": "⏱ *Consultando... ⏱*",
     "options": {
@@ -365,159 +495,9 @@
     "refSerialize": "c7eb98cfa40190eba821df853f3bbeb9"
   },
   {
-    "ref": "ans_e583a533-8913-46f9-b879-faa689441a62",
-    "keyword": "ans_844b5f95-e991-47ea-84e4-bc07ad8d94d9",
-    "answer": "🔍 *Usted; ¿Deseas realizar otra consulta?*",
-    "options": {
-      "buttons": [
-        {
-          "body": "SI"
-        },
-        {
-          "body": "NO"
-        }
-      ],
-      "capture": false,
-      "delay": 579,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "6d8f7cc15b14ef9affaf30d50195fd0f",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_6b90f28b-5809-4641-aed0-93a37444e4fb",
-    "keyword": "ans_e583a533-8913-46f9-b879-faa689441a62",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [
-        {
-          "body": "SI"
-        },
-        {
-          "body": "NO"
-        }
-      ],
-      "capture": true,
-      "delay": 579,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "e41ab3036bea55078591d2e26a730018",
-    "from": "51966524537"
-  },
-  {
-    "ref": "184570de-96d4-4a23-973f-1c8a519f58bc",
-    "keyword": "e41ab3036bea55078591d2e26a730018",
-    "answer": "Holaaa",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "b2f460b5d12d08ff0cf8788bf6f0d6c4"
-  },
-  {
-    "ref": "ans_6b90f28b-5809-4641-aed0-93a37444e4fb",
-    "keyword": "ans_e583a533-8913-46f9-b879-faa689441a62",
-    "answer": "Tienes 2 intentos.\n💢 Por favor elige una opción válida.",
-    "options": {
-      "buttons": [
-        {
-          "body": "SI"
-        },
-        {
-          "body": "NO"
-        }
-      ],
-      "capture": true,
-      "delay": 579,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "e41ab3036bea55078591d2e26a730018",
-    "from": "51966524537"
-  },
-  {
-    "ref": "08a95874-f91f-4f7b-ad07-720f6bd0eddd",
-    "keyword": "e41ab3036bea55078591d2e26a730018",
-    "answer": "SI",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "a3ce9d744b2d0b3ec82c43ebfa951790"
-  },
-  {
-    "ref": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "keyword": "key_0e3eb64c-2fae-486f-b0a1-6e9430ad9255",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "015a3c5a51f2a8a6ef06d58c3c99ff12",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "keyword": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "answer": "🔍 *Ingrese el producto a buscar:* 📦",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "aa6810a8a1f0bca79df9808b389410e3",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
-    "keyword": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [],
-      "capture": true,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "8227c240cc59bce82425938c2e75eebb",
-    "from": "51966524537"
-  },
-  {
-    "ref": "fe5c4a7f-1eb2-4be1-b1a9-a2d218288bcd",
-    "keyword": "8227c240cc59bce82425938c2e75eebb",
-    "answer": "Chocolate winter deseo saber su precio",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "7be25195338bfa96b6ec338ec096e4c8"
-  },
-  {
-    "ref": "ans_844b5f95-e991-47ea-84e4-bc07ad8d94d9",
-    "keyword": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "f5a51d77d0bdabc2fa3ebc81fce34b82",
-    "from": "51966524537"
-  },
-  {
-    "ref": "a9e8ece5-8eb1-4dba-bfe0-91477c941d98",
+    "ref": "c741b60c-f556-4224-82ac-6d1733617fe3",
     "keyword": null,
-    "answer": "⏱ *Consultando... ⏱*",
+    "answer": "🔎 *Resultados de la búsqueda: aceite primor*\n\n🔹 *#1*\n🛒 *Producto:* aceite 1.8l\n💲 *Precio:* S/ 16.30\n🏪 *Supermercado:* Tottus\n📦 *Categoría:* Aceites\n🏷️ *Marca:* PRIMOR\n🔗 *Link de compra:* https://tottus.falabella.com.pe/tottus-pe/product/119580635/aceite-vegetal-primor-botella-x-18l/119580636?exp=tottus\n\n🔹 *#2*\n🛒 *Producto:* aceite vegetal de 900 ml\n💲 *Precio:* S/ 7.90\n🏪 *Supermercado:* Tottus\n📦 *Categoría:* Aceites\n🏷️ *Marca:* PRIMOR\n🔗 *Link de compra:* https://tottus.falabella.com.pe/tottus-pe/product/113706444/aceite-vegetal-primor-botella-x-900ml/113706446?exp=tottus\n\n🔹 *#3*\n🛒 *Producto:* Aceite Vegetal PRIMOR Galón 5L\n💲 *Precio:* S/ 47.10\n🏪 *Supermercado:* Plaza Vea\n📦 *Categoría:* Aceite\n🏷️ *Marca:* PRIMOR\n🔗 *Link de compra:* https://www.plazavea.com.pe/aceite-vegetal-primor-galon-5l/p\n\n🔹 *#4*\n🛒 *Producto:* aceite vegetal premium de 900 ml\n💲 *Precio:* S/ 10.50\n🏪 *Supermercado:* Tottus\n📦 *Categoría:* Aceites\n🏷️ *Marca:* PRIMOR\n🔗 *Link de compra:* https://tottus.falabella.com.pe/tottus-pe/product/113706602/aceite-vegetal-primor-premium-botella-x-900ml/113706603?exp=tottus\n\n🔹 *#5*\n🛒 *Producto:* Pack Aceite Vegetal PRIMOR Premium 900ml Botella 2un\n💲 *Precio:* S/ 18.50\n🏪 *Supermercado:* Plaza Vea\n📦 *Categoría:* Aceite\n🏷️ *Marca:* PRIMOR\n🔗 *Link de compra:* https://www.plazavea.com.pe/pack-aceite-vegetal-primor-premium-900ml-botella-2un/p",
     "options": {
       "media": null,
       "buttons": [],
@@ -525,11 +505,11 @@
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "c7eb98cfa40190eba821df853f3bbeb9"
+    "refSerialize": "01c6dc190e4785713636fd580dcc7ad9"
   },
   {
-    "ref": "ans_e583a533-8913-46f9-b879-faa689441a62",
-    "keyword": "ans_844b5f95-e991-47ea-84e4-bc07ad8d94d9",
+    "ref": "ans_6827a56a-f4dc-46dd-a9fb-efe1562b154e",
+    "keyword": "ans_73095415-8a0b-43d1-a2bf-06c5cf09baec",
     "answer": "🔍 *Usted; ¿Deseas realizar otra consulta?*",
     "options": {
       "buttons": [
@@ -541,17 +521,17 @@
         }
       ],
       "capture": false,
-      "delay": 579,
+      "delay": 614,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "6d8f7cc15b14ef9affaf30d50195fd0f",
+    "refSerialize": "f9964259f4f9ca378e974bba7e0ca99c",
     "from": "51966524537"
   },
   {
-    "ref": "ans_6b90f28b-5809-4641-aed0-93a37444e4fb",
-    "keyword": "ans_e583a533-8913-46f9-b879-faa689441a62",
+    "ref": "ans_b7c6ac77-4ea5-4f57-893c-1d945205fd8c",
+    "keyword": "ans_6827a56a-f4dc-46dd-a9fb-efe1562b154e",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -563,25 +543,25 @@
         }
       ],
       "capture": true,
-      "delay": 579,
+      "delay": 614,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "e41ab3036bea55078591d2e26a730018",
+    "refSerialize": "0623b03fc02abcc7d8d7ba24e80d0e2e",
     "from": "51966524537"
   },
   {
-    "ref": "d14b3abf-0ba3-46f4-82a1-5aa55aa9c543",
-    "keyword": "e41ab3036bea55078591d2e26a730018",
-    "answer": "SI",
+    "ref": "4177ad13-cecf-43be-b24b-25cac8a0d9da",
+    "keyword": "0623b03fc02abcc7d8d7ba24e80d0e2e",
+    "answer": "NO",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "a3ce9d744b2d0b3ec82c43ebfa951790"
+    "refSerialize": "6b30dd30198db6b0a9ec1b064264ed74"
   },
   {
-    "ref": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "keyword": "key_0e3eb64c-2fae-486f-b0a1-6e9430ad9255",
+    "ref": "ans_db878be2-4d3e-4181-b6af-b7b20753bfbc",
+    "keyword": "key_e30f5755-d839-4bd6-9ca4-f3bdef79656b",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -591,57 +571,38 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "015a3c5a51f2a8a6ef06d58c3c99ff12",
+    "refSerialize": "ef066c12037a6cc6388ce3f054d29c4a",
     "from": "51966524537"
   },
   {
-    "ref": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "keyword": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "answer": "🔍 *Ingrese el producto a buscar:* 📦",
+    "ref": "e14e5a32-ca9f-4402-9199-310fcd4bb137",
+    "keyword": null,
+    "answer": "Gracias por usar nuestros servicios, hasta pronto 👋🏽\n _Recuerda que puedes volver a iniciar el bot escribiendo_ *empezar*",
     "options": {
+      "media": null,
       "buttons": [],
       "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
+      "delay": 0
     },
-    "refSerialize": "aa6810a8a1f0bca79df9808b389410e3",
-    "from": "51966524537"
+    "from": "51966524537",
+    "refSerialize": "87a5d2238d3ac687cea9c90bcab4fb0e"
   },
   {
-    "ref": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
-    "keyword": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "answer": "__capture_only_intended__",
+    "ref": "eca9bfc6-473f-4678-9008-40072202de05",
+    "keyword": null,
+    "answer": "https://github.com/Rpeche-pk",
     "options": {
-      "buttons": [],
-      "capture": true,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "8227c240cc59bce82425938c2e75eebb",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_43b58117-2fb4-4ea3-afdf-947f03d9df25",
-    "keyword": "key_defdfd45-2f48-45ad-a281-d9465d65ec4b",
-    "answer": "__call_action__",
-    "options": {
+      "media": null,
       "buttons": [],
       "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
+      "delay": 0
     },
-    "refSerialize": "d5c125efa365e79be32de5d4bf0c6b6c",
-    "from": "51966524537"
+    "from": "51966524537",
+    "refSerialize": "ceaaa768c40aaeaab1507b3fab639a99"
   },
   {
-    "ref": "a829d8f6-2510-4fcb-a27b-43efc315185e",
-    "keyword": "ans_43b58117-2fb4-4ea3-afdf-947f03d9df25",
+    "ref": "53bfb8fb-e6c2-429c-a536-04cb1c1f4d7a",
+    "keyword": "ans_db878be2-4d3e-4181-b6af-b7b20753bfbc",
     "answer": "__end_flow__",
     "options": {
       "media": null,
@@ -651,419 +612,5 @@
     },
     "from": "51966524537",
     "refSerialize": "a07e48655d1eb1adf63c1b74c6ee668e"
-  },
-  {
-    "ref": "38b9ca6c-3294-42a5-aca4-8e4b48679575",
-    "keyword": "a07e48655d1eb1adf63c1b74c6ee668e",
-    "answer": "Chocolate winter deseo su precio",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "097a3110be5bb56539e670f7b88827da"
-  },
-  {
-    "ref": "ans_6c9b5080-87ab-4969-a657-51fb721e1bd7",
-    "keyword": "key_b415dd85-b0da-45a6-bab3-54ce9eaf2e1b",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "040ed0147c9982a5d7e7abd2091277b7",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_0675557e-f266-4e6d-962a-eceb4b707da1",
-    "keyword": "ans_6c9b5080-87ab-4969-a657-51fb721e1bd7",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "98248ecc10e711b72007bfc3643aedbd",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_e9c27b92-2e3a-4ea6-8186-154e382983b6",
-    "keyword": "ans_0675557e-f266-4e6d-962a-eceb4b707da1",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "45c3fa5641421a09382624fd94c824b0",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_bf5f8d33-3544-4b80-b440-8764b28c0267",
-    "keyword": "ans_e9c27b92-2e3a-4ea6-8186-154e382983b6",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "c8e7970ca8c1fee52465f4c7a25f5d35",
-    "from": "51966524537"
-  },
-  {
-    "ref": "428919ae-6c56-48b8-bf45-b66dd9f922b7",
-    "keyword": null,
-    "answer": "*¡Buenas noches!* 🌙, ¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?",
-    "options": {
-      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko5.jpg",
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "51966524537",
-    "refSerialize": "2ed8ae18bcc648fb9ad1de47ee7b89a0"
-  },
-  {
-    "ref": "8d5af3f6-b11a-4029-8921-ebe44c990183",
-    "keyword": null,
-    "answer": "¡RECUERDA! 🛒\n*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. ¡Ahorra en cada compra! 💰 ",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "51966524537",
-    "refSerialize": "0bb9d05ea951a75ea6e7d49e7591856b"
-  },
-  {
-    "ref": "ans_8143f81c-d1ba-4d11-b0de-c7f15a0051db",
-    "keyword": "key_ccfefd83-8e9e-47df-99ef-ab1f3de45721",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "38866eac26ccc21e7888acc564706aa7",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_19e13f5a-a7b8-44d3-8552-185780e1b716",
-    "keyword": "ans_8143f81c-d1ba-4d11-b0de-c7f15a0051db",
-    "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
-    "options": {
-      "buttons": [
-        {
-          "body": "*Buscar por categoría*"
-        },
-        {
-          "body": "*Buscar por producto más marca*"
-        },
-        {
-          "body": "*Ayuda o asesor*"
-        },
-        {
-          "body": "❌Salir del Sistema"
-        }
-      ],
-      "capture": false,
-      "delay": 609,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "16736b85c6c0ad3e931da6fee6f291c6",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_393e18c7-035f-44a2-86ca-74b2c02a05d6",
-    "keyword": "ans_19e13f5a-a7b8-44d3-8552-185780e1b716",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [
-        {
-          "body": "*Buscar por categoría*"
-        },
-        {
-          "body": "*Buscar por producto más marca*"
-        },
-        {
-          "body": "*Ayuda o asesor*"
-        },
-        {
-          "body": "❌Salir del Sistema"
-        }
-      ],
-      "capture": true,
-      "delay": 609,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "d354db7841d4d6d82af4b0f5a80a4890",
-    "from": "51966524537"
-  },
-  {
-    "ref": "72549529-ea36-4f81-bbb5-c16d26021ed5",
-    "keyword": "d354db7841d4d6d82af4b0f5a80a4890",
-    "answer": "*Buscar por producto más marca*",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "6d7afb1932dc9e2cbfa8b93c880296da"
-  },
-  {
-    "ref": "ans_4d330286-6bf0-41d1-a380-996ac62d4e72",
-    "keyword": "key_d56e46f1-8eb9-4efe-8800-480cc90e881d",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "12a2e630b2816cb23dd8b11c8013d3f6",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_9aaece88-2c4e-4e5e-8ed1-9c8fc7293dc8",
-    "keyword": "ans_4d330286-6bf0-41d1-a380-996ac62d4e72",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "938e9032ab1d398958ebebab86393b6f",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_c640b734-0c71-433c-87cf-1efc4cd94f9d",
-    "keyword": "key_93409868-585e-422e-afe4-3c67d5c9c2c8",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "974c83d80b960ae368aa15725c83c8c4",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_95261886-5d25-45c0-bc79-4c68e2ff4a3a",
-    "keyword": "ans_c640b734-0c71-433c-87cf-1efc4cd94f9d",
-    "answer": "🔍 *¿Cómo deseas ingresar tu consulta?*",
-    "options": {
-      "buttons": [
-        {
-          "body": "*Escribir consulta*"
-        },
-        {
-          "body": "*Decir por audio*"
-        },
-        {
-          "body": "❌Salir del Sistema"
-        }
-      ],
-      "capture": false,
-      "delay": 678,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "8a8cf1d3b7becc78e26dd0540457d0c6",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_7901395b-2d4d-4684-b473-eb35c42622cd",
-    "keyword": "ans_95261886-5d25-45c0-bc79-4c68e2ff4a3a",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [
-        {
-          "body": "*Escribir consulta*"
-        },
-        {
-          "body": "*Decir por audio*"
-        },
-        {
-          "body": "❌Salir del Sistema"
-        }
-      ],
-      "capture": true,
-      "delay": 678,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "54eef7bc9371c09a77eef8a8c8d4f00f",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ef280628-b7c6-4cf1-b381-62764d8cb2e3",
-    "keyword": "54eef7bc9371c09a77eef8a8c8d4f00f",
-    "answer": "*Escribir consulta*",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "e4ba03b6e8566cf785597ee4abf9e9e4"
-  },
-  {
-    "ref": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "keyword": "key_0e3eb64c-2fae-486f-b0a1-6e9430ad9255",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "015a3c5a51f2a8a6ef06d58c3c99ff12",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "keyword": "ans_ec03dbd0-40a6-494d-ab8b-565a35e0abfa",
-    "answer": "🔍 *Ingrese el producto a buscar:* 📦",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "aa6810a8a1f0bca79df9808b389410e3",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
-    "keyword": "ans_071c686b-377c-49c4-9286-984d74baae33",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [],
-      "capture": true,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "8227c240cc59bce82425938c2e75eebb",
-    "from": "51966524537"
-  },
-  {
-    "ref": "cf193741-c0b8-4e3d-a0c0-f63211e63aa6",
-    "keyword": "8227c240cc59bce82425938c2e75eebb",
-    "answer": "Deseo chocolate winters",
-    "options": {},
-    "from": "51966524537",
-    "refSerialize": "cf669fc58167d2b325dcaaac909157b9"
-  },
-  {
-    "ref": "ans_844b5f95-e991-47ea-84e4-bc07ad8d94d9",
-    "keyword": "ans_ea2aa288-a86c-4785-aca7-8d4852fdcf9c",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "f5a51d77d0bdabc2fa3ebc81fce34b82",
-    "from": "51966524537"
-  },
-  {
-    "ref": "08cda7c0-550e-44a9-8519-2d30c4910942",
-    "keyword": null,
-    "answer": "⏱ *Consultando... ⏱*",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "51966524537",
-    "refSerialize": "c7eb98cfa40190eba821df853f3bbeb9"
-  },
-  {
-    "ref": "032a3759-fc6e-4c16-b0fd-7d41e0b56a74",
-    "keyword": null,
-    "answer": "chocolate + winters",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "51966524537",
-    "refSerialize": "b153134ea81ac3bc3b65e2d856322e31"
-  },
-  {
-    "ref": "ans_e583a533-8913-46f9-b879-faa689441a62",
-    "keyword": "ans_844b5f95-e991-47ea-84e4-bc07ad8d94d9",
-    "answer": "🔍 *Usted; ¿Deseas realizar otra consulta?*",
-    "options": {
-      "buttons": [
-        {
-          "body": "SI"
-        },
-        {
-          "body": "NO"
-        }
-      ],
-      "capture": false,
-      "delay": 579,
-      "nested": [],
-      "keyword": {},
-      "callback": false
-    },
-    "refSerialize": "6d8f7cc15b14ef9affaf30d50195fd0f",
-    "from": "51966524537"
-  },
-  {
-    "ref": "ans_6b90f28b-5809-4641-aed0-93a37444e4fb",
-    "keyword": "ans_e583a533-8913-46f9-b879-faa689441a62",
-    "answer": "__capture_only_intended__",
-    "options": {
-      "buttons": [
-        {
-          "body": "SI"
-        },
-        {
-          "body": "NO"
-        }
-      ],
-      "capture": true,
-      "delay": 579,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "e41ab3036bea55078591d2e26a730018",
-    "from": "51966524537"
   }
 ]

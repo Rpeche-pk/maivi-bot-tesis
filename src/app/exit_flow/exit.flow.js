@@ -69,14 +69,14 @@ const sessionExpiredFlow = addKeyword(EVENTS.ACTION, {})
         try {
             const jid = ctx?.key?.remoteJid;
 
-            await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(2550, 1955), ctx })
+            await extensions.utils.typing(provider, { delay1: setRandomDelay(500, 450), delay2: setRandomDelay(1750, 1555), ctx })
             await provider.vendor.sendMessage(jid, { text: "❌ Su sesión dentro del sistema ha expirado ❌ , *vuelva a iniciar el bot*, si gusta consultar nuestro _servicio_"});
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
             const myState = state.getMyState() ?? {};
             myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};
             await state.update(myState);
             idleStop(ctx);
-            await extensions.utils.wait(750, 600);
+            await extensions.utils.wait(580, 475);
             return gotoFlow(welcome_greeting_flow);
         } catch (e) {
             await handleErrorAndNotifySlack("Error en el flujo sessionExpiredFlow", e);
