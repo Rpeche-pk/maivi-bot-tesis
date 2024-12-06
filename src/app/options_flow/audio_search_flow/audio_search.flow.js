@@ -1,6 +1,6 @@
 import {addKeyword} from "@builderbot/bot";
 import {idleStart} from "../../../utils/idle.util.js";
-import {gpt_middleware} from "../../../middleware/audioAI.middleware.js";
+import {audio_gpt_middleware} from "../../../middleware/audioAI.middleware.js";
 
 const REGEX_INPUT_AUDIO = '/Decir por audio/g';
 
@@ -11,7 +11,7 @@ const search_audio_flow = addKeyword(REGEX_INPUT_AUDIO, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState, flowDynamic}) => {
         idleStart(ctx, gotoFlow, globalState.get("timer"));
         await flowDynamic("🎤 *Te escucho, envíame un audio con tu consulta*");
-    }).addAction({capture: true}, gpt_middleware);
+    }).addAction({capture: true}, audio_gpt_middleware);
 
 export {search_audio_flow};
 

@@ -14,9 +14,9 @@ class ApiClient {
     async #handleResponse(response) {
         if (!response.ok) {
             const errorBody = await response.text();
-            throw new Error(`HTTP error! status: ${response.status}, message: ${errorBody}`);
+            log_error(`HTTP error! status: ${response.status}, message: ${errorBody}`);
         }
-        console.log(response)
+
         const text = await response.text();
         try {
             return JSON.parse(text);
