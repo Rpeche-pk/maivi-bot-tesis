@@ -1,6 +1,6 @@
-import { createBot, createProvider} from '@builderbot/bot'
-import { JsonFileDB as Database } from '@builderbot/database-json'
-import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
+import {createBot, createProvider} from '@builderbot/bot'
+import {JsonFileDB as Database} from '@builderbot/database-json'
+import {BaileysProvider as Provider} from '@builderbot/provider-baileys'
 import {helpersInstance as Instance} from './helpers/helpers.class.js'
 import {userSchema} from "./models/index.js";
 // import Queue from 'queue-promise';
@@ -15,8 +15,14 @@ import {dbConnect} from './models/config/connect.config.js';
 // import { convertOggMp3 } from './utils/oggToMp3.util.js';
 // import { downloadMediaMessage } from '@whiskeysockets/baileys';
 // import chalk from 'chalk';
-
 import flow from './app/index.js';
+import AIClass from "./service/openai.service.js";
+import {CONSTANTS} from "./config/index.js";
+import dotenv from 'dotenv';
+import {bot, botEmitter} from "./helpers/events.class.js";
+import {ApiClient} from "./http/client.http.js";
+
+dotenv.config();
 
 const PORT = process.env.PORT ?? 3008
 //const PORT_CHATWOOT = process.env.CHATWOOT_PORT ?? 3005
@@ -60,16 +66,18 @@ const main = async () => {
             //chatwoot: chatwoot,
             db: {
                 botModels: userSchema
-            }
+            },
+            ai : new AIClass(process.env.OPENAI_API_KEY, CONSTANTS.MODEL_AI),
+            http: new ApiClient(CONSTANTS.URL_BACKEND)
         },
         globalState: {
-            timer: 300000, //300000 -> 5 minutos
+            timer: 600000, //300000 -> 5 minutos
         }
 
     }
 
     //provider, dynamicBlacklist
-    const { handleCtx, httpServer} = await createBot({
+    const { httpServer} = await createBot({
         flow,
         provider: adapterProvider,
         database: adapterDB,
@@ -83,9 +91,23 @@ const main = async () => {
      * read the message and send it to the bot
      */
     adapterProvider.on('message', async (ctx) => {
-        adapterProvider.vendor.readMessages([ctx.key]);
+        await adapterProvider.vendor.readMessages([ctx?.key]);
     })
 
+
+    botEmitter.on('completed', ({ phoneNumber, duration }) => {
+        console.log(`✅ [Evento]: usuario ${phoneNumber} finalizó con duración de ${duration} segundos.`);
+    });
+
+    botEmitter.on('timeout', ({ phoneNumber, duration }) => {
+        console.log(`⏰ [Evento]: usuario ${phoneNumber} expiró con duración de ${duration} segundos.`);
+    });
+
+
+    adapterProvider.on('message', async (ctx) => {
+        bot.startInteraction(ctx?.from);
+        bot.userResponse(ctx?.from, ctx?.body);
+    })
 
      // 2° opcion !payload?.message.extendedTextMessage.text
      // ESTO ESCUCHA LOS EVENTOS DE MENSAJES ENTRANTES (CUANDO EL CLIENTE ENVIA UN MENSAJE ---> )
@@ -143,47 +165,8 @@ const main = async () => {
         })
     })*/
 
-    adapterProvider.server.post(
-        '/v1/messages',
-        handleCtx(async (bot, req, res) => {
-            const { number, message, urlMedia } = req.body
-            await bot.sendMessage(number, message, { media: urlMedia ?? null })
-            return res.end('sended')
-        })
-    )
-
-    adapterProvider.server.post(
-        '/v1/register',
-        handleCtx(async (bot, req, res) => {
-            const { number, name } = req.body
-            await bot.dispatch('REGISTER_FLOW', { from: number, name })
-            return res.end('trigger')
-        })
-    )
-
-    adapterProvider.server.post(
-        '/v1/samples',
-        handleCtx(async (bot, req, res) => {
-            const { number, name } = req.body
-            await bot.dispatch('SAMPLES', { from: number, name })
-            return res.end('trigger')
-        })
-    )
-
-    adapterProvider.server.post(
-        '/v1/blacklist',
-        handleCtx(async (bot, req, res) => {
-            const { number, intent } = req.body
-            if (intent === 'remove') bot.blacklist.remove(number)
-            if (intent === 'add') bot.blacklist.add(number)
-
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            return res.end(JSON.stringify({ status: 'ok', number, intent }))
-        })
-    )
-    
     httpServer(+PORT)
     await dbConnect()
 }
 
-main()
+await main()

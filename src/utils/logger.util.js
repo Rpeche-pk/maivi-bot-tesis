@@ -7,7 +7,7 @@ import chalk from 'chalk';
  * @param {Object} [details] - Detalles adicionales opcionales.
  */
 export function log_success(message, details = {}) {
-    let log_date = new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds() +":"+new Date().getMilliseconds();
+    let log_date = formatLogDate();
     console.log(`[${log_date}]`,chalk.green('✔ ÉXITO:'), chalk.green.bold(message));
     if (Object.keys(details).length > 0) {
         console.log(`[${log_date}]`,chalk.green('  Detalles:'), chalk.white(JSON.stringify(details)));
@@ -20,7 +20,7 @@ export function log_success(message, details = {}) {
  * @param {Error|Object} [error] - El objeto de error o detalles adicionales.
  */
 export function log_error(message, error = {}) {
-    const logDate = new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds() +":"+new Date().getMilliseconds();
+    const logDate = formatLogDate();
     console.log(`[${logDate} ]`,chalk.red('✖ ERROR:'), chalk.red.bold(message));
     if (error instanceof Error) {
         console.log(`[${logDate}]`,chalk.red('  Detalles del error:'));
@@ -41,8 +41,13 @@ export function log_error(message, error = {}) {
  * @param {Object} [details] - Detalles adicionales opcionales.
  */
 export function log_warning(message, details = {}) {
-    console.log(chalk.yellow('⚠ ADVERTENCIA:'), chalk.yellow.bold(message));
+    const logDate = formatLogDate();
+    console.log(`[${logDate} ]`,chalk.yellow('⚠ ADVERTENCIA:'), chalk.yellow.bold(message));
     if (Object.keys(details).length > 0) {
         console.log(chalk.yellow('  Detalles:'), chalk.white(JSON.stringify(details)));
     }
+}
+
+function formatLogDate () {
+    return new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDay()+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds() +":"+new Date().getMilliseconds();
 }

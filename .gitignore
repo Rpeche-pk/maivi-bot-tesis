@@ -4,10 +4,11 @@ node_modules
 .idea/*
 .vscode
 .assets/*
-#*_sessions
+*_sessions
 *tokens
 .wwebjs*
 docker
 *.log
 *qr.png
 .idea
+db.json

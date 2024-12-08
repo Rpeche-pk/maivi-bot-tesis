@@ -19,7 +19,7 @@ const advisorFlow = addKeyword(REGEX_ADVISOR,{})
             const jid = ctx?.key?.remoteJid;
             myState[ctx.from] = {...myState[ctx.from], on: false};
             console.log(chalk.bgCyan("BOT APAGADO -> "), chalk.cyan(JSON.stringify(myState)));
-            //await provider.vendor.readMessages([ctx?.key]);
+
             await provider.vendor.presenceSubscribe(jid);
             await extensions.utils.wait(setRandomDelay(750,550));
             await provider.vendor.sendPresenceUpdate("composing", jid);

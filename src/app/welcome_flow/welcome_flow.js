@@ -12,8 +12,6 @@ import {tokenMiddleware} from '../../middleware/token.middleware.js';
 import {menu_flow} from "../menu_flow/menu.flow.js";
 import {on_middleware} from "../../middleware/on.middleware.js";
 import {randomElement} from "../../utils/random.util.js";
-import {textToSpeech} from "../../service/tts.service.js";
-import {filterText} from "../../utils/cleantext.util.js";
 
 config()
 
@@ -27,9 +25,8 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {extensions, provider, flowDynamic, gotoFlow}) => {
         try {
             const randomImage = randomElement(CONSTANTS.URL_IMAGE_BOT);
-            await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(1500, 1200),
+            await extensions.utils.typingWithoutDelay(provider, {
+                delay1: setRandomDelay(520, 450),
                 ctx
             });
             await flowDynamic([
@@ -44,15 +41,15 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
 
             for (let i = 0; i < explanations.length; i++) {
                 await extensions.utils.typing(provider, {
-                    delay1: setRandomDelay(800, 550),
-                    delay2: setRandomDelay(2850, 2200),
+                    delay1: setRandomDelay(490, 410),
+                    delay2: setRandomDelay(650, 550),
                     ctx
                 });
                 await flowDynamic([{body: explanations[i]}]);
             }
 
             await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
-            await extensions.utils.wait(750, 600);
+            await extensions.utils.wait(550, 500);
             idleStop(ctx);
             return gotoFlow(menu_flow);
         } catch (error) {
@@ -63,14 +60,6 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
     });
 
 const welcome_flow = addKeyword(EVENTS.WELCOME, {})
-    .addAction(async (ctx, {provider}) => {
-        const audioBuffer = await textToSpeech(filterText(ctx.body))
-        await provider.vendor.sendMessage(
-            ctx?.key?.remoteJid,
-            { audio: audioBuffer, ptt: true, mimetype: 'audio/mpeg' },
-            { quoted: ctx },
-        )
-    })
     .addAction(async (ctx, ctxFn) => {
         try {
             const myState = ctxFn.state.getMyState() ?? {};
@@ -109,8 +98,8 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
             log_success("Usuario recurrente, desde welcomeFlow -> ", myState);
 
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(2850, 1980),
+                delay1: setRandomDelay(550, 490),
+                delay2: setRandomDelay(1250, 1080),
                 ctx
             });
 
@@ -118,9 +107,16 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
                 body: `${greeting[Math.floor(Math.random() * greeting.length)]}, ${randomElement(CONSTANTS.MESSAGE_WELCOME_BACK)}`,
                 media: randomElement(CONSTANTS.URL_IMAGE_BOT)
             }])
+            await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
 
+            await extensions.utils.typing(provider, {
+                delay1: setRandomDelay(600, 500),
+                delay2: setRandomDelay(1350, 1080),
+                ctx
+            });
+            await flowDynamic(CONSTANTS.MESSAGE_BACK_USER);
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
-            await extensions.utils.wait(650, 550);
+
             return gotoFlow(menu_flow);
         }
     });

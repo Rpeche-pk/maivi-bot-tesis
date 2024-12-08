@@ -18,9 +18,9 @@ const logoutFlow = addKeyword(REGEX_EXIT, { regex: true })
             myState[from] = { ...myState[from], on: false, intents: CONSTANTS.INTENTS };
             log_warning("BOT APAGADO desde flujo LogoutFlow-> ", myState);
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(1750, 1480), ctx });
-            await flowDynamic([{ body: "Gracias por usar nuestros servicios, hasta pronto 👋🏽\n _Recuerda que puedes volver a iniciar el bot escribiendo_ *#empezar*" }]);
+            await flowDynamic([{ body: "Gracias por usar nuestros servicios, hasta pronto 👋🏽\n _Recuerda que puedes volver a iniciar el bot escribiendo_ *empezar*" }]);
             await extensions.utils.typingWithoutDelay(provider, { delay1: setRandomDelay(700, 500), delay2: setRandomDelay(950, 580), ctx });
-            await flowDynamic("https://github.com/Rpeche-pk");
+            await flowDynamic("https://backend.luispeche.tech/");
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 600), delay2: setRandomDelay(850, 640), ctx });
             const baileys = await provider.vendor.sendMessage(jid, {
                 text: "👾 @Author @Rpeche-pk",
@@ -69,14 +69,14 @@ const sessionExpiredFlow = addKeyword(EVENTS.ACTION, {})
         try {
             const jid = ctx?.key?.remoteJid;
 
-            await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(2550, 1955), ctx })
+            await extensions.utils.typing(provider, { delay1: setRandomDelay(500, 450), delay2: setRandomDelay(1750, 1555), ctx })
             await provider.vendor.sendMessage(jid, { text: "❌ Su sesión dentro del sistema ha expirado ❌ , *vuelva a iniciar el bot*, si gusta consultar nuestro _servicio_"});
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
             const myState = state.getMyState() ?? {};
             myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};
             await state.update(myState);
             idleStop(ctx);
-            await extensions.utils.wait(750, 600);
+            await extensions.utils.wait(580, 475);
             return gotoFlow(welcome_greeting_flow);
         } catch (e) {
             await handleErrorAndNotifySlack("Error en el flujo sessionExpiredFlow", e);

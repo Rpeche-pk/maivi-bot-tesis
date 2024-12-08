@@ -94,7 +94,7 @@ const processAudio = async (audioBuffer, name) => {
 const processAudioToText = async (audioBuffer) => {
     const sessionHash = Math.random().toString(36).substring(2);
     await joinQueue(audioBuffer, sessionHash);
-    return await getQueueStatus(sessionHash);
+    return getQueueStatus(sessionHash);
 }
 
 const uploadAudio = async (fileBuffer, sessionHash) => {
