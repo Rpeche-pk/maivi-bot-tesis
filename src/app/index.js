@@ -12,6 +12,7 @@ import {audioAIFlow, audioProcessFlow, flowBotAudio} from "./audio_flow/audio.fl
 import {search_audio_flow} from "./options_flow/audio_search_flow/audio_search.flow.js";
 import {search_product_flow} from "./options_flow/manual_search_flow/manual_search.flow.js";
 import {cron_flow} from "./cron_flow/cron.flow.js";
+import {search_categories_flow} from "./options_flow/category_search_flow/category_search.flow.js";
 
 export default createFlow([
     on_flow,
@@ -29,6 +30,7 @@ export default createFlow([
     timeOut,
     sessionExpiredFlow,
     flowBotAudio, audioAIFlow, audioProcessFlow,
+    search_categories_flow,
     choose_input_method_flow,
     search_audio_flow,
     cron_flow

@@ -7,9 +7,11 @@ import {log_error, log_success} from "../utils/logger.util.js";
 import {formatText} from "../utils/cleantext.util.js";
 import {CONSTANTS} from "../config/index.js";
 import {getProductsApi} from "../service/api.service.js";
+import {idleReset, idleStop} from "../utils/idle.util.js";
 
-const audio_gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDynamic, endFlow, state}) => {
+const audio_gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDynamic, endFlow,gotoFlow ,globalState,state}) => {
     try {
+        idleReset(ctx,gotoFlow, globalState.get("timer"));
         const userState = state?.getMyState();
         const phone = ctx?.from;
 
@@ -78,8 +80,10 @@ const audio_gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDy
             await flowDynamic([{body: element}]);
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
         }
+        idleStop(ctx);
         return endFlow();
     } catch (e) {
+        idleStop(ctx);
         await handleErrorAndNotifySlack("[ERROR FLOW] audio_gpt_middleware", e);
         log_error("[ERROR FLOW] audio_gpt_middleware", e);
     }

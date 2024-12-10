@@ -7,7 +7,7 @@ import {log_error} from "../../utils/logger.util.js";
 import {poll_middleware} from "../../middleware/poll.middleware.js";
 
 
-const REGEX_SEARCH_PRODUCT = '/Buscar por producto más marca/g';
+const REGEX_SEARCH_PRODUCT = '/Buscar por producto y marca/g';
 
 const choose_input_method_flow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
@@ -17,7 +17,7 @@ const choose_input_method_flow = addKeyword(EVENTS.ACTION, {})
         {
             capture: true,
             delay: setRandomDelay(750, 550),
-            buttons: [{"body": "*Escribir consulta*"}, {"body": "*Decir por audio*"}, {"body": "❌Salir del Sistema"}]
+            buttons: [{"body": "*Escribir consulta*"}, {"body": "*Dictar por Audio*"}, {"body": "❌Salir del Sistema"}]
         },
         poll_middleware)
 

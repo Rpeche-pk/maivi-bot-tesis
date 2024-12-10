@@ -12,7 +12,7 @@ const menu_flow = addKeyword(EVENTS.ACTION, {})
         {
             capture: true,
             delay: setRandomDelay(650, 550),
-            buttons: [{"body": "*Buscar por categoría*"}, {"body": "*Buscar por producto más marca*"}, {"body": "*Ayuda o asesor*"},{"body": "❌Salir del Sistema"}]
+            buttons: [{"body": "*Buscar por producto y marca*"},{"body": "*Buscar por categoría*"}, {"body": "*Ayuda o asesor*"},{"body": "❌Salir del Sistema"}]
         },
         poll_middleware)
 
