@@ -99,7 +99,7 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
 
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(550, 490),
-                delay2: setRandomDelay(1250, 1080),
+                delay2: setRandomDelay(800, 650),
                 ctx
             });
 

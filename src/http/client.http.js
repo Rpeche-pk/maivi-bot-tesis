@@ -3,8 +3,9 @@ import {handleErrorAndNotifySlack} from "./slack.http.js";
 
 class ApiClient {
 
-    constructor(baseUrl) {
+    constructor(baseUrl,url) {
         this.baseUrl = baseUrl;
+        this.url = url;
     }
 
     /**
@@ -44,6 +45,21 @@ class ApiClient {
         } catch (error) {
             log_error('Error Get products from the API:', error);
             await handleErrorAndNotifySlack('Error Get products from the API:', error);
+        }
+    }
+
+    async getBrandByCategory(endPoint) {
+        try {
+            const response = await fetch(`${this.url}/${endPoint}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            return this.#handleResponse(response);
+        } catch (error) {
+            log_error('[getBrandByCategory] Error Get products from the API:', error);
+            await handleErrorAndNotifySlack('[getBrandByCategory] Error Get products from the API:', error);
         }
     }
 

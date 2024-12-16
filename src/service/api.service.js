@@ -87,3 +87,37 @@ export const getProductsApi = async (nameProduct, brandProduct, adapter) => {
 
     return messages;
 };
+
+export const getBrandCategory = async (adapter, category= []) => {
+
+    if (!Array.isArray(category) || category.length < 3) {
+        throw new Error("The 'category' parameter must be an array with at least 3 elements.");
+    }
+
+    const fetchProductCategories = async (endpoint, params) => {
+        try {
+            return await adapter.http.getBrandByCategory(endpoint, params);
+        } catch (error) {
+            console.error(`Error fetching data from ${endpoint}:`, error.message);
+            return [];
+        }
+    };
+
+    const responses = await Promise.all([
+        fetchProductCategories(CONSTANTS.ENDPOINT_SEARCH_CATEGORY.replace("{category}",category[0])),
+        fetchProductCategories(CONSTANTS.ENDPOINT_SEARCH_CATEGORY_VEA.replace("{category}",category[1])),
+        fetchProductCategories(CONSTANTS.ENDPOINT_SEARCH_CATEGORY_METRO.replace("{category}",category[2]))
+    ]);
+
+    const [tottusProducts, veaProducts, metroProducts] = responses;
+    const upperCaseProducts =metroProducts.map((product) => product.brand.toUpperCase());
+    const upperCaseProductsVea =veaProducts.map((product) => product.brand.toUpperCase());
+    const upperCaseProductsTottus =tottusProducts.map((product) => product.brand.toUpperCase());
+
+    // Encontrar intersección de marcas
+    const commonBrands = upperCaseProducts.filter(brand =>
+        upperCaseProductsVea.includes(brand) && upperCaseProductsTottus.includes(brand)
+    )
+
+    return commonBrands.sort().slice(0, 12);
+};

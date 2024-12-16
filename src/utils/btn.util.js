@@ -1,5 +1,5 @@
 const categories = {
-    "Aceite": ["Aceite", "Aceites", "Aceite"],
+    "Aceite": ["Aceites", "Aceite", "Aceites"],
     "Arroz": ["Arroz", "Arroz", "Arroz"],
     "Pastas y Salsas": [
         "Pastas y Salsas",
@@ -21,7 +21,7 @@ const categories = {
 };
 
 export const getValues = (category) => {
-    return categories[category];
+    return Array.from(categories[category]);
 }
 
 export const generateCategoryButtons= () => {

@@ -68,7 +68,7 @@ const main = async () => {
                 botModels: userSchema
             },
             ai : new AIClass(process.env.OPENAI_API_KEY, CONSTANTS.MODEL_AI),
-            http: new ApiClient(CONSTANTS.URL_BACKEND)
+            http: new ApiClient(CONSTANTS.URL_BACKEND, CONSTANTS.URL_BACK_PRODUCTS)
         },
         globalState: {
             timer: 600000, //300000 -> 5 minutos
