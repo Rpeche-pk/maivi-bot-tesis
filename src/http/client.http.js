@@ -63,6 +63,22 @@ class ApiClient {
         }
     }
 
+    async getProductsByBrand(endPoint, params) {
+        try {
+            const param =  new URLSearchParams(params);
+            const response = await fetch(`${this.url}/${endPoint}?${param.toString()}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            return this.#handleResponse(response);
+        } catch (error) {
+            log_error('[getProductsByBrand] Error Get products from the API:', error);
+            await handleErrorAndNotifySlack('[getProductsByBrand] Error Get products from the API:', error);
+        }
+    }
+
 
     /**
      * Sync mongo data to Elasticsearch

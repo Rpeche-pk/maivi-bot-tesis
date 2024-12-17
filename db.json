@@ -1,15 +1,15 @@
 [
   {
-    "ref": "3c4507da-f3da-4733-8e40-6d19ad04e4c3",
-    "keyword": "b80313fdfccf2a9e1a42692b899efa7c",
+    "ref": "76103965-be39-436e-b51b-282fc3c61638",
+    "keyword": "1108857b7533dd696c665b120d6f831d",
     "answer": "#test",
     "options": {},
     "from": "51966524537",
     "refSerialize": "572011c1f9f2cfdc958f49f86d59df55"
   },
   {
-    "ref": "ans_9bab5c7c-4f58-49e4-9203-fee649dfd5ad",
-    "keyword": "key_bff8b75a-da85-4773-8cb4-b45a6b52a81f",
+    "ref": "ans_54a54709-0475-430d-8b27-a41d2f7fe29d",
+    "keyword": "key_b2c59f9d-ac10-4701-bb4d-b7a9f50ff911",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,12 +19,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "c0fc2ac5ef4f6a2ce9767595a1e24738",
+    "refSerialize": "2036a41f8c1a2e0a4818fe9999857247",
     "from": "51966524537"
   },
   {
-    "ref": "ans_b4c4ad8e-8374-40eb-83f8-aade1f155a09",
-    "keyword": "ans_9bab5c7c-4f58-49e4-9203-fee649dfd5ad",
+    "ref": "ans_4b15e54f-1c2a-45df-9a05-0811cec00ea0",
+    "keyword": "ans_54a54709-0475-430d-8b27-a41d2f7fe29d",
     "answer": "🔍 *Elige una categoría a consultar:* 📦",
     "options": {
       "buttons": [
@@ -54,17 +54,17 @@
         }
       ],
       "capture": false,
-      "delay": 549,
+      "delay": 569,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "8618f0947fd67cd8837ef04af7fcb92c",
+    "refSerialize": "16db48e573781fca22d9c1e7856169b6",
     "from": "51966524537"
   },
   {
-    "ref": "ans_63d01ca3-fbfb-4f95-9300-84232062114c",
-    "keyword": "ans_b4c4ad8e-8374-40eb-83f8-aade1f155a09",
+    "ref": "ans_c37d464e-10a9-4442-ba16-5e5c0dca46b3",
+    "keyword": "ans_4b15e54f-1c2a-45df-9a05-0811cec00ea0",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -94,25 +94,25 @@
         }
       ],
       "capture": true,
-      "delay": 549,
+      "delay": 569,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "4c5f861851acc003fa116462373a9360",
+    "refSerialize": "3385963a9059bd4ea2d05c0b3995c694",
     "from": "51966524537"
   },
   {
-    "ref": "fa862490-fc67-442c-bf06-b6daac881a11",
-    "keyword": "4c5f861851acc003fa116462373a9360",
+    "ref": "c78750f8-9736-4059-b9c7-c7c162412712",
+    "keyword": "3385963a9059bd4ea2d05c0b3995c694",
     "answer": "*Aceite*",
     "options": {},
     "from": "51966524537",
     "refSerialize": "b80313fdfccf2a9e1a42692b899efa7c"
   },
   {
-    "ref": "ans_b8213e03-c439-4d74-9fb2-9ac0f51b77f9",
-    "keyword": "ans_63d01ca3-fbfb-4f95-9300-84232062114c",
+    "ref": "ans_59bbf8c6-7288-42d1-8f6a-37b443331f63",
+    "keyword": "ans_c37d464e-10a9-4442-ba16-5e5c0dca46b3",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [],
@@ -122,15 +122,15 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "5a612843481c913ebb542e21fa3a1e65",
+    "refSerialize": "0f84b3f7106336ff2a533b6b63643d61",
     "from": "51966524537"
   },
   {
-    "ref": "412b917e-4e7e-4a1a-b06d-81d698c84fa3",
-    "keyword": "5a612843481c913ebb542e21fa3a1e65",
-    "answer": "CARBONELL",
+    "ref": "67de3099-9a9d-455d-80fc-d68049799aad",
+    "keyword": "0f84b3f7106336ff2a533b6b63643d61",
+    "answer": "PRIMOR",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "326a7dff6ecbe71ab25c4a115eb80d27"
+    "refSerialize": "1108857b7533dd696c665b120d6f831d"
   }
 ]
