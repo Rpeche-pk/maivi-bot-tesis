@@ -151,7 +151,7 @@ export const getProductsByBrand = async (adapter, brand, category=[]) => {
     messages.push(_generateProductMessage(veaProducts, "PLAZA VEA"));
     messages.push(_generateProductMessage(metroProducts, "METRO"));
 
-    let cheapestProductsMessage = "💰 Productos Más Baratos:\n\n";
+    let cheapestProductsMessage = "💰 *Productos Más Baratos*:\n\n";
 
     if (cheapestPlazaVea) {
         cheapestProductsMessage += `🏪 Plaza Vea: ${cheapestPlazaVea.name} - S/ ${cheapestPlazaVea.price}\n`;
@@ -172,11 +172,11 @@ export const getProductsByBrand = async (adapter, brand, category=[]) => {
         );
 
     if (overallCheapest) {
-        const messageCheapest = `🏆 Producto Más Económico: ${overallCheapest.name} - S/ ${overallCheapest.price} (${overallCheapest.supermarket})`;
+        const messageCheapest = `🏆 *Producto Más Económico*: ${overallCheapest?.name} - S/ ${overallCheapest?.price} *(${overallCheapest?.supermarket})*`;
         messages.push(messageCheapest);
     }
 
-    console.log(messages);
+    return messages;
 }
 
 
@@ -190,18 +190,19 @@ const _findCheapestProduct = (products) => {
 
 const _generateProductMessage = (products, supermarketName) => {
     if (!products || products.length === 0) {
-        return `🏪 ${supermarketName}: No se encontraron productos\n\n`;
+        return `🏪 ${supermarketName}: No se encontraron productos`;
     }
 
-    const top8 = products.slice(0, 8);
+    const top8 = products.slice(0, 10);
 
-    return `🏪 ${supermarketName}:\n\n` +
+    return `🏪 ${supermarketName}:\n` +
         top8.map((product, index) =>
-            `🔹 #${index + 1}\n` +
+            `🔹 #${supermarketName.slice(0,3)}-${index + 1}\n` +
             `🛒 Producto: ${product.name}\n` +
             `💲 Precio: S/ ${product.price}\n` +
-            `📦 Categoría: ${product.category}\n` +
             `🏷️ Marca: ${product.brand}\n` +
+            `🏪 Supermercado: ${product?.supermarket}\n`+
+            `📦 Categoría: ${product.category}\n` +
             `🔗 Link de compra: ${product.url}`
         ).join("\n\n");
 };

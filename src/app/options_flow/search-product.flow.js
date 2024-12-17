@@ -16,7 +16,7 @@ const choose_input_method_flow = addKeyword(EVENTS.ACTION, {})
     .addAnswer("🔍 *¿Cómo deseas ingresar tu consulta?*",
         {
             capture: true,
-            delay: setRandomDelay(750, 550),
+            delay: setRandomDelay(650, 550),
             buttons: [{"body": "*Escribir consulta*"}, {"body": "*Dictar por Audio*"}, {"body": "❌Salir del Sistema"}]
         },
         poll_middleware)

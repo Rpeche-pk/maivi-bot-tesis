@@ -1,4 +1,5 @@
 const categories = {
+    //TOTTUS  -  PLAZA VEA - METRO
     "Aceite": ["Aceites", "Aceite", "Aceites"],
     "Arroz": ["Arroz", "Arroz", "Arroz"],
     "Pastas y Salsas": [

@@ -89,7 +89,15 @@ const CONSTANTS = {
         "Nuestro equipo está trabajando para optimizar los sistemas. " +
         "El servicio se encontrará disponible próximamente.\n\n" +
         "Gracias por tu paciencia y comprensión."
-    ]
+    ],
+    PALETTES_COLOR: [
+        '#7EA1FF',
+        '#641E16',
+        '#7EAA92',
+        '#213555',
+        '#FF5733',
+        '#FFC312',
+        '#6A669D',]
 };
 
 export { CONSTANTS, MONGO_URI };

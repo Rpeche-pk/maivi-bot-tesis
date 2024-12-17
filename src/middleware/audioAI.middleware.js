@@ -77,11 +77,9 @@ const audio_gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDy
                 delay2: setRandomDelay(1120, 1010),
                 ctx
             });
-            await flowDynamic([{body: element}]);
+            await provider.vendor.sendMessage(ctx?.key?.remoteJid, {text: element});
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
         }
-        idleStop(ctx);
-        return endFlow();
     } catch (e) {
         idleStop(ctx);
         await handleErrorAndNotifySlack("[ERROR FLOW] audio_gpt_middleware", e);
