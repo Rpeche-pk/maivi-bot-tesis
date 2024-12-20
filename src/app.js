@@ -21,9 +21,7 @@ import {CONSTANTS} from "./config/index.js";
 import dotenv from 'dotenv';
 import {bot, botEmitter} from "./helpers/events.class.js";
 import {ApiClient} from "./http/client.http.js";
-import {schedule} from "node-cron";
-import {randomElement} from "./utils/random.util.js";
-import {getPhoneNumbers} from "./repository/bot.repository.js";
+
 
 dotenv.config();
 

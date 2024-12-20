@@ -56,7 +56,7 @@ const audio_gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDy
             return;
         }
 
-        await flowDynamic("✅ Se procesó, *correctamente* tu audio." + "\n" + "🔍 *Consulta:* " + ctx.body);
+        await provider.vendor.sendMessage(ctx?.key?.remoteJid, {text: "✅ Se procesó, *correctamente* tu audio." + "\n" + "🔍 *Consulta:* " + ctx.body});
 
         const myState = state?.getMyState();
         const responseAi = await extensions.ai.startChatAI(body, myState[phone]?.history);
