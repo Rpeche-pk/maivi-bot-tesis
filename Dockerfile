@@ -18,8 +18,9 @@ RUN apk add --no-cache --virtual .gyp \
     && pnpm install \
     && apk del .gyp
 
+# Deploy image
 FROM node:21-alpine3.18 as deploy
-
+LABEL author="Luis R. Peche"
 WORKDIR /app
 
 ARG PORT
@@ -32,8 +33,12 @@ COPY --from=builder /app/*.json /app/*-lock.yaml ./
 RUN corepack enable && corepack prepare pnpm@latest --activate 
 ENV PNPM_HOME=/usr/local/bin
 
+RUN ln -fs /usr/share/zoneinfo/America/Lima /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+
 RUN npm cache clean --force && pnpm install --production --ignore-scripts \
     && addgroup -g 1001 -S nodejs && adduser -S -u 1001 nodejs \
     && rm -rf $PNPM_HOME/.npm $PNPM_HOME/.node-gyp
+
+COPY ./backup/index.cjs /app/node_modules/@builderbot/provider-baileys/dist/index.cjs
 
 CMD ["npm", "start"]

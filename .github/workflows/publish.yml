@@ -1,0 +1,65 @@
+name: Build and Deploy Chat Bot with Node.js
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-docker:
+    name: Build and deploy Node projects
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME_NODE}}
+          password: ${{secrets.DOCKERHUB_TOKEN_NODE}}
+
+      - name: Build and push Node.js Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .  # Ajusta la ruta al directorio de tu aplicación Node.js
+          dockerfile: Dockerfile
+          push: true
+          tags: ${{secrets.DOCKERHUB_USERNAME_NODE}}/maivi-bot:latest
+
+  deploy:
+    name: Deploy to DonWeb NodeApp
+    needs: build-docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: install ssh pass
+        run: sudo apt-get install -y sshpass
+
+      - name: SSH INTO DON WEB SERVER - DEPLOY NODEBOT
+        run: |
+          sshpass -p ${{ secrets.VPS_PASSWORD_ANTONIO }} ssh -p 5355 -o StrictHostKeyChecking=no ${{ secrets.VPS_USER_ANTONIO }}@${{ secrets.VPS_HOST_ANTONIO }} << EOF
+          docker rm -f maivi-bot  
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME_NODE }} -p ${{ secrets.DOCKERHUB_TOKEN_NODE }}
+          docker pull ${{ secrets.DOCKERHUB_USERNAME_NODE }}/maivi-bot:latest
+          docker run -d \
+          --restart always \
+          --name maivi-bot \
+          -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
+          -e USE_PAIRING_CODE=true \
+          -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
+          -e "SLACK_URL=${{secrets.SLACK_URL}}" \
+          -e "RESEND_API_KEY=${{secrets.RESEND_API_KEY}}" \
+          -e "RESEND_FROM=${{secrets.RESEND_FROM}}" \
+          -e "RESEND_TO=${{secrets.RESEND_TO}}" \
+          -e "TOKEN=${{secrets.TOKEN}}" \
+          -e "OPENAI_API_KEY=${{secrets.OPENAI_API_KEY}}" \
+          -e "MONGO_URI=${{secrets.MONGO_URI}}" \
+          -e "CHATWOOT_ACCOUNT_ID=${{secrets.CHATWOOT_ACCOUNT_ID}}" \
+          -e "CHATWOOT_TOKEN=${{secrets.CHATWOOT_TOKEN}}" \
+          -e "CHATWOOT_ENDPOINT=${{secrets.CHATWOOT_ENDPOINT}}" \
+          -e "PORT=3008" \
+
+          -p 3000:3000 \
+          ${{secrets.DOCKERHUB_USERNAME_NODE}}/maivi-bot:latest
+          EOF

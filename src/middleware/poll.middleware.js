@@ -21,9 +21,9 @@ const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions,
             await provider.vendor.sendMessage(jid, {delete: ctx?.key})
             return endFlow("💢 Debe elegir una de las opciones válidas, se cierra sesión");
         }
-        await extensions.utils.wait(600, 560);
+        await extensions.utils.wait(520, 490);
         await provider.vendor.sendMessage(jid, {delete: ctx?.key});
-        await extensions.utils.wait(600, 560);
+        await extensions.utils.wait(580, 500);
     } catch (error) {
         idleStop(ctx);
         await handleErrorAndNotifySlack(`[PASO POLL ${poll_middleware.name}:]`, error);
