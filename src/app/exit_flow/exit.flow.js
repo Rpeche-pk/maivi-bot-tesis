@@ -5,6 +5,7 @@ import { CONSTANTS } from '../../config/index.js';
 import { log_error, log_warning } from '../../utils/logger.util.js';
 import {idleStop} from "../../utils/idle.util.js";
 import {welcome_greeting_flow} from "../welcome_back_flow/back.flow.js";
+import {randomElement} from "../../utils/random.util.js";
 
 const REGEX_EXIT = '/❌Salir del Sistema/g';
 
@@ -18,7 +19,7 @@ const logoutFlow = addKeyword(REGEX_EXIT, { regex: true })
             myState[from] = { ...myState[from], on: false, intents: CONSTANTS.INTENTS };
             log_warning("BOT APAGADO desde flujo LogoutFlow-> ", myState);
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(1750, 1480), ctx });
-            await flowDynamic([{ body: "Gracias por usar nuestros servicios, hasta pronto 👋🏽\n _Recuerda que puedes volver a iniciar el bot escribiendo_ *empezar*" }]);
+            await flowDynamic([{ body: randomElement(CONSTANTS.FAREWELL_MESSAGES) }]);
             await extensions.utils.typingWithoutDelay(provider, { delay1: setRandomDelay(700, 500), delay2: setRandomDelay(950, 580), ctx });
             await flowDynamic("https://backend.luispeche.tech/");
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 600), delay2: setRandomDelay(850, 640), ctx });
@@ -37,7 +38,7 @@ const logoutFlow = addKeyword(REGEX_EXIT, { regex: true })
                     }
                 },
             }, { quoted : infos })*/
-            await provider.vendor.sendMessage(jid, { react: { key: baileys?.key, text: "👾" } });
+            await provider.vendor.sendMessage(jid, { react: { key: baileys?.key, text: "👽" } });
             await provider.vendor.sendPresenceUpdate("paused", jid);
             idleStop(ctx)
             state.clear();
@@ -54,7 +55,7 @@ const timeoutFlow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, { extensions, provider, endFlow }) => {
         try {
             const jid = ctx?.key?.remoteJid;
-            await extensions.utils.typing(provider, { delay1: 650, delay2: 1000, ctx })
+            await extensions.utils.typing(provider, { delay1: 450, delay2: 1050, ctx })
             await provider.vendor.sendMessage(jid, { text: "❌ Se ha agotado el tiempo de respuesta ❌" });
             idleStop(ctx);
             return endFlow();

@@ -51,11 +51,12 @@ const CONSTANTS = {
         `¡Bienvenido(a) de vuelta! 💁🏻‍♀ ¿En qué puedo ayudarte hoy?`,
         `¡Es genial verte otra vez! 😄 ¿Cómo puedo ayudarte?`,
         `¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?`,
-        `¡Encantado(a) de verte de nuevo! 🥳 ¿Cómo puedo ayudarte?`
+        `¡Encantado(a) de verte de nuevo! 🥳 ¿Cómo puedo ayudarte?`,
+        "¡Es un placer saludarte otra vez! 🙌 ¿En qué puedo asistirte?"
         ],
     MESSAGE_BACK_USER :[
         "¡RECUERDA! 🛒\n" +
-        "*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. ¡Ahorra en cada compra! 💰 "
+        "*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. *¡Ahorra en cada compra!* 💰 "
     ],
     MESSAGE_MAINTENANCE: [
         "🛠️ *Mantenimiento Programado*\n\n" +
@@ -97,7 +98,15 @@ const CONSTANTS = {
         '#213555',
         '#FF5733',
         '#FFC312',
-        '#6A669D',]
+        '#6A669D',
+    ],
+    FAREWELL_MESSAGES:[
+        "*¡Gracias por tu visita!* 🌟\nPara volver a buscar productos escribe *empezar*",
+        "*¡Hasta la próxima!* 🛒\nRecuerda que puedes buscar más productos con _empezar_",
+        "¡Hasta luego! 👋🏽 Estamos aquí para ti. \nEscribe *empezar* para buscar más productos.",
+        "*Esperamos haberte ayudado* 💡. Recuerda: escribe _empezar_ para reiniciar el bot.",
+        "*Ha sido un gusto ayudarte* 😊. Vuelve a escribir _empezar_ cuando lo necesites."
+    ]
 };
 
 export { CONSTANTS, MONGO_URI };

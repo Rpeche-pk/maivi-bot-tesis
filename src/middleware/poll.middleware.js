@@ -6,10 +6,10 @@ import {log_error} from "../utils/logger.util.js";
 
 
 const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions, endFlow, state}) => {
+    const myState = state.getMyState();
     try {
         idleReset(ctx, gotoFlow, globalState.get("timer"));
         const jid = ctx?.key?.remoteJid;
-        const myState = state.getMyState();
         console.log(chalk.italic.blue(`ESTADO DEL FLUJO ${poll_middleware.name}`, JSON.stringify(myState)));
         if (ctx?.type !== 'poll') {
             await extensions.utils.typing(provider, {
