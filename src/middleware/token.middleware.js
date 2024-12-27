@@ -7,7 +7,7 @@ import {postSlack} from '../http/slack.http.js';
 import {idleStop} from "../utils/idle.util.js";
 
 
-const tokenMiddleware = async (ctx, {gotoFlow, extensions}) => {
+const tokenMiddleware = async (ctx, {gotoFlow, extensions,endFlow}) => {
     try {
         const user = await findByPhone(ctx?.from, extensions.db.botModels);
         if (expiredToken(user?.token)) {
@@ -19,8 +19,9 @@ const tokenMiddleware = async (ctx, {gotoFlow, extensions}) => {
         }
     }catch (e) {
         idleStop(ctx);
-        await postSlack({text: `[ERROR FLUJO tokenMiddleware:]` + e.message})
         log_error("ERROR FLUJO tokenMiddleware", e);
+        await postSlack({text: `[ERROR FLUJO tokenMiddleware:]` + e.message})
+        await endFlow(e.message);
     }
 };
 

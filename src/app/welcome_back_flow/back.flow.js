@@ -41,8 +41,9 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
             }, CONSTANTS.MESSAGES.FAIL);
         } catch (error) {
             idleStop(ctx);
-            await handleErrorAndNotifySlack("ERROR FLUJO welcomeFlow", error);
             log_error("ERROR FLUJO welcomeFlow", error);
+            await handleErrorAndNotifySlack("ERROR FLUJO welcomeFlow", error);
+            await endFlow(error.message);
         }
     });
 

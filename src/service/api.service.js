@@ -1,4 +1,5 @@
 import {CONSTANTS} from "../config/index.js";
+import {log_warning} from "../utils/logger.util.js";
 
 /**
  * Get products from the API
@@ -97,16 +98,27 @@ export const getBrandCategory = async (adapter, category = []) => {
         fetchProductCategories(CONSTANTS.ENDPOINT_SEARCH_CATEGORY_METRO.replace("{category}", category[2]))
     ]);
 
-    const [tottusProducts, veaProducts, metroProducts] = responses;
-    const upperCaseProducts = metroProducts.map((product) => product.brand.toUpperCase());
-    const upperCaseProductsVea = veaProducts.map((product) => product.brand.toUpperCase());
-    const upperCaseProductsTottus = tottusProducts.map((product) => product.brand.toUpperCase());
+    /*const [tottusProducts, veaProducts, metroProducts] = responses;
+    const upperCaseProducts = metroProducts.map((product) => product.brand.toUpperCase().trim());
+    const upperCaseProductsVea = veaProducts.map((product) => product.brand.toUpperCase().trim());
+    const upperCaseProductsTottus = tottusProducts.map((product) => product.brand.toUpperCase().trim());*/
 
-    // Encontrar intersección de marcas
-    const commonBrands = upperCaseProducts.filter(brand =>
-        upperCaseProductsVea.includes(brand) && upperCaseProductsTottus.includes(brand)
-    )
+    const brandLists = responses
+        .map(response => response.map(product => product.brand.toUpperCase().trim()))
+        .filter(list => list.length > 0);
 
+    if (brandLists.length === 0) {
+        log_warning("[getBrandCategory] No common brands found.");
+        return [];
+    }
+
+    const commonBrands = brandLists.reduce((intersection, list) => {
+        return intersection.filter(brand => list.includes(brand));
+    });
+
+    /*const commonBrands = upperCaseProductsVea.filter(brand =>
+        upperCaseProducts.includes(brand) && upperCaseProductsTottus.includes(brand)
+    )*/
     return commonBrands.sort().slice(0, 12);
 };
 

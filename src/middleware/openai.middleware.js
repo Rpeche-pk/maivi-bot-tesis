@@ -63,8 +63,9 @@ const openai_middleware = async (ctx, {
 
     } catch (e) {
         idleStop(ctx)
-        await handleErrorAndNotifySlack("ERROR FLUJO openai_middleware", e);
         log_error("ERROR FLUJO openai_middleware", e);
+        await handleErrorAndNotifySlack("ERROR FLUJO openai_middleware", e);
+        await endFlow(e.message);
     }
 };
 

@@ -82,8 +82,9 @@ const audio_gpt_middleware = async (ctx, {extensions, provider, fallBack, flowDy
         }
     } catch (e) {
         idleStop(ctx);
-        await handleErrorAndNotifySlack("[ERROR FLOW] audio_gpt_middleware", e);
         log_error("[ERROR FLOW] audio_gpt_middleware", e);
+        await handleErrorAndNotifySlack("[ERROR FLOW] audio_gpt_middleware", e);
+        await endFlow(e.message);
     }
 };
 

@@ -8,7 +8,7 @@ import {handleErrorAndNotifySlack} from "../http/slack.http.js";
 import {start_chat_flow} from "../app/welcome_flow/welcome_flow.js";
 
 
-const on_middleware = async (ctx, {extensions, provider, gotoFlow, state}) => {
+const on_middleware = async (ctx, {extensions, provider, gotoFlow, state,endFlow}) => {
     try {
         const jid = ctx?.key?.remoteJid;
         const key = ctx?.key;
@@ -41,6 +41,7 @@ const on_middleware = async (ctx, {extensions, provider, gotoFlow, state}) => {
         idleStop(ctx);
         log_error("ERROR FLUJO onFlow", error);
         await handleErrorAndNotifySlack("ERROR FLUJO onFlow", error)
+        await endFlow(error.message);
     }
 }
 

@@ -9,15 +9,16 @@ const categories = {
     ],
     "Conservas": ["Conservas", "Alimentos en Conserva", "Conservas"],
     "Menestras": ["Menestras", "Menestras", "Menestras"],
-    "Condimentos" : ["Sal, Condimentos y Aderezos", "Condimentos, Vinagres y Comida Instantánea", "Salsas, Cremas y Condimentos"],
+    "Condimentos" : ["Sal, Condimentos y Aderezos", "Salsas, Cremas y Condimentos","Condimentos, Vinagres y Comida Instantánea"],
     "Chocolateria": [
+        "Chocolates",
         "Chocolatería",
         "Chocolatería"
     ],
     "Snacks y Golosinas": [
-        "Galletas, Snacks y Golosinas",
-        "Galletas y Golosinas",
-        "Snacks y Piqueos"
+        "Cocktail y Snack",
+        "Snacks y Piqueos",
+        "Galletas, Snacks y Golosinas"
     ]
 };
 

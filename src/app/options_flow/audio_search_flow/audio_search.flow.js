@@ -46,6 +46,7 @@ const search_audio_flow = addKeyword(REGEX_INPUT_AUDIO, {regex: true})
             idleStop(ctx);
             log_error("[ERROR FLOW] search_categories_flow", e);
             await handleErrorAndNotifySlack("[ERROR FLOW] search_categories_flow", e)
+            await endFlow(e.message);
         }
     });
 

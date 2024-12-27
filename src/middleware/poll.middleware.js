@@ -26,8 +26,9 @@ const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions,
         await extensions.utils.wait(580, 500);
     } catch (error) {
         idleStop(ctx);
-        await handleErrorAndNotifySlack(`[PASO POLL ${poll_middleware.name}:]`, error);
         log_error(`[PASO POLL ${poll_middleware.name}:]`, error);
+        await handleErrorAndNotifySlack(`[PASO POLL ${poll_middleware.name}:]`, error);
+        await endFlow(error.message);
     }
 }
 

@@ -10,7 +10,7 @@ import {CONSTANTS} from "../../../config/index.js";
 
 const REGEX_INPUT_CATEGORY = '/Buscar por categoría/g';
 
-const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
+const search_categories_flow = addKeyword("#test", {})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
         idleStop(ctx);
         idleStart(ctx, gotoFlow, globalState.get("timer"));
@@ -19,7 +19,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
             capture: true,
             buttons: generateCategoryButtons(),
             delay: setRandomDelay(520, 490)
-        }, async (ctx, {gotoFlow, globalState, extensions, state, provider}) => {
+        }, async (ctx, {endFlow,gotoFlow, globalState, extensions, state, provider}) => {
 
             try {
                 idleReset(ctx, gotoFlow, globalState.get("timer"));
@@ -51,9 +51,10 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
                 idleStop(ctx);
                 log_error("ERROR FLUJO search_categories_flow", e);
                 await handleErrorAndNotifySlack("ERROR FLUJO search_categories_flow", e)
+                await endFlow(e.message);
             }
         })
-    .addAction({capture: true}, async (ctx, {extensions, provider, state, gotoFlow, globalState}) => {
+    .addAction({capture: true}, async (ctx, {endFlow, extensions, provider, state, gotoFlow, globalState}) => {
         try {
             idleReset(ctx, gotoFlow, globalState.get("timer"));
             const brand = ctx?.body;
@@ -81,6 +82,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
             idleStop(ctx);
             log_error("[ERROR FLOW] search_categories_flow", e);
             await handleErrorAndNotifySlack("[ERROR FLOW] search_categories_flow", e)
+            await endFlow(e.message);
         }
     }).addAnswer("🔍 Estimada(o) usuario *¿Deseas realizar otra consulta?*",
         {
