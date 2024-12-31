@@ -34,4 +34,12 @@ const cron_flow = addKeyword("#cron", {})
         });
     });
 
-export {cron_flow};
+const process_exit = addKeyword("#exit", {})
+    .addAction(async (ctx, {provider}) => {
+        const jid = ctx?.key?.remoteJid;
+        await provider.vendor.sendMessage(jid, {text: "Bye bye!"});
+        process.exit(0);
+    });
+
+
+export {cron_flow,process_exit};

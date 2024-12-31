@@ -89,12 +89,18 @@ class Bot {
 
     _saveInteractionDuration(phoneNumber, duration) {
         const logDate = this._formatLogDate();
+        const filePath = 'user-list-time.json';
         console.log(`${logDate} [EVENT-EMITTER] 💾 Guardando tiempo de interacción para ${phoneNumber}: ${duration} segundos.`);
-        const content = {
-            [phoneNumber] : duration
+        let content = {};
+
+        if (fs.existsSync(filePath)) {
+            const fileData = fs.readFileSync(filePath, 'utf8');
+            content = JSON.parse(fileData || '{}');
         }
 
-        fs.writeFileSync('user-list-time.json', JSON.stringify(content, null, 2));
+        content[phoneNumber] = duration;
+
+        fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
     }
 
     _formatLogDate() {
