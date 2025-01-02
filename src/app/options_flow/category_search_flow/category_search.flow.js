@@ -11,7 +11,7 @@ import {randomElement} from "../../../utils/random.util.js";
 
 const REGEX_INPUT_CATEGORY = '/Buscar por categoría/g';
 
-const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {})
+const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     }).addAnswer("🔍 *Elige una categoría a consultar:* 📦",

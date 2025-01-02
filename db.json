@@ -1,15 +1,15 @@
 [
   {
-    "ref": "e3174990-c447-45c7-be8c-751abe063bc2",
-    "keyword": "a07e48655d1eb1adf63c1b74c6ee668e",
-    "answer": "Holaaa",
+    "ref": "39156589-c8bd-467d-a682-e8f1e680d967",
+    "keyword": "46c34c6c0d5bd52d523bff3cc032c3ac",
+    "answer": "Hoala",
     "options": {},
     "from": "51966524537",
-    "refSerialize": "b2f460b5d12d08ff0cf8788bf6f0d6c4"
+    "refSerialize": "8d6e80393b8dd8d20aa6f69c06845807"
   },
   {
-    "ref": "ans_f439f6f3-e7fb-4215-ac36-a05ce465e223",
-    "keyword": "key_2e7ae619-3d7b-4198-b1b8-bd482795c65a",
+    "ref": "ans_809a0d70-f834-41d7-950e-7fb2d6d4e8e5",
+    "keyword": "key_6f26fa60-7595-4720-a54c-ee11206bfca2",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,12 +19,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "6957ca09dd10f3493a6520ef6b15ce49",
+    "refSerialize": "01c7a2d3b3d1a639e68ca293bfd61374",
     "from": "51966524537"
   },
   {
-    "ref": "ans_31af1fe6-5269-4f8a-b102-ef227bc1bc7a",
-    "keyword": "ans_f439f6f3-e7fb-4215-ac36-a05ce465e223",
+    "ref": "ans_0f62b37c-165c-4f12-81c4-986a8f62a615",
+    "keyword": "ans_809a0d70-f834-41d7-950e-7fb2d6d4e8e5",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -34,12 +34,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "b518b875130bb63265db7b932a63c9aa",
+    "refSerialize": "73203a87ef042adee57abf0cbd58dfbd",
     "from": "51966524537"
   },
   {
-    "ref": "ans_7843695b-6ae5-4d28-ae7a-137101f27f25",
-    "keyword": "ans_31af1fe6-5269-4f8a-b102-ef227bc1bc7a",
+    "ref": "ans_86462238-6eaf-447c-98e2-a4ccbe76bcce",
+    "keyword": "ans_0f62b37c-165c-4f12-81c4-986a8f62a615",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -49,12 +49,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "ce992c1133e33762a4e113a55f4f9b7c",
+    "refSerialize": "d87b402cac6f2dce7cb1274a29352320",
     "from": "51966524537"
   },
   {
-    "ref": "ans_62904590-da09-4d05-86fa-f5a580a5870f",
-    "keyword": "ans_7843695b-6ae5-4d28-ae7a-137101f27f25",
+    "ref": "ans_98c4edbd-e2e6-4ca1-80fc-92f3e1b22628",
+    "keyword": "ans_86462238-6eaf-447c-98e2-a4ccbe76bcce",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -64,24 +64,24 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "4536bbdbfbbf173b4a6edb82b17281c3",
+    "refSerialize": "ab7e1623b883b9a4c19c0353e4b783d2",
     "from": "51966524537"
   },
   {
-    "ref": "0dcc7178-8702-4273-b92b-81d3a95590c0",
+    "ref": "ea6d5a33-b055-4738-948b-985e1261821b",
     "keyword": null,
-    "answer": "*Saludos vespertinos* 🌅, ¡Es genial verte otra vez! 😄 ¿Cómo puedo ayudarte?",
+    "answer": "*Buenas Tardes* ⛅, ¡Encantado(a) de verte de nuevo! 🥳 ¿Cómo puedo ayudarte?",
     "options": {
-      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg",
+      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko5.jpg",
       "buttons": [],
       "capture": false,
       "delay": 0
     },
     "from": "51966524537",
-    "refSerialize": "a84f44d02e8df7ff91bf99fe5e4d784a"
+    "refSerialize": "586af534c628781ed9fa854f50563c1b"
   },
   {
-    "ref": "fe6a2360-4e8c-4612-9e83-ba29e57367a8",
+    "ref": "7c3dcc1b-6aed-4def-bbe2-cf4f2b7a3e76",
     "keyword": null,
     "answer": "¡RECUERDA! 🛒\n*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. *¡Ahorra en cada compra!* 💰 ",
     "options": {
@@ -94,8 +94,8 @@
     "refSerialize": "2e11df14b5a23c8104bc8a8f6a9c04b4"
   },
   {
-    "ref": "ans_85939313-05de-47f1-82b6-b19eae7989ac",
-    "keyword": "key_ffa1deaa-b599-4f0b-ab56-d1da49c82555",
+    "ref": "ans_73640b92-8e7f-49c2-ae8a-30ea7c239f85",
+    "keyword": "key_face4c8d-fffe-4837-a432-13b0db3d5730",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -105,12 +105,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "ec4780a24c65b3cc661c82b2bc059735",
+    "refSerialize": "c1991a763270b4f2d2ea5f990c2d2f1e",
     "from": "51966524537"
   },
   {
-    "ref": "ans_651a0b91-5d3d-4869-a8d0-fd50ada977b0",
-    "keyword": "ans_85939313-05de-47f1-82b6-b19eae7989ac",
+    "ref": "ans_05889e55-6054-4dd6-8292-34bbf6745931",
+    "keyword": "ans_73640b92-8e7f-49c2-ae8a-30ea7c239f85",
     "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
     "options": {
       "buttons": [
@@ -128,17 +128,17 @@
         }
       ],
       "capture": false,
-      "delay": 560,
+      "delay": 572,
       "nested": [],
       "keyword": {},
       "callback": false
     },
-    "refSerialize": "828bc92a65182bd57470d53efdd9124f",
+    "refSerialize": "bd380cfffec9e2fe2e7c83de67132d41",
     "from": "51966524537"
   },
   {
-    "ref": "ans_1988ee5c-644b-4162-b147-acbee07b2b68",
-    "keyword": "ans_651a0b91-5d3d-4869-a8d0-fd50ada977b0",
+    "ref": "ans_65c59d5a-d212-403d-947b-d2ebccf04bdb",
+    "keyword": "ans_05889e55-6054-4dd6-8292-34bbf6745931",
     "answer": "__capture_only_intended__",
     "options": {
       "buttons": [
@@ -156,17 +156,347 @@
         }
       ],
       "capture": true,
-      "delay": 560,
+      "delay": 572,
       "nested": [],
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "6782917000740fb93b6788d47f571382",
+    "refSerialize": "dcb5bc971d91e3102c9b7a85d6da2973",
     "from": "51966524537"
   },
   {
-    "ref": "5186eae9-2e75-400b-8924-23be324bc61c",
-    "keyword": "6782917000740fb93b6788d47f571382",
+    "ref": "caed3bca-0f04-4766-98ec-44f4c75496cb",
+    "keyword": "dcb5bc971d91e3102c9b7a85d6da2973",
+    "answer": "*Buscar por producto y marca*",
+    "options": {},
+    "from": "51966524537",
+    "refSerialize": "51134602c1c4cc6d2496cfe32e802077"
+  },
+  {
+    "ref": "ans_201221d2-bf90-45ba-99e5-c276f2527023",
+    "keyword": "key_a5d53a7f-ef01-4ba0-abff-1b884b6fef58",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "f34c2c50be126f1a2e42f8dd6877f15b",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_6ba05824-3776-4f08-a490-a83f264e414d",
+    "keyword": "ans_201221d2-bf90-45ba-99e5-c276f2527023",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5bb49122c42fe5b1c9ab4acd56af767b",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_44ede9b3-8416-4f73-8b7b-fae2e5fc9836",
+    "keyword": "key_eae8bd98-1905-4c2a-8f76-09b14c8401aa",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "f41c9fce36df650371eb3a48b351ca96",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_08893963-1cd9-448f-a381-ffe38a217d39",
+    "keyword": "ans_44ede9b3-8416-4f73-8b7b-fae2e5fc9836",
+    "answer": "🔍 *¿Cómo deseas ingresar tu consulta?*",
+    "options": {
+      "buttons": [
+        {
+          "body": "*Escribir consulta*"
+        },
+        {
+          "body": "*Dictar por Audio*"
+        },
+        {
+          "body": "❌Salir del Sistema"
+        }
+      ],
+      "capture": false,
+      "delay": 634,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "2c22e7508af4f41fd2ffe2e0fcbbb183",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_2666bd9f-cb3d-4f5a-98e5-5188b8c12042",
+    "keyword": "ans_08893963-1cd9-448f-a381-ffe38a217d39",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "buttons": [
+        {
+          "body": "*Escribir consulta*"
+        },
+        {
+          "body": "*Dictar por Audio*"
+        },
+        {
+          "body": "❌Salir del Sistema"
+        }
+      ],
+      "capture": true,
+      "delay": 634,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "89d20c7202e6413c0f95f3a1fbbf2b1b",
+    "from": "51966524537"
+  },
+  {
+    "ref": "eeb6f03b-3606-4cdd-bda7-0b1bfb378c83",
+    "keyword": "89d20c7202e6413c0f95f3a1fbbf2b1b",
+    "answer": "❌Salir del Sistema",
+    "options": {},
+    "from": "51966524537",
+    "refSerialize": "e1bacc02077b70b337e737ced696b4b4"
+  },
+  {
+    "ref": "ans_a87694ca-84f9-4ff3-8335-a434d4257272",
+    "keyword": "key_12424049-a0dc-444a-8ff6-49c930073b4b",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "48c5b7e4b689cab3c8fc07b24cc62f3c",
+    "from": "51966524537"
+  },
+  {
+    "ref": "7e9218f9-545d-490c-ba12-facc5637ca46",
+    "keyword": null,
+    "answer": "*Ha sido un gusto ayudarte* 😊. Vuelve a escribir _empezar_ cuando lo necesites.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "0e98ecb409481dba02864dc4d99a06be"
+  },
+  {
+    "ref": "ed6df8fc-b8b1-4cbc-98b2-fc4dc10beeec",
+    "keyword": null,
+    "answer": "https://backend.luispeche.tech/",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "1c43e1387be78ca0cb3fb4e6386b9878"
+  },
+  {
+    "ref": "00c1f263-723e-45f0-be38-f9e92cf31a4c",
+    "keyword": "ans_a87694ca-84f9-4ff3-8335-a434d4257272",
+    "answer": "__end_flow__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "a07e48655d1eb1adf63c1b74c6ee668e"
+  },
+  {
+    "ref": "f5e174aa-41c0-43dd-bf99-13c085125e0d",
+    "keyword": "a07e48655d1eb1adf63c1b74c6ee668e",
+    "answer": "Holaa",
+    "options": {},
+    "from": "51966524537",
+    "refSerialize": "9d3de55f154f6cc76aaed03e67b2d7c0"
+  },
+  {
+    "ref": "ans_809a0d70-f834-41d7-950e-7fb2d6d4e8e5",
+    "keyword": "key_6f26fa60-7595-4720-a54c-ee11206bfca2",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "01c7a2d3b3d1a639e68ca293bfd61374",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_0f62b37c-165c-4f12-81c4-986a8f62a615",
+    "keyword": "ans_809a0d70-f834-41d7-950e-7fb2d6d4e8e5",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "73203a87ef042adee57abf0cbd58dfbd",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_86462238-6eaf-447c-98e2-a4ccbe76bcce",
+    "keyword": "ans_0f62b37c-165c-4f12-81c4-986a8f62a615",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "d87b402cac6f2dce7cb1274a29352320",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_98c4edbd-e2e6-4ca1-80fc-92f3e1b22628",
+    "keyword": "ans_86462238-6eaf-447c-98e2-a4ccbe76bcce",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "ab7e1623b883b9a4c19c0353e4b783d2",
+    "from": "51966524537"
+  },
+  {
+    "ref": "049226d5-9a1d-4490-8905-242ff0d49fbe",
+    "keyword": null,
+    "answer": "*Saludos de la tarde* 🌞, ¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?",
+    "options": {
+      "media": "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko17.jpg",
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "8ae3283484250ed2b615103c7b07fbe3"
+  },
+  {
+    "ref": "872a489c-0000-4078-9b9f-0b0b1ec08987",
+    "keyword": null,
+    "answer": "¡RECUERDA! 🛒\n*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. *¡Ahorra en cada compra!* 💰 ",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "51966524537",
+    "refSerialize": "2e11df14b5a23c8104bc8a8f6a9c04b4"
+  },
+  {
+    "ref": "ans_73640b92-8e7f-49c2-ae8a-30ea7c239f85",
+    "keyword": "key_face4c8d-fffe-4837-a432-13b0db3d5730",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "c1991a763270b4f2d2ea5f990c2d2f1e",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_05889e55-6054-4dd6-8292-34bbf6745931",
+    "keyword": "ans_73640b92-8e7f-49c2-ae8a-30ea7c239f85",
+    "answer": "📌 Elija una opción del listado, *pulse sobre ella* 👇🏽: ",
+    "options": {
+      "buttons": [
+        {
+          "body": "*Buscar por producto y marca*"
+        },
+        {
+          "body": "*Buscar por categoría*"
+        },
+        {
+          "body": "*Ayuda o asesor*"
+        },
+        {
+          "body": "❌Salir del Sistema"
+        }
+      ],
+      "capture": false,
+      "delay": 572,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "bd380cfffec9e2fe2e7c83de67132d41",
+    "from": "51966524537"
+  },
+  {
+    "ref": "ans_65c59d5a-d212-403d-947b-d2ebccf04bdb",
+    "keyword": "ans_05889e55-6054-4dd6-8292-34bbf6745931",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "buttons": [
+        {
+          "body": "*Buscar por producto y marca*"
+        },
+        {
+          "body": "*Buscar por categoría*"
+        },
+        {
+          "body": "*Ayuda o asesor*"
+        },
+        {
+          "body": "❌Salir del Sistema"
+        }
+      ],
+      "capture": true,
+      "delay": 572,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "dcb5bc971d91e3102c9b7a85d6da2973",
+    "from": "51966524537"
+  },
+  {
+    "ref": "4490af15-ea33-4b9b-b2e9-0eefa531c010",
+    "keyword": "dcb5bc971d91e3102c9b7a85d6da2973",
     "answer": "*Buscar por categoría*",
     "options": {},
     "from": "51966524537",

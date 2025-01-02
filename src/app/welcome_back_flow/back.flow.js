@@ -6,6 +6,7 @@ import {handleErrorAndNotifySlack} from "../../http/slack.http.js";
 import {log_error} from "../../utils/logger.util.js";
 import {randomGreeting} from '../../utils/HourlyGreeting.util.js';
 import {CONSTANTS} from '../../config/index.js';
+import {setRandomDelay} from "../../utils/delay.util.js";
 
 const greeting = randomGreeting();
 
@@ -17,7 +18,7 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
         `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} _para_ _iniciar_ _la_ _conversación_ _dentro_ _del_ _sistema_ _*MAIVI BOT*_ \n📲 *Digíte una opción, que sea un número*\n╠ *[1]* 👉🏽 _para empezar_\n╙ *[2]* 👉🏽 _para consultas puntuales_`,
         {
             capture: true,
-            ref: "welcome_greeting_flow_executed"
+            delay: setRandomDelay(590, 510),
         },
         async (ctx, {state, extensions, globalState, provider, fallBack, flowDynamic, endFlow, gotoFlow}) => {
             idleReset(ctx, gotoFlow, globalState.get("timer"));
