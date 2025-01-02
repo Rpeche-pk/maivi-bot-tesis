@@ -68,7 +68,7 @@ class HelpersClass {
     tryAgain = async (options,message="") => {
         const {ctx, state,provider, fallBack,endFlow} = options;
         const myState = state.getMyState() ?? {};
-        let flag = myState[ctx.from]?.intents
+        let flag = myState[ctx.from]?.intents ?? 2;
         const phone = ctx?.from;
         const jid = ctx?.key?.remoteJid;
 
@@ -77,12 +77,11 @@ class HelpersClass {
             let msgIntents = flag === 1 ? "Tienes 1 intento." : `Tienes ${flag} intentos.\n${message}`;
             flag--;
             await state.update({...myState, [phone]: {...myState[phone], intents: flag}});
-            await this.wait(850, 550);
-            //await flowDynamic(msgIntents);
+            await this.wait(650, 550);
             return fallBack(msgIntents);
         } else {
             myState[phone] = {...myState[phone], on: false};
-            await this.wait(850, 550);
+            await this.wait(650, 550);
             await provider.vendor.sendMessage(jid, {text: "❌ Sus oportunidades se han terminado. Intente nuevamente ❌"});
             await state.update({...myState, [phone]: {...myState[phone], intents: 2, new: true}});
             return endFlow();

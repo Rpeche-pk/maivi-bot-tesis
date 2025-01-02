@@ -11,7 +11,6 @@ const greeting = randomGreeting();
 
 const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {globalState, gotoFlow}) => {
-        idleStop(ctx);
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAnswer(
@@ -35,6 +34,7 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
                         break;
                 }
             }
+            idleStop(ctx);
             await extensions.utils.tryAgain({
                 ctx,
                 state,
@@ -47,7 +47,7 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
             idleStop(ctx);
             log_error("ERROR FLUJO welcomeFlow", error);
             await handleErrorAndNotifySlack("ERROR FLUJO welcomeFlow", error);
-            await endFlow(error.message);
+            return endFlow(error.message);
         }
     });
 

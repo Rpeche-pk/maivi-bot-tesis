@@ -42,7 +42,7 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
             for (let i = 0; i < explanations.length; i++) {
                 await extensions.utils.typing(provider, {
                     delay1: setRandomDelay(490, 410),
-                    delay2: setRandomDelay(650, 550),
+                    delay2: setRandomDelay(600, 550),
                     ctx
                 });
                 await flowDynamic([{body: explanations[i]}]);
@@ -99,7 +99,7 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
 
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(520, 450),
-                delay2: setRandomDelay(650, 550),
+                delay2: setRandomDelay(600, 550),
                 ctx
             });
 

@@ -51,7 +51,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {})
                 idleStop(ctx);
                 log_error("ERROR FLUJO search_categories_flow", e);
                 await handleErrorAndNotifySlack("ERROR FLUJO search_categories_flow", e)
-                await endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
+                return endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
             }
         })
     .addAction({capture: true}, async (ctx, {endFlow, extensions, provider, state, gotoFlow, globalState}) => {
@@ -82,7 +82,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {})
             idleStop(ctx);
             log_error("[ERROR FLOW] search_categories_flow", e);
             await handleErrorAndNotifySlack("[ERROR FLOW] search_categories_flow", e)
-            await endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
+            return endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
         }
     }).addAnswer("🔍 Estimada(o) usuario *¿Deseas realizar otra consulta?*",
         {

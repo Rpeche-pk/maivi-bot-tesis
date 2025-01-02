@@ -36,7 +36,7 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
         for (let i = 0; i < CONSTANTS.MESSAGE_PRINCIPAL.length; i++) {
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(1150, 1050),
+                delay2: setRandomDelay(1110, 1020),
                 ctx
             });
             await flowDynamic([{body: CONSTANTS.MESSAGE_PRINCIPAL[i]}]);

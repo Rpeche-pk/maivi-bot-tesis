@@ -67,8 +67,7 @@ export const randomGreeting = () => {
             return "*¡Hola!* 👋";
         }
 
-        const randomIndex = Math.floor(Math.random() * currentRange.greetings.length);
-        return currentRange.greetings[randomIndex];
+        return currentRange.greetings
 
     } catch (error) {
         log_error('Error al generar saludo:', error);
