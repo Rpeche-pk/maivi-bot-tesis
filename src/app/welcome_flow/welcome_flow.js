@@ -79,6 +79,7 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
 
             if (!myState[phoneNumber]?.on) {
                 log_warning("BOT APAGADO desde welcomeFlow -> ", chalk.blue.bold(JSON.stringify(myState)));
+                await ctxFn.flowDynamic([{body: "🔴 El bot está apagado, por favor, enciéndelo para continuar. Escribiendo #empezar"}]);
                 idleStop(ctx);
                 return ctxFn.endFlow();
             }
