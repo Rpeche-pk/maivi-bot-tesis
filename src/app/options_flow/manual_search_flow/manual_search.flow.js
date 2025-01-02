@@ -13,7 +13,6 @@ const REGEX_INPUT_TEXT = '/Escribir consulta/g';
 */
 const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
-        idleStop(ctx);
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAnswer("🔍 *Ingrese el producto a buscar:* 📦", {capture:true}, null)
@@ -31,8 +30,12 @@ const search_product_flow = addKeyword(REGEX_INPUT_TEXT, {regex: true})
             await provider.vendor.sendMessage(jid, {delete: ctx?.key})
 
             if (body === 'no') return gotoFlow(logoutFlow);
-            if (body === 'si') return gotoFlow(search_product_flow);
+            if (body === 'si') {
+                idleStop(ctx);
+                return gotoFlow(search_product_flow);
+            }
 
+            idleStop(ctx);
             await extensions.utils.tryAgain({
                 ctx,
                 state,

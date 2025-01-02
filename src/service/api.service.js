@@ -27,9 +27,29 @@ export const getProductsApi = async (nameProduct, brandProduct, adapter) => {
         fetchProductsSafely(CONSTANTS.ENDPOINT_METRO, {nameProduct, brand: brandProduct}),
     ]);
 
-    if (!responses.some(response => response && response.length > 0)) {
-        return messages.push(`❌ No se encontraron productos para "${nameProduct}" con la marca "${brandProduct}".`);
+    const errorMessages = [];
+
+    if (!veaProducts || veaProducts.length === 0) {
+        errorMessages.push("❌ No se pudo obtener información de PLAZA VEA");
     }
+
+    if (!tottusProducts || tottusProducts.length === 0) {
+        errorMessages.push("❌ No se pudo obtener información de TOTTUS");
+    }
+
+    if (!metroProducts || metroProducts.length === 0) {
+        errorMessages.push("❌ No se pudo obtener información de METRO");
+    }
+
+    // Si todos los arrays están vacíos, retornar los mensajes de error
+    if (!responses.some(response => response && response.length > 0)) {
+        errorMessages.unshift(`🔎 Búsqueda: "${nameProduct}" con la marca "${brandProduct}"\n`);
+        return errorMessages;
+    }
+
+    /*if (!responses.some(response => response && response.length > 0)) {
+        return messages.push(`❌ No se encontraron productos para "${nameProduct}" con la marca "${brandProduct}".`);
+    }*/
 
     const [veaProducts, tottusProducts, metroProducts] = responses;
 

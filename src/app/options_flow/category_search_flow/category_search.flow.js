@@ -7,12 +7,12 @@ import {log_error} from "../../../utils/logger.util.js";
 import {handleErrorAndNotifySlack} from "../../../http/slack.http.js";
 import {logoutFlow} from "../../exit_flow/exit.flow.js";
 import {CONSTANTS} from "../../../config/index.js";
+import {randomElement} from "../../../utils/random.util.js";
 
 const REGEX_INPUT_CATEGORY = '/Buscar por categoría/g';
 
-const search_categories_flow = addKeyword("#test", {})
+const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
-        idleStop(ctx);
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     }).addAnswer("🔍 *Elige una categoría a consultar:* 📦",
         {
@@ -51,7 +51,7 @@ const search_categories_flow = addKeyword("#test", {})
                 idleStop(ctx);
                 log_error("ERROR FLUJO search_categories_flow", e);
                 await handleErrorAndNotifySlack("ERROR FLUJO search_categories_flow", e)
-                await endFlow(e.message);
+                await endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
             }
         })
     .addAction({capture: true}, async (ctx, {endFlow, extensions, provider, state, gotoFlow, globalState}) => {
@@ -82,7 +82,7 @@ const search_categories_flow = addKeyword("#test", {})
             idleStop(ctx);
             log_error("[ERROR FLOW] search_categories_flow", e);
             await handleErrorAndNotifySlack("[ERROR FLOW] search_categories_flow", e)
-            await endFlow(e.message);
+            await endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
         }
     }).addAnswer("🔍 Estimada(o) usuario *¿Deseas realizar otra consulta?*",
         {
@@ -98,8 +98,12 @@ const search_categories_flow = addKeyword("#test", {})
                 await provider.vendor.sendMessage(jid, {delete: ctx?.key})
 
                 if (body === 'no') return gotoFlow(logoutFlow);
-                if (body === 'si') return gotoFlow(search_categories_flow);
+                if (body === 'si') {
+                    idleStop(ctx);
+                    return gotoFlow(search_categories_flow);
+                }
 
+                idleStop(ctx);
                 await extensions.utils.tryAgain({
                     ctx,
                     state,

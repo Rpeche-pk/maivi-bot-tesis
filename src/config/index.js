@@ -106,6 +106,30 @@ const CONSTANTS = {
         "¡Hasta luego! 👋🏽 Estamos aquí para ti. \nEscribe *empezar* para buscar más productos.",
         "*Esperamos haberte ayudado* 💡. Recuerda: escribe _empezar_ para reiniciar el bot.",
         "*Ha sido un gusto ayudarte* 😊. Vuelve a escribir _empezar_ cuando lo necesites."
+    ],
+    SYSTEM_DROP_MESSAGES:[
+        "😰 *¡Ups!*\n" +
+        "Lamentamos el inconveniente 🙁, parece que algo salió mal al procesar tu consulta. Por favor, intenta nuevamente más tarde.",
+        "😱 *¡Error!*\n" +
+        "¡Ups! Ocurrió un error inesperado 🤖. Estamos trabajando para solucionarlo. Intenta tu consulta de nuevo o contáctanos si el problema persiste.",
+        "🥶 *¡Error!*\n" +
+        "Lo sentimos mucho, algo no salió como esperábamos 😔. Por favor, verifica tu consulta y vuelve a intentarlo. Gracias por tu paciencia.",
+        "😨 *¡Error!*\n" +
+        "Disculpa las molestias 😅, estamos teniendo un pequeño inconveniente con tu consulta. Inténtalo otra vez y si el problema persiste, háznoslo saber.",
+        "😴 *¡Vaya!*\n" +
+        "Estamos teniendo problemas técnicos con tu búsqueda 🛠️. Pedimos disculpas y te invitamos a intentarlo nuevamente en unos momentos."
+    ],
+    GENERAL_MESSAGES_FAILURES:[
+        "😲 *¡Ups!*\n" +
+        "Estamos experimentando un problema técnico temporal 🛠️. Nuestro equipo ya está trabajando para solucionarlo. Agradecemos tu comprensión y paciencia.",
+        "🥶 *¡Vaya!*\n" +
+        "¡Gracias por tu paciencia! Estamos enfrentando un inconveniente técnico en este momento, pero estamos haciendo todo lo posible para resolverlo lo antes posible.",
+        "😳 *¡Error!*\n" +
+        "Actualmente estamos resolviendo un problema con nuestro sistema 🤖. Te pedimos disculpas por cualquier inconveniente y te aseguramos que pronto estará funcionando normalmente.",
+        "😰 *¡Error!*\n" +
+        "Sabemos que esto puede ser frustrante 😔. Nuestro sistema está en mantenimiento debido a un problema técnico. Te mantendremos informado sobre cualquier actualización.",
+        "🤕 *¡Vaya!*\n" +
+        "Estamos trabajando para restaurar el servicio lo más rápido posible 🚀. Gracias por tu paciencia mientras resolvemos este inconveniente."
     ]
 };
 

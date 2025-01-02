@@ -5,6 +5,7 @@ import {CONSTANTS} from "../config/index.js";
 import {idleReset, idleStop} from "../utils/idle.util.js";
 import {setRandomDelay} from "../utils/delay.util.js";
 import {getProductsApi} from "../service/api.service.js";
+import {randomElement} from "../utils/random.util.js";
 
 const openai_middleware = async (ctx, {
     extensions,
@@ -24,7 +25,7 @@ const openai_middleware = async (ctx, {
         userState[phone] = {...userState[phone], history: [{role: "user", content: body}]};
 
         const responseAI = await extensions.ai.determineChatFn(body, userState[phone]?.history);
-        log_success("PREDICTION", responseAI);
+        log_success("[PREDICTION]", responseAI);
 
         if (responseAI.prediction.toLowerCase().includes('unknown')) {
             await extensions.utils.tryAgain({
@@ -35,22 +36,38 @@ const openai_middleware = async (ctx, {
                 flowDynamic,
                 endFlow
             }, CONSTANTS.MESSAGES.FAIL_PREDICTION);
+            idleStop(ctx);
             return;
         }
 
         await flowDynamic("⏱ *Consultando... ⏱*");
         const myState = state?.getMyState();
         const responseAi = await extensions.ai.startChatAI(body, myState[phone]?.history);
+        let nameProduct = "";
+        let brandProduct = "";
 
-        const arrayParams = String(responseAi).split("+");
-        const nameProduct = arrayParams[0].trim();
-        const brandProduct = arrayParams[1].trim();
+        if (responseAi.include("+")){
+            const arrayParams = String(responseAi).split("+");
+            nameProduct = arrayParams[0].trim();
+            brandProduct = arrayParams[1].trim();
+        }else{
+            await extensions.utils.tryAgain({
+                ctx,
+                state,
+                fallBack,
+                provider,
+                flowDynamic,
+                endFlow
+            }, responseAi);
+            idleStop(ctx);
+            return;
+        }
+        log_success("[PREDICTION AI]", responseAi);
 
         const responseApi = await getProductsApi(nameProduct, brandProduct, extensions);
 
         userState[phone] = {...userState[phone], history: [{role: "assistant", content: responseAi}]};
         await state.update(userState);
-
 
         for (let i = 0; i < responseApi.length; i++) {
             await extensions.utils.typing(provider, {
@@ -65,7 +82,7 @@ const openai_middleware = async (ctx, {
         idleStop(ctx)
         log_error("ERROR FLUJO openai_middleware", e);
         await handleErrorAndNotifySlack("ERROR FLUJO openai_middleware", e);
-        await endFlow(e.message);
+        await endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
     }
 };
 

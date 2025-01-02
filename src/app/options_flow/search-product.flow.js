@@ -1,5 +1,5 @@
 import {addKeyword, EVENTS} from '@builderbot/bot'
-import {idleReset} from "../../utils/idle.util.js";
+import {idleReset, idleStart, idleStop} from "../../utils/idle.util.js";
 import {setRandomDelay, typingTime} from "../../utils/delay.util.js";
 import {CONSTANTS} from "../../config/index.js";
 import {handleErrorAndNotifySlack} from "../../http/slack.http.js";
@@ -24,7 +24,7 @@ const choose_input_method_flow = addKeyword(EVENTS.ACTION, {})
 
 const search_explanation_flow = addKeyword(REGEX_SEARCH_PRODUCT, {regex: true})
     .addAction(async (ctx, {gotoFlow, globalState}) => {
-        idleReset(ctx, gotoFlow, globalState.get("timer"));
+        idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAction(async (ctx, {extensions, provider, gotoFlow}) => {
         try {
@@ -39,8 +39,9 @@ const search_explanation_flow = addKeyword(REGEX_SEARCH_PRODUCT, {regex: true})
             }
             return gotoFlow(choose_input_method_flow);
         } catch (error) {
-            await handleErrorAndNotifySlack(`[ERROR FLUJO searchProductFlow:]`, error);
+            idleStop(ctx);
             log_error("ERROR FLUJO searchProductFlow", error);
+            await handleErrorAndNotifySlack(`[ERROR FLUJO searchProductFlow:]`, error);
         }
     });
 

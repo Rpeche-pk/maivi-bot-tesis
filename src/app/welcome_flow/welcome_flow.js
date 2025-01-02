@@ -98,8 +98,8 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
             log_success("Usuario recurrente, desde welcomeFlow -> ", myState);
 
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(520, 490),
-                delay2: setRandomDelay(750, 650),
+                delay1: setRandomDelay(520, 450),
+                delay2: setRandomDelay(650, 550),
                 ctx
             });
 
@@ -111,12 +111,12 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
 
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(600, 500),
-                delay2: setRandomDelay(1200, 1080),
+                delay2: setRandomDelay(1100, 1050),
                 ctx
             });
             await flowDynamic(CONSTANTS.MESSAGE_BACK_USER);
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
-
+            idleStop(ctx);
             return gotoFlow(menu_flow);
         }
     });
