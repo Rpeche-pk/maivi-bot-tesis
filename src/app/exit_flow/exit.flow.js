@@ -71,7 +71,7 @@ const sessionExpiredFlow = addKeyword(EVENTS.ACTION, {})
             const jid = ctx?.key?.remoteJid;
 
             await extensions.utils.typing(provider, { delay1: setRandomDelay(500, 450), delay2: setRandomDelay(1250, 1055), ctx })
-            await provider.vendor.sendMessage(jid, { text: "❌ Su sesión dentro del sistema ha expirado ❌ , *vuelva a iniciar el bot*, si gusta consultar nuestro _servicio_"});
+            await provider.vendor.sendMessage(jid, { text: "*Importante*, tu sesión ha expirado. ⏳"});
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
             const myState = state.getMyState() ?? {};
             myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};

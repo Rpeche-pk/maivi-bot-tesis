@@ -7,6 +7,7 @@ import {log_error} from "../../utils/logger.util.js";
 import {randomGreeting} from '../../utils/HourlyGreeting.util.js';
 import {CONSTANTS} from '../../config/index.js';
 import {setRandomDelay} from "../../utils/delay.util.js";
+import {randomElement} from "../../utils/random.util.js";
 
 const greeting = randomGreeting();
 
@@ -19,6 +20,7 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
         {
             capture: true,
             delay: setRandomDelay(590, 510),
+            media: randomElement(CONSTANTS.IMAGE_SESSION_EXPIRED)
         },
         async (ctx, {state, extensions, globalState, provider, fallBack, flowDynamic, endFlow, gotoFlow}) => {
             idleReset(ctx, gotoFlow, globalState.get("timer"));

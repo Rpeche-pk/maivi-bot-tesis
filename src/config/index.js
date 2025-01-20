@@ -40,6 +40,11 @@ const CONSTANTS = {
         "https://ik.imagekit.io/ljpa/TESIS/menu2.png",
         "https://ik.imagekit.io/ljpa/TESIS/menu3.png"
     ],
+    IMAGE_SESSION_EXPIRED: [
+        "https://ik.imagekit.io/ljpa/TESIS/expired1.png",
+        "https://ik.imagekit.io/ljpa/TESIS/expired2.png",
+        "https://ik.imagekit.io/ljpa/TESIS/expired3.png"
+    ],
     MESSAGE_PRINCIPAL: [
         "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
         "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas, etc.",
