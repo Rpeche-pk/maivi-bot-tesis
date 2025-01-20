@@ -25,6 +25,7 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, {extensions, provider, flowDynamic, gotoFlow}) => {
         try {
             const randomImage = randomElement(CONSTANTS.URL_IMAGE_BOT);
+            const randomIntro = randomElement(CONSTANTS.URL_INTRO_BOT);
             await extensions.utils.typingWithoutDelay(provider, {
                 delay1: setRandomDelay(520, 450),
                 ctx
@@ -36,17 +37,18 @@ const start_chat_flow = addKeyword(EVENTS.ACTION, {})
                     media: `${randomImage}`,
                 },
             ]);
+            await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
 
-            const explanations = CONSTANTS.MESSAGE_PRINCIPAL;
+            await extensions.utils.typingWithoutDelay(provider, {
+                delay1: setRandomDelay(480, 350),
+                ctx
+            });
 
-            for (let i = 0; i < explanations.length; i++) {
-                await extensions.utils.typing(provider, {
-                    delay1: setRandomDelay(490, 410),
-                    delay2: setRandomDelay(600, 550),
-                    ctx
-                });
-                await flowDynamic([{body: explanations[i]}]);
-            }
+            await flowDynamic([
+                {
+                    media: `${randomIntro}`,
+                },
+            ]);
 
             await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
             await extensions.utils.wait(550, 500);

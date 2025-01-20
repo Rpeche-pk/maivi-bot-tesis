@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+
 dotenv.config();
 const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://localhost:27017/whatsapp-bot';
 
@@ -10,7 +11,7 @@ const CONSTANTS = {
     ENDPOINT_VEA: "plazavea",
     ENDPOINT_TOTTUS: "tottus",
     ENDPOINT_METRO: "metro",
-    ENDPOINT_SYNC_DATA :"/sync",
+    ENDPOINT_SYNC_DATA: "/sync",
     ENDPOINT_SEARCH_CATEGORY_TOTTUS: "brand/TOTTUS/{category}",
     ENDPOINT_SEARCH_CATEGORY_VEA: "brand/PLAZAVEA/{category}",
     ENDPOINT_SEARCH_CATEGORY_METRO: "brand/METRO/{category}",
@@ -19,12 +20,12 @@ const CONSTANTS = {
     MARKET_TOTTUS: "Tottus",
     MARKET_METRO: "Metro",
     INTENTS: 2,
-    MESSAGES : {
+    MESSAGES: {
         FAIL_PREDICTION: "🙇🏽‍♀️ Disculpa, pero no entiendo lo que necesitas. ¿Puedes reformular tu consulta?",
-        FAIL:"💢 Por favor elige una opción válida.",
-        ERROR_DNI:"🔴 El DNI ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",
-        OTP_STRUCTURE:"🔴 El código ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",
-        OTP_RESPONSE_ERROR:"🔴 El código ingresado no es correcto, por favor intenta nuevamente.",
+        FAIL: "💢 Por favor elige una opción válida.",
+        ERROR_DNI: "🔴 El DNI ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",
+        OTP_STRUCTURE: "🔴 El código ingresado no es válido, por favor intenta nuevamente. Recuerde que debe ser númerico y de 8 dígitos.",
+        OTP_RESPONSE_ERROR: "🔴 El código ingresado no es correcto, por favor intenta nuevamente.",
     },
     URL_IMAGE_BOT: ["https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/PAPIKO.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko17.jpg"
@@ -32,6 +33,13 @@ const CONSTANTS = {
         , "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko5.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko13.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg"],
+    URL_INTRO_BOT: ["https://ik.imagekit.io/ljpa/TESIS/maivi2.png",
+        "https://ik.imagekit.io/ljpa/TESIS/maivi1.png",
+        "https://ik.imagekit.io/ljpa/TESIS/maivi3.png"],
+    IMAGE_EXPLAIN: ["https://ik.imagekit.io/ljpa/TESIS/menu1.png",
+        "https://ik.imagekit.io/ljpa/TESIS/menu2.png",
+        "https://ik.imagekit.io/ljpa/TESIS/menu3.png"
+    ],
     MESSAGE_PRINCIPAL: [
         "📌 *¿Cómo funciona?* \nSolo dime el nombre del producto que buscas",
         "🥫 *Sección de abarrotes*: \nDesde arroz, azúcar, aceites, pastas, etc.",
@@ -53,8 +61,8 @@ const CONSTANTS = {
         `¡Qué alegría verte otra vez! 🤗 ¿Cómo puedo apoyarte hoy?`,
         `¡Encantado(a) de verte de nuevo! 🥳 ¿Cómo puedo ayudarte?`,
         "¡Es un placer saludarte otra vez! 🙌 ¿En qué puedo asistirte?"
-        ],
-    MESSAGE_BACK_USER :[
+    ],
+    MESSAGE_BACK_USER: [
         "¡RECUERDA! 🛒\n" +
         "*MaiviBot*; Tu asistente para encontrar los mejores precios de alimentos en _supermercados online_. Compara _precios_ y conoce las características de los productos al instante. *¡Ahorra en cada compra!* 💰 "
     ],
@@ -100,14 +108,14 @@ const CONSTANTS = {
         '#FFC312',
         '#6A669D',
     ],
-    FAREWELL_MESSAGES:[
+    FAREWELL_MESSAGES: [
         "*¡Gracias por tu visita!* 🌟\nPara volver a buscar productos escribe *empezar*",
         "*¡Hasta la próxima!* 🛒\nRecuerda que puedes buscar más productos con _empezar_",
         "¡Hasta luego! 👋🏽 Estamos aquí para ti. \nEscribe *empezar* para buscar más productos.",
         "*Esperamos haberte ayudado* 💡. Recuerda: escribe _empezar_ para reiniciar el bot.",
         "*Ha sido un gusto ayudarte* 😊. Vuelve a escribir _empezar_ cuando lo necesites."
     ],
-    SYSTEM_DROP_MESSAGES:[
+    SYSTEM_DROP_MESSAGES: [
         "😰 *¡Ups!*\n" +
         "Lamentamos el inconveniente 🙁, parece que algo salió mal al procesar tu consulta. Por favor, intenta nuevamente más tarde.",
         "😱 *¡Error!*\n" +
@@ -119,7 +127,7 @@ const CONSTANTS = {
         "😴 *¡Vaya!*\n" +
         "Estamos teniendo problemas técnicos con tu búsqueda 🛠️. Pedimos disculpas y te invitamos a intentarlo nuevamente en unos momentos."
     ],
-    GENERAL_MESSAGES_FAILURES:[
+    GENERAL_MESSAGES_FAILURES: [
         "😲 *¡Ups!*\n" +
         "Estamos experimentando un problema técnico temporal 🛠️. Nuestro equipo ya está trabajando para solucionarlo. Agradecemos tu comprensión y paciencia.",
         "🥶 *¡Vaya!*\n" +
@@ -130,7 +138,19 @@ const CONSTANTS = {
         "Sabemos que esto puede ser frustrante 😔. Nuestro sistema está en mantenimiento debido a un problema técnico. Te mantendremos informado sobre cualquier actualización.",
         "🤕 *¡Vaya!*\n" +
         "Estamos trabajando para restaurar el servicio lo más rápido posible 🚀. Gracias por tu paciencia mientras resolvemos este inconveniente."
-    ]
+    ],
+    AVAILABLE_CATEGORIES:
+        "🛒 Categorías disponibles:\n" +
+        "╠  Aceites\n" +
+        "╠  Arroz\n" +
+        "╠  Pastas y Salsas\n" +
+        "╠  Conservas\n" +
+        "╠  Menestras\n" +
+        "╠  Condimentos\n" +
+        "╠  Chocolatería\n" +
+        "╠  Leches\n" +
+        "╙  Snacks y Golosinas",
+
 };
 
-export { CONSTANTS, MONGO_URI };
+export {CONSTANTS, MONGO_URI};

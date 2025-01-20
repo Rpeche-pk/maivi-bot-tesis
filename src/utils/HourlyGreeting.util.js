@@ -37,8 +37,7 @@ const TIME_RANGES = {
         greetings: [
             "*Saludos vespertinos* 🌅",
             "*Buenas Tardes* ⛅",
-            "*¡Hola, buenas tardes!* 🌤",
-            "*Saludos de la tarde* 🌞"
+            "*¡Hola, buenas tardes!* 🌤"
         ]
     },
     EVENING: {
