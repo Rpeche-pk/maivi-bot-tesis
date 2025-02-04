@@ -45,6 +45,7 @@ class ApiClient {
         } catch (error) {
             log_error('Error Get products from the API:', error);
             await handleErrorAndNotifySlack('Error Get products from the API:', error);
+            return []
         }
     }
 

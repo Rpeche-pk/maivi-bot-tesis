@@ -19,9 +19,10 @@ const logoutFlow = addKeyword(REGEX_EXIT, { regex: true })
             myState[from] = { ...myState[from], on: false, intents: CONSTANTS.INTENTS };
             log_warning("BOT APAGADO desde flujo LogoutFlow-> ", myState);
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 550), delay2: setRandomDelay(1750, 1480), ctx });
+            await flowDynamic([{ body: randomElement(CONSTANTS.SURVEY_MESSAGES).replace("[enlace]",CONSTANTS.SURVEY) }]);
             await flowDynamic([{ body: randomElement(CONSTANTS.FAREWELL_MESSAGES) }]);
             await extensions.utils.typingWithoutDelay(provider, { delay1: setRandomDelay(700, 500), delay2: setRandomDelay(950, 580), ctx });
-            await flowDynamic("https://backend.luispeche.tech/");
+
             await extensions.utils.typing(provider, { delay1: setRandomDelay(750, 600), delay2: setRandomDelay(850, 640), ctx });
             const baileys = await provider.vendor.sendMessage(jid, {
                 text: "👾 @Author @Rpeche-pk",
@@ -57,6 +58,8 @@ const timeoutFlow = addKeyword(EVENTS.ACTION, {})
             const jid = ctx?.key?.remoteJid;
             await extensions.utils.typing(provider, { delay1: 450, delay2: 1050, ctx })
             await provider.vendor.sendMessage(jid, { text: "❌ Se ha agotado el tiempo de respuesta ❌" });
+            await provider.vendor.sendMessage(jid, { text: "*Importante*, ¡Gracias por usar nuestro chatbot!\n" +
+                    `¿Nos ayudas a mejorar? Dedica un minuto a llenar esta breve encuesta: ${CONSTANTS.SURVEY}. ⏳`});
             idleStop(ctx);
             return endFlow();
         } catch (e) {
@@ -71,7 +74,9 @@ const sessionExpiredFlow = addKeyword(EVENTS.ACTION, {})
             const jid = ctx?.key?.remoteJid;
 
             await extensions.utils.typing(provider, { delay1: setRandomDelay(500, 450), delay2: setRandomDelay(1250, 1055), ctx })
-            await provider.vendor.sendMessage(jid, { text: "❌ Su sesión dentro del sistema ha expirado ❌ , *vuelva a iniciar el bot*, si gusta consultar nuestro _servicio_"});
+            await provider.vendor.sendMessage(jid, { text: "❌ *Importante*, tu sesión ha expirado. ⏳"});
+            await provider.vendor.sendMessage(jid, { text: "*Hola*, Tu opinión es muy importante. " +
+            `Cuéntanos cómo fue tu experiencia con nuestro chatbot en esta encuesta rápida: ${CONSTANTS.SURVEY}. ⏳`});
             await extensions.utils.simulatePausedAndAvailable(provider, ctx);
             const myState = state.getMyState() ?? {};
             myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};

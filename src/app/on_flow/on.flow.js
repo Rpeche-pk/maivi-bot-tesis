@@ -19,11 +19,12 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
     .addAction(on_middleware)
     .addAction(tokenMiddleware)
     .addAction(async (ctx, {flowDynamic, extensions, gotoFlow, provider}) => {
+        const randomMessage = randomElement(CONSTANTS.MESSAGE_WELCOME_BACK);
+        const randomImage = randomElement(CONSTANTS.URL_INTRO_BOT);
         await extensions.utils.typingWithoutDelay(provider, {
             delay1: setRandomDelay(650, 550),
             ctx
         });
-        const randomMessage = randomElement(CONSTANTS.MESSAGE_WELCOME_BACK);
         await flowDynamic([
             {
                 body:
@@ -33,14 +34,16 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
         ]);
         await extensions.utils.simulatePausedAndAvailable(provider, ctx);
 
-        for (let i = 0; i < CONSTANTS.MESSAGE_PRINCIPAL.length; i++) {
-            await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 550),
-                delay2: setRandomDelay(1110, 1020),
-                ctx
-            });
-            await flowDynamic([{body: CONSTANTS.MESSAGE_PRINCIPAL[i]}]);
-        }
+        await extensions.utils.typingWithoutDelay(provider, {
+            delay1: setRandomDelay(450, 350),
+            ctx
+        });
+
+        await flowDynamic([
+            {
+                media: `${randomImage}`,
+            },
+        ]);
 
         await extensions.utils.simulatePausedAndAvailable(provider, ctx);
         console.log(chalk.blue("ESTOY A PUNTO DE ENTRAR AL FLUJO PRINCIPAL BUSQUEDA"));
