@@ -43,10 +43,11 @@ const openai_middleware = async (ctx, {
         await flowDynamic("⏱ *Consultando... ⏱*");
         const myState = state?.getMyState();
         const responseAi = await extensions.ai.startChatAI(body, myState[phone]?.history);
+        console.log("responseAi [details]", responseAi);
         let nameProduct = "";
         let brandProduct = "";
 
-        if (responseAi.include("+")){
+        if (String(responseAi).includes("+")){
             const arrayParams = String(responseAi).split("+");
             nameProduct = arrayParams[0].trim();
             brandProduct = arrayParams[1].trim();

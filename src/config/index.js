@@ -120,6 +120,13 @@ const CONSTANTS = {
         "*Esperamos haberte ayudado* 💡. Recuerda: escribe _empezar_ para reiniciar el bot.",
         "*Ha sido un gusto ayudarte* 😊. Vuelve a escribir _empezar_ cuando lo necesites."
     ],
+    SURVEY_MESSAGES :  [
+        "¡Gracias por interactuar con nuestro chatbot! Tu opinión es clave para nuestro estudio universitario. Ayúdanos llenando esta breve encuesta: [enlace].",
+        "¡Hola! ¿Podrías dedicar un minuto a nuestra encuesta? Tu experiencia con las consultas de productos alimenticios nos ayudará en nuestro proyecto universitario: [enlace].",
+        "Tu feedback es muy importante. Ayúdanos a mejorar completando esta corta encuesta tras usar nuestro chatbot. Forma parte de nuestro estudio universitario: [enlace].",
+        "¡Gracias por tu tiempo! Comparte tu experiencia respondiendo esta encuesta rápida. Tu aporte será fundamental para nuestro trabajo académico: [enlace].",
+        "¿Nos ayudas? Participa en esta encuesta y contribuye a nuestro estudio universitario sobre consultas de productos alimenticios. Es rápido y sencillo: [enlace]."
+    ],
     SYSTEM_DROP_MESSAGES: [
         "😰 *¡Ups!*\n" +
         "Lamentamos el inconveniente 🙁, parece que algo salió mal al procesar tu consulta. Por favor, intenta nuevamente más tarde.",
@@ -155,7 +162,7 @@ const CONSTANTS = {
         "╠  Chocolatería\n" +
         "╠  Leches\n" +
         "╙  Snacks y Golosinas",
-
+    SURVEY:"https://docs.google.com/forms/d/e/1FAIpQLScHn-BAqLYapcLJzE9pbFUn9419cl86ywAZZDm6UQN2eKQKuQ/viewform?usp=sharing"
 };
 
 export {CONSTANTS, MONGO_URI};
