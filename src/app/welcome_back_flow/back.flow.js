@@ -16,10 +16,10 @@ const welcome_greeting_flow = addKeyword(EVENTS.ACTION, {})
         idleStart(ctx, gotoFlow, globalState.get("timer"));
     })
     .addAnswer(
-        `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} _para_ _iniciar_ _la_ _conversación_ _dentro_ _del_ _sistema_ _*MAIVI BOT*_ \n📲 *Digíte una opción, que sea un número*\n╠ *[1]* 👉🏽 _para empezar_\n╙ *[2]* 👉🏽 _para consultas puntuales_`,
+        `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} _para_ _iniciar_ _la_ _conversación_ _dentro_ _del_ _sistema_ _*MAIVI BOT*_ \n📲 *Digíte una opción, que sea un número*\n╠ *[1]* 👉🏽 _para empezar_\n╙ *[2]* 👉🏽 _para consultar con un asesor_`,
         {
             capture: true,
-            delay: setRandomDelay(590, 510),
+            delay: setRandomDelay(500, 450),
             media: randomElement(CONSTANTS.IMAGE_SESSION_EXPIRED)
         },
         async (ctx, {state, extensions, globalState, provider, fallBack, flowDynamic, endFlow, gotoFlow}) => {

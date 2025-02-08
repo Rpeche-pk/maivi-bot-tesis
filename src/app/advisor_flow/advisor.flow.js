@@ -12,7 +12,7 @@ const advisorFlow = addKeyword(REGEX_ADVISOR,{})
     .addAction(async (ctx) => {
       idleStop(ctx);
     })
-    .addAction(async (ctx, {extensions,provider, state}) => {
+    .addAction(async (ctx, {extensions,provider, state,endFlow}) => {
         try {
             const myState = state.getMyState() ?? {};
             const greeting = randomGreeting();
@@ -26,6 +26,7 @@ const advisorFlow = addKeyword(REGEX_ADVISOR,{})
             await extensions.utils.wait(setRandomDelay(1250,850));
             await provider.vendor.sendMessage(jid, {text: `${greeting[Math.floor(Math.random() * greeting.length)]} 💁🏻‍♀️ Digame en que puedo ayudarle`});
             await provider.vendor.sendPresenceUpdate("paused", jid);
+            return endFlow('Opción en desarrollo (ignorar). Escriba empezar')
         } catch (e) {
             await handleErrorAndNotifySlack("Error en el flujo timeoutFlow",e);
             log_error("Error en el flujo timeoutFlow",e);

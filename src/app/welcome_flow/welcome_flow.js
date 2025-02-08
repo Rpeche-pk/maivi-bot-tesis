@@ -101,8 +101,8 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
             log_success("Usuario recurrente, desde welcomeFlow -> ", myState);
 
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(520, 450),
-                delay2: setRandomDelay(600, 550),
+                delay1: setRandomDelay(450, 400),
+                delay2: setRandomDelay(550, 450),
                 ctx
             });
 
@@ -113,8 +113,8 @@ const welcome_flow = addKeyword(EVENTS.WELCOME, {})
             await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
 
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(600, 500),
-                delay2: setRandomDelay(1100, 1050),
+                delay1: setRandomDelay(520, 490),
+                delay2: setRandomDelay(1100, 950),
                 ctx
             });
             await flowDynamic(CONSTANTS.MESSAGE_BACK_USER);

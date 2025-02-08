@@ -18,7 +18,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
         {
             capture: true,
             buttons: generateCategoryButtons(),
-            delay: setRandomDelay(520, 490)
+            delay: setRandomDelay(500, 470)
         }, async (ctx, {endFlow,gotoFlow, globalState, extensions, state, provider}) => {
 
             try {
@@ -35,7 +35,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
                 const brandByCategories = await getBrandCategory(extensions, categories)
 
                 await provider.vendor.sendMessage(jid, {delete: ctx?.key});
-                await extensions.utils.wait(510, 490);
+                await extensions.utils.wait(450, 400);
 
                 await provider.vendor.sendMessage(
                     jid, {
@@ -64,14 +64,14 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
             const categories = myState[phone]?.category;
 
             await provider.vendor.sendMessage(jid, {delete: ctx?.key});
-            await extensions.utils.wait(530, 490);
+            await extensions.utils.wait(450, 390);
 
             const messages = await getProductsByBrand(extensions, brand, categories);
 
             for (let message of messages) {
                 await extensions.utils.typing(provider, {
                     delay1: setRandomDelay(510, 400),
-                    delay2: setRandomDelay(1100, 1010),
+                    delay2: setRandomDelay(950, 850),
                     ctx
                 });
                 await provider.vendor.sendMessage(jid, {text: message});
@@ -88,7 +88,7 @@ const search_categories_flow = addKeyword(REGEX_INPUT_CATEGORY, {regex: true})
         {
             capture: true,
             buttons: [{"body": "SI"}, {"body": "NO"}],
-            delay: setRandomDelay(650, 550)
+            delay: setRandomDelay(550, 500)
         }, async (ctx, {endFlow, gotoFlow, flowDynamic, extensions, state, fallBack, provider, globalState}) => {
             try {
                 idleReset(ctx, gotoFlow, globalState.get("timer"));

@@ -71,18 +71,17 @@ const timeoutFlow = addKeyword(EVENTS.ACTION, {})
 const sessionExpiredFlow = addKeyword(EVENTS.ACTION, {})
     .addAction(async (ctx, { extensions, provider, gotoFlow, state }) => {
         try {
-            const jid = ctx?.key?.remoteJid;
 
-            await extensions.utils.typing(provider, { delay1: setRandomDelay(500, 450), delay2: setRandomDelay(1250, 1055), ctx })
-            await provider.vendor.sendMessage(jid, { text: "❌ *Importante*, tu sesión ha expirado. ⏳"});
-            await provider.vendor.sendMessage(jid, { text: "*Hola*, Tu opinión es muy importante. " +
-            `Cuéntanos cómo fue tu experiencia con nuestro chatbot en esta encuesta rápida: ${CONSTANTS.SURVEY}. ⏳`});
-            await extensions.utils.simulatePausedAndAvailable(provider, ctx);
+            await extensions.utils.typing(provider, { delay1: setRandomDelay(500, 450), delay2: setRandomDelay(900, 850), ctx })
+            //await provider.vendor.sendMessage(jid, { text: "❌ *Importante*, tu sesión ha expirado. ⏳"});
+            /*await provider.vendor.sendMessage(jid, { text: "*Hola*, Tu opinión es muy importante. " +
+            `Cuéntanos cómo fue tu experiencia con nuestro chatbot en esta encuesta rápida: ${CONSTANTS.SURVEY}. ⏳`});*/
+            //await extensions.utils.simulatePausedAndAvailable(provider, ctx);
             const myState = state.getMyState() ?? {};
             myState[ctx.from] = {...myState[ctx.from], on: true, intents: CONSTANTS.INTENTS, new: false};
             await state.update(myState);
             idleStop(ctx);
-            await extensions.utils.wait(580, 475);
+            //await extensions.utils.wait(580, 475);
             return gotoFlow(welcome_greeting_flow);
         } catch (e) {
             await handleErrorAndNotifySlack("Error en el flujo sessionExpiredFlow", e);

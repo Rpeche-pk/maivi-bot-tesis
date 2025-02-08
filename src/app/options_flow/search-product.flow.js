@@ -18,7 +18,7 @@ const choose_input_method_flow = addKeyword(EVENTS.ACTION, {})
         {
             capture: true,
             delay: setRandomDelay(650, 550),
-            buttons: [{"body": "*Escribir consulta*"}, {"body": "*Dictar por Audio*"}, {"body": "❌Salir del Sistema"}]
+            buttons: [{"body": "*Escribir consulta*"}, {"body": "*Dictar por Audio* (*mantenimiento*)"}, {"body": "❌Salir del Sistema"}]
         },
         poll_middleware)
 

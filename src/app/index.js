@@ -10,7 +10,7 @@ import {on_flow} from "./on_flow/on.flow.js";
 import {welcome_greeting_flow} from "./welcome_back_flow/back.flow.js";
 import {audioAIFlow, audioProcessFlow, flowBotAudio} from "./audio_flow/audio.flow.js";
 import {search_audio_flow} from "./options_flow/audio_search_flow/audio_search.flow.js";
-import {search_product_flow} from "./options_flow/manual_search_flow/manual_search.flow.js";
+import {new_search_flow, search_product_flow} from "./options_flow/manual_search_flow/manual_search.flow.js";
 import {cron_flow, process_exit} from "./cron_flow/cron.flow.js";
 import {search_categories_flow} from "./options_flow/category_search_flow/category_search.flow.js";
 
@@ -23,6 +23,7 @@ export default createFlow([
     welcome_greeting_flow,
     search_product_flow,
     search_explanation_flow,
+    new_search_flow,
     advisorFlow,
     start_chat_flow,
     timeoutFlow,

@@ -6,6 +6,7 @@ import {idleReset, idleStop} from "../utils/idle.util.js";
 import {setRandomDelay} from "../utils/delay.util.js";
 import {getProductsApi} from "../service/api.service.js";
 import {randomElement} from "../utils/random.util.js";
+import {new_search_flow} from "../app/options_flow/manual_search_flow/manual_search.flow.js";
 
 const openai_middleware = async (ctx, {
     extensions,
@@ -23,6 +24,8 @@ const openai_middleware = async (ctx, {
         const userState = state?.getMyState();
         const phone = ctx?.from;
         userState[phone] = {...userState[phone], history: [{role: "user", content: body}]};
+
+        await flowDynamic("⏱ *Espere un momento por favor, mientras se consulta la data... ⏱*");
 
         const responseAI = await extensions.ai.determineChatFn(body, userState[phone]?.history);
         log_success("[PREDICTION]", responseAI);
@@ -65,20 +68,24 @@ const openai_middleware = async (ctx, {
         }
         log_success("[PREDICTION AI]", responseAi);
 
+        await extensions.utils.typingWithoutDelay(provider, {delay1: setRandomDelay(380, 300), ctx});
         const responseApi = await getProductsApi(nameProduct, brandProduct, extensions);
+        await extensions.utils.simulatePausedAndAvailable(provider, ctx);
 
+        log_success("[openai_middleware] - Request API Correctly");
         userState[phone] = {...userState[phone], history: [{role: "assistant", content: responseAi}]};
         await state.update(userState);
 
         for (let i = 0; i < responseApi.length; i++) {
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(490, 410),
-                delay2: setRandomDelay(1250, 1090),
+                delay2: setRandomDelay(1000, 950),
                 ctx
             });
             await provider.vendor.sendMessage(ctx?.key?.remoteJid, {text: responseApi[i]});
         }
 
+        return gotoFlow(new_search_flow);
     } catch (e) {
         idleStop(ctx)
         log_error("ERROR FLUJO openai_middleware", e);

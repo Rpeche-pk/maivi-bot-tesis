@@ -20,7 +20,7 @@ const off_flow = addKeyword(REGEX_ADVISOR, {regex: true})
             await state.update(myState);
             console.log(chalk.bgCyan("BOT APAGADO -> "), chalk.cyan(JSON.stringify(myState)));
             await provider.vendor.sendMessage(jid, {react: {key: ctx?.key, text: "✅"}});
-            await extensions.utils.wait(850, 550);
+            await extensions.utils.wait(500, 450);
             await extensions.utils.typing(provider, {delay1: 850, delay2: 950, ctx});
             await provider.vendor.sendMessage(jid, {text: "En unos instantes el asesor se comunicará con usted..."}, {quoted: ctx});
             return gotoFlow(advisorFlow);
