@@ -60,7 +60,7 @@ export const getProductsApi = async (nameProduct, brandProduct, adapter) => {
         );
 
     if (overallCheapest) {
-        const messageCheapest = `🏆 Producto Más Económico: ${overallCheapest.name}\nS/ ${overallCheapest.price}\nLink: ${overallCheapest.url} -(${overallCheapest.supermarket})`;
+        const messageCheapest = `🏆 *Producto Más Económico*: ${overallCheapest.name}\nS/ ${overallCheapest.price}\n*Link:* ${overallCheapest.url}\n*Supermercado:* (${overallCheapest.supermarket})`;
         messages.push(messageCheapest);
     }
 

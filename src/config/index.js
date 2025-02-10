@@ -35,10 +35,12 @@ const CONSTANTS = {
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg"],
     URL_INTRO_BOT: ["https://ik.imagekit.io/ljpa/TESIS/maivi2.png",
         "https://ik.imagekit.io/ljpa/TESIS/maivi1.png",
-        "https://ik.imagekit.io/ljpa/TESIS/maivi3.png"],
+        "https://ik.imagekit.io/ljpa/TESIS/maivi3.png",
+    "https://ik.imagekit.io/ljpa/TESIS/Maivi4.png"],
     IMAGE_EXPLAIN: ["https://ik.imagekit.io/ljpa/TESIS/menu1.png",
         "https://ik.imagekit.io/ljpa/TESIS/menu2.png",
-        "https://ik.imagekit.io/ljpa/TESIS/menu3.png"
+        "https://ik.imagekit.io/ljpa/TESIS/menu3.png",
+       "https://ik.imagekit.io/ljpa/TESIS/Maivi4.png"
     ],
     IMAGE_SESSION_EXPIRED: [
         "https://ik.imagekit.io/ljpa/TESIS/expired1.png",
