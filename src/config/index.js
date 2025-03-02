@@ -131,15 +131,15 @@ const CONSTANTS = {
     ],
     SYSTEM_DROP_MESSAGES: [
         "😰 *¡Ups!*\n" +
-        "Lamentamos el inconveniente 🙁, parece que algo salió mal al procesar tu consulta. Por favor, intenta nuevamente más tarde.",
+        "Lamentamos el inconveniente 🙁, parece que algo salió mal al procesar tu consulta. Por favor, intenta nuevamente más tarde.\n🔍 *Ingrese el producto a buscar:* 📦",
         "😱 *¡Error!*\n" +
-        "¡Ups! Ocurrió un error inesperado 🤖. Estamos trabajando para solucionarlo. Intenta tu consulta de nuevo o contáctanos si el problema persiste.",
+        "¡Ups! Ocurrió un error inesperado 🤖. Estamos trabajando para solucionarlo. Intenta tu consulta de nuevo o contáctanos si el problema persiste.\n🔍 *Ingrese el producto a buscar:* 📦",
         "🥶 *¡Error!*\n" +
-        "Lo sentimos mucho, algo no salió como esperábamos 😔. Por favor, verifica tu consulta y vuelve a intentarlo. Gracias por tu paciencia.",
+        "Lo sentimos mucho, algo no salió como esperábamos 😔. Por favor, verifica tu consulta y vuelve a intentarlo. Gracias por tu paciencia.\n🔍 *Ingrese el producto a buscar:* 📦",
         "😨 *¡Error!*\n" +
-        "Disculpa las molestias 😅, estamos teniendo un pequeño inconveniente con tu consulta. Inténtalo otra vez y si el problema persiste, háznoslo saber.",
+        "Disculpa las molestias 😅, estamos teniendo un pequeño inconveniente con tu consulta. Inténtalo otra vez y si el problema persiste, háznoslo saber.\n🔍 *Ingrese el producto a buscar:* 📦",
         "😴 *¡Vaya!*\n" +
-        "Estamos teniendo problemas técnicos con tu búsqueda 🛠️. Pedimos disculpas y te invitamos a intentarlo nuevamente en unos momentos."
+        "Estamos teniendo problemas técnicos con tu búsqueda 🛠️. Pedimos disculpas y te invitamos a intentarlo nuevamente en unos momentos.\n🔍 *Ingrese el producto a buscar:* 📦"
     ],
     GENERAL_MESSAGES_FAILURES: [
         "😲 *¡Ups!*\n" +

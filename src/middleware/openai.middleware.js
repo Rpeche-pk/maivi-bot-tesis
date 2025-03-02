@@ -50,11 +50,11 @@ const openai_middleware = async (ctx, {
         let nameProduct = "";
         let brandProduct = "";
 
-        if (String(responseAi).includes("+")){
+        if (String(responseAi).includes("+")) {
             const arrayParams = String(responseAi).split("+");
             nameProduct = arrayParams[0].trim();
             brandProduct = arrayParams[1].trim();
-        }else{
+        } else {
             await extensions.utils.tryAgain({
                 ctx,
                 state,
@@ -82,7 +82,9 @@ const openai_middleware = async (ctx, {
                 delay2: setRandomDelay(1000, 950),
                 ctx
             });
+
             await provider.vendor.sendMessage(ctx?.key?.remoteJid, {text: responseApi[i]});
+
         }
 
         return gotoFlow(new_search_flow);
@@ -90,10 +92,9 @@ const openai_middleware = async (ctx, {
         idleStop(ctx)
         log_error("ERROR FLUJO openai_middleware", e);
         await handleErrorAndNotifySlack("ERROR FLUJO openai_middleware", e);
-        await endFlow(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
+        await fallBack(randomElement(CONSTANTS.SYSTEM_DROP_MESSAGES));
     }
 };
-
 
 
 export {openai_middleware};

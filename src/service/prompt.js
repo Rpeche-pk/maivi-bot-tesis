@@ -128,7 +128,9 @@ SUPERMERCADO METRO: [Abarrotes](https://www.metro.pe/abarrotes)
     - Salida: Azúcar + INCAUCA
 18. Entrada: galleta sabor vainilla
     - Salida: galleta + vainilla
-    
+19. Entrada: quiero comprar leche gloria zero
+   - Salida: leche + gloria zero
+Asi mismo la marca puede estar conformado por dos palabras, por lo que se debe considerar la marca completa.
 ### REGLAS ADICIONALES:
 - Sé estricto con el formato de respuesta para mantener consistencia.
 - Evita interpretar productos que no sean de la categoría *abarrotes* (por ejemplo, electrodomésticos, ropa, etc). Response con la palabra unknown.

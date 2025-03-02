@@ -17,7 +17,7 @@ class Bot {
         console.log(logDate, `[EVENT-EMITTER] ⏳ Conversación iniciada para ${phoneNumber}.`);
         this.interactions.set(phoneNumber, {
             startTime,
-            timeout: null,
+            timeout: null
         });
     }
 
@@ -42,6 +42,34 @@ class Bot {
         }, this.inactivityTimeout);
     }
 
+    /*userResponse(phoneNumber, response) {
+        const interaction = this.interactions.get(phoneNumber);
+        const logDate = this._formatLogDate();
+
+        if (!interaction) {
+            console.warn(logDate, `[EVENT-EMITTER] ⚠️ Respuesta de ${phoneNumber} ignorada (sin interacción activa).`);
+            return;
+        }
+
+        if (interaction.timeout) {
+            clearTimeout(interaction.timeout);
+        }
+
+        const currentTime = Date.now();
+        let elapsed = ((currentTime - interaction.startTime) / 1000).toFixed(2);
+
+        if (response.toLowerCase() === 'no') {
+            console.log(logDate, `[EVENT-EMITTER] ❌ Usuario ${phoneNumber} no desea continuar.`);
+            this.finalizeInteraction(phoneNumber, false);
+        } else if (response.toLowerCase() === 'sí') {
+            console.log(logDate, `[EVENT-EMITTER] ✅ Usuario ${phoneNumber} desea continuar.`);
+            this._saveInteractionDuration(phoneNumber, elapsed);
+            this.askQuestion(phoneNumber, 'Por favor, responde "Sí" o "No".');
+        } else {
+            console.log(logDate, `[EVENT-EMITTER] 📥 Usuario ${phoneNumber}: ${response}`);
+            this.askQuestion(phoneNumber, '¿Desea continuar? (Sí/No)');
+        }
+    }*/
     userResponse(phoneNumber, response) {
         const interaction = this.interactions.get(phoneNumber);
         const logDate = this._formatLogDate();
@@ -55,12 +83,27 @@ class Bot {
             clearTimeout(interaction.timeout);
         }
 
+        const currentTime = Date.now();
+        let elapsed = ((currentTime - interaction.startTime) / 1000).toFixed(2);
+
         if (response.toLowerCase() === 'no') {
             console.log(logDate, `[EVENT-EMITTER] ❌ Usuario ${phoneNumber} no desea continuar.`);
             this.finalizeInteraction(phoneNumber, false);
-        } else if (response.toLowerCase() === 'sí') {
+        } else if (response.toLowerCase() === 'sí' || response.toLowerCase() === 'si') {
             console.log(logDate, `[EVENT-EMITTER] ✅ Usuario ${phoneNumber} desea continuar.`);
-            this.askQuestion(phoneNumber, 'Por favor, responde "Sí" o "No".');
+            // Guardar el tiempo actual antes de continuar
+            this._saveInteractionDuration(phoneNumber, elapsed);
+
+            // Configurar nuevo timeout de inactividad
+            interaction.timeout = setTimeout(() => {
+                this.finalizeInteraction(phoneNumber, true);
+            }, this.inactivityTimeout);
+
+            // Actualizar el tiempo de inicio para la siguiente pregunta
+            interaction.startTime = Date.now();
+
+            // Continuar con otra pregunta
+            this.askQuestion(phoneNumber, 'Por favor, responde a la siguiente pregunta (Sí/No).');
         } else {
             console.log(logDate, `[EVENT-EMITTER] 📥 Usuario ${phoneNumber}: ${response}`);
             this.askQuestion(phoneNumber, '¿Desea continuar? (Sí/No)');
@@ -74,7 +117,7 @@ class Bot {
         if (!interaction) return;
 
         const endTime = Date.now();
-        const duration = (endTime - interaction.startTime) / 1000;
+        let duration = ((endTime - interaction.startTime)/1000).toFixed(2);
 
         if (isTimeout) {
             console.log(logDate, `[EVENT-EMITTER] ⏰ Tiempo agotado para ${phoneNumber}. Duración: ${duration} segundos.`);
@@ -89,7 +132,7 @@ class Bot {
 
     _saveInteractionDuration(phoneNumber, duration) {
         const logDate = this._formatLogDate();
-        const filePath = 'user-list-time.json';
+        const filePath = 'user-list-time-v2.json';
         console.log(`${logDate} [EVENT-EMITTER] 💾 Guardando tiempo de interacción para ${phoneNumber}: ${duration} segundos.`);
         let content = {};
 
@@ -98,7 +141,16 @@ class Bot {
             content = JSON.parse(fileData || '{}');
         }
 
-        content[phoneNumber] = duration;
+        if (!content[phoneNumber]) {
+            content[phoneNumber] = [];
+        }
+
+        content[phoneNumber].push(duration);
+
+        // Mantener solo los últimos 5 registros por número
+        if (content[phoneNumber].length > 5) {
+            content[phoneNumber] = content[phoneNumber].slice(-5);
+        }
 
         fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
     }
