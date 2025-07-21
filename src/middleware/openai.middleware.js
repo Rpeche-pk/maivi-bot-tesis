@@ -42,6 +42,7 @@ const openai_middleware = async (ctx, {
             idleStop(ctx);
             return;
         }
+        await state.update({...userState[phone], intents: 2});
 
         await flowDynamic("⏱ *Consultando... ⏱*");
         const myState = state?.getMyState();
@@ -66,9 +67,10 @@ const openai_middleware = async (ctx, {
             idleStop(ctx);
             return;
         }
+        await state.update({...userState[phone], intents: 2});
         log_success("[PREDICTION AI]", responseAi);
 
-        await extensions.utils.typingWithoutDelay(provider, {delay1: setRandomDelay(380, 300), ctx});
+        await extensions.utils.typingWithoutDelay(provider, {delay1: setRandomDelay(280, 200), ctx});
         const responseApi = await getProductsApi(nameProduct, brandProduct, extensions);
         await extensions.utils.simulatePausedAndAvailable(provider, ctx);
 
@@ -78,8 +80,8 @@ const openai_middleware = async (ctx, {
 
         for (let i = 0; i < responseApi.length; i++) {
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(490, 410),
-                delay2: setRandomDelay(1000, 950),
+                delay1: setRandomDelay(290, 200),
+                delay2: setRandomDelay(350, 250),
                 ctx
             });
 

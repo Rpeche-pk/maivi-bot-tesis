@@ -22,7 +22,7 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
         const randomMessage = randomElement(CONSTANTS.MESSAGE_WELCOME_BACK);
         const randomImage = randomElement(CONSTANTS.URL_INTRO_BOT);
         await extensions.utils.typingWithoutDelay(provider, {
-            delay1: setRandomDelay(490, 400),
+            delay1: setRandomDelay(350, 250),
             ctx
         });
         await flowDynamic([
@@ -35,7 +35,7 @@ const on_flow = addKeyword(REGEX_KEYWORD, {regex: true})
         await extensions.utils.simulatePausedAndAvailable(provider, ctx);
 
         await extensions.utils.typingWithoutDelay(provider, {
-            delay1: setRandomDelay(450, 350),
+            delay1: setRandomDelay(450, 250),
             ctx
         });
 

@@ -77,11 +77,11 @@ class HelpersClass {
             let msgIntents = flag === 1 ? "Tienes 1 intento." : `Tienes ${flag} intentos.\n${message}`;
             flag--;
             await state.update({...myState, [phone]: {...myState[phone], intents: flag}});
-            await this.wait(650, 550);
+            await this.wait(250, 150);
             return fallBack(msgIntents);
         } else {
             myState[phone] = {...myState[phone], on: false};
-            await this.wait(650, 550);
+            await this.wait(250, 150);
             await provider.vendor.sendMessage(jid, {text: "❌ Sus oportunidades se han terminado. Intente nuevamente ❌"});
             await state.update({...myState, [phone]: {...myState[phone], intents: 2, new: true}});
             return endFlow();

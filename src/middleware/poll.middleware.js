@@ -23,10 +23,10 @@ const poll_middleware =async (ctx, {gotoFlow, provider, globalState, extensions,
             await provider.vendor.sendMessage(jid, {delete: ctx?.key})
             return endFlow("💢 Debe elegir una de las opciones válidas, se cierra sesión por seguridad 🤨");
         }
-        await extensions.utils.wait(520, 490);
+        await extensions.utils.wait(350, 200);
         await provider.vendor.sendMessage(jid, {delete: ctx?.key});
         idleStop(ctx);
-        await extensions.utils.wait(580, 500);
+        await extensions.utils.wait(250, 150);
     } catch (error) {
         idleStop(ctx);
         log_error(`[PASO POLL ${poll_middleware.name}:]`, error);

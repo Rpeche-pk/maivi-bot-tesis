@@ -14,7 +14,7 @@ const new_search_flow = addKeyword(EVENTS.ACTION)
         {
             capture: true,
             buttons: [{"body": "SI"}, {"body": "NO"}],
-            delay: setRandomDelay(500, 450)
+            delay: setRandomDelay(350, 250)
         }, async (ctx, {endFlow, gotoFlow, flowDynamic, extensions, state, fallBack, provider, globalState}) => {
             idleReset(ctx, gotoFlow, globalState.get("timer"));
             const body = ctx?.body.toLowerCase();

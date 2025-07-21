@@ -16,8 +16,8 @@ export const findByPhone = async (phone,db) => {
 
 export const getPhoneNumbers = async (db) => {
     try {
-        const phoneNumbers = await db.find({}, { remoteJid: 1, _id: 0 });
-        return phoneNumbers.map(doc => doc.remoteJid);
+        const phoneNumbers = await db.find({}, { phoneNumber: 1, _id: 0 });
+        return phoneNumbers.map(doc => doc.phoneNumber + "@s.whatsapp.net");
     } catch (error) {
         console.error("Error fetching phone numbers:", error.message);
         throw error;

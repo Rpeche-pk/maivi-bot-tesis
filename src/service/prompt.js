@@ -44,7 +44,38 @@ Si la consulta no está relacionada con productos en supermercados o se desvía 
    - Salida: supermarket
 6. Entrada: dónde está la tienda más cercana
    - Salida: unknown
-
+7. Entrada: Quiero saber si tienes Arveja Verde COSTEÑO Bolsa 500g
+    - Salida: Arveja Verde + COSTEÑO   
+8. Entrada: Quiero saber si tienes Frijol BELL'S Panamito Bolsa
+    - Salida: Frijol + BELL'S
+9. Entrada: Quiero saber si tienes Duraznos en Mitades COMPASS en Almíbar Lata 820g
+    - Salida: Duraznos en Mitades + COMPASS  
+10. Entrada: Quiero saber el precio de salsa roja don vittorio x 200 g"
+    - Salida: salsa roja + don vittorio
+11. Entrada: crema de choclo tottusx 79 gr
+    - Salida: crema de choclo + tottus
+12. Entrada: quiero comprar salsa ketchup
+    - Salida: salsa + ketchup
+13. Entrada: quiero comprar gelatina sabor pina light tottus
+    - Salida: gelatina + tottus
+14. Entrada: endulzante stevia en polvo
+    - Salida: endulzante + stevia
+15. Entrada: café tostado cafetal
+    - Salida: café tostado + cafetal
+16. Entrada: cuanto esta Chocolate HERSHEY'S Cookies
+    - Salida: Chocolate + HERSHEY'S
+17. Entrada: quiero comprar Azúcar Morena INCAUCA
+    - Salida: Azúcar + INCAUCA
+18. Entrada: galleta sabor vainilla
+    - Salida: galleta + vainilla
+19. Entrada: quiero comprar leche gloria zero
+   - Salida: leche + gloria zero
+20. Entrada: quiero comprar chupetin globopop
+   - Salida: chupetin + globopop
+21. Entrada: quiero comprar gelatina fresa universal
+    - Salida: gelatina fresa + universal
+22. Entrada: quiero comprar bizcocho chocman
+    - Salida: bizcocho + chocman
 ### INTENCIÓN DEL USUARIO:
 Por favor, analiza la siguiente conversación y determina la intención del usuario.
 {query}
@@ -86,6 +117,10 @@ SUPERMERCADO METRO: [Abarrotes](https://www.metro.pe/abarrotes)
    - "Nombre del producto + marca del producto".
 4. Si no se menciona una marca y esta presente el nombre del producto, debes responder de manera amigable que ingrese la consulta en el formato nombre producto y la marca del producto.
 5. Si no se menciona un producto y la marca está presente, debes de manera amigable que ingrese la consulta en el formato nombre producto y la marca del producto.
+
+### CONSIDERAR:
+- Asi mismo la marca puede estar conformado por dos palabras o más, por lo que se debe considerar la marca completa.
+- Asi mismo el nombre del producto puede estar conformado por dos palabras o más, por lo que se debe considerar el nombre completo del producto.
 
 ### Algunos ejemplos de entrada y salida para entender mejor:
 1. Entrada: quiero comprar leche gloria
@@ -130,7 +165,13 @@ SUPERMERCADO METRO: [Abarrotes](https://www.metro.pe/abarrotes)
     - Salida: galleta + vainilla
 19. Entrada: quiero comprar leche gloria zero
    - Salida: leche + gloria zero
-Asi mismo la marca puede estar conformado por dos palabras, por lo que se debe considerar la marca completa.
+20. Entrada: quiero comprar chupetin globopop
+   - Salida: chupetin + globopop
+21. Entrada: quiero comprar gelatina fresa universal
+    - Salida: gelatina fresa + universal
+22. Entrada: quiero comprar bizcocho chocman
+    - Salida: bizcocho + chocman
+
 ### REGLAS ADICIONALES:
 - Sé estricto con el formato de respuesta para mantener consistencia.
 - Evita interpretar productos que no sean de la categoría *abarrotes* (por ejemplo, electrodomésticos, ropa, etc). Response con la palabra unknown.
