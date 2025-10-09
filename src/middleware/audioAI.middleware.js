@@ -1,6 +1,7 @@
 import {isAudio} from "../utils/validate.util.js"
 import {setRandomDelay} from "../utils/delay.util.js";
-import {downloadMediaMessage} from "@whiskeysockets/baileys";
+//import {downloadMediaMessage} from "@whiskeysockets/baileys";
+import {downloadMediaMessage} from '@leifermendez/baileys'
 import {processAudioToText} from "../service/hugginface.service.js";
 import {handleErrorAndNotifySlack} from "../http/slack.http.js";
 import {log_error, log_success} from "../utils/logger.util.js";

@@ -40,7 +40,7 @@ const CONSTANTS = {
     IMAGE_EXPLAIN: ["https://ik.imagekit.io/ljpa/TESIS/menu1.png",
         "https://ik.imagekit.io/ljpa/TESIS/menu2.png",
         "https://ik.imagekit.io/ljpa/TESIS/menu3.png",
-       "https://ik.imagekit.io/ljpa/TESIS/Maivi4.png"
+        "https://ik.imagekit.io/ljpa/TESIS/Maivi4.png"
     ],
     IMAGE_SESSION_EXPIRED: [
         "https://ik.imagekit.io/ljpa/TESIS/expired1.png",

@@ -13,7 +13,7 @@ import {dbConnect} from './models/config/connect.config.js';
 // import mimeType from 'mime-types';
 // import * as fs from 'node:fs/promises';
 // import { convertOggMp3 } from './utils/oggToMp3.util.js';
-// import { downloadMediaMessage } from '@whiskeysockets/baileys';
+// import { downloadMediaMessage } from '@whiskeysockets/baileys'; por import {downloadMediaMessage} from '@leifermendez/baileys'
 // import chalk from 'chalk';
 import flow from './app/index.js';
 import AIClass from "./service/openai.service.js";
@@ -171,4 +171,4 @@ const main = async () => {
     await dbConnect()
 }
 
-await main()
+main().then(console.log("🤖 Bot started successfully"))

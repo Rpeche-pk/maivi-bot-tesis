@@ -10,7 +10,7 @@ const REGEX_ADVISOR= '/#asesor/g';
 
 const advisorFlow = addKeyword(REGEX_ADVISOR,{})
     .addAction(async (ctx) => {
-      idleStop(ctx);
+        idleStop(ctx);
     })
     .addAction(async (ctx, {extensions,provider, state,endFlow}) => {
         try {

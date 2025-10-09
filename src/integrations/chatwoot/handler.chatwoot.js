@@ -3,7 +3,8 @@ import mimeType from "mime-types";
 import * as fs from "node:fs/promises";
 import { convertOggMp3 } from "../../utils/oggToMp3.util.js";
 import chalk from "chalk";
-import { downloadMediaMessage } from '@whiskeysockets/baileys';
+//import { downloadMediaMessage } from '@whiskeysockets/baileys';
+import {downloadMediaMessage} from '@leifermendez/baileys';
 /**
  * ESTA CLASE PERMITE ENCOLAR LOS MENSAJES PARA QUE NO SE PIERDAN
  * ASIMISMO MANDA LOS MENSAJES GENERADOS POR EL PROVIDER DE BAILEYS provider.vendor.sendMessage()
